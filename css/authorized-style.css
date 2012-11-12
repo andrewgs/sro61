@@ -1,0 +1,21 @@
+.admin-header { color: #4D4D4D; font-size: 24px; margin: 1em 0; text-transform: uppercase; } 
+.admin-header .small { color: #999; font-size: 16px; font-weight: normal; margin-left: 0.5em; text-transform: none; }
+
+.w100{width: 100px;}
+.w110{width: 110px;}
+.w130{width: 130px;}
+.w200{width: 200px;}
+.w85{width: 85px;}
+.w30{width: 30px;}
+.w600{width: 600px;}
+.w50{width: 50px;}
+.w10{width: 10px;}
+
+.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0}
+
+.pagination ul {margin: 0.5em 0 1em; padding: 0;}
+.pagination ul li.inactive, .pagination ul li.inactive:hover {color: #BABABA;cursor: default;}
+.pagination {height: 25px;width: 800px;}
+.pagination ul li {float: left;list-style: none outside none;margin: 0 0.5em 0 0;font-size: 1em;padding: 8px 0;line-height: 1em;}
+.pagination ul li:hover {cursor: pointer;}
+.pagination .curpage{border: 1px solid #999;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 30px;margin-top: 3px;padding: 4px 8px;cursor: default !important;-webkit-box-shadow: 0px 1px 7px #999;-moz-box-shadow: 0px 1px 7px #999;box-shadow: 0px 1px 7px #999;}

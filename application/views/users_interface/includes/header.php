@@ -30,6 +30,63 @@
 				<span class="h_6">Электронная почта:</span><br/>
 				<?=safe_mailto('sro61@mail.ru','sro61@mail.ru');?>
 			</div>
+			<div class="column">
+				<ul class="actions">
+				<?php if(!$this->loginstatus):?>
+					<li><?=anchor('','Вход на сайт',array('id'=>'action-enter','class'=>'none'));?></li>
+					<li><?=anchor('','Оформить заявку',array('id'=>'action-order','class'=>'none'));?></li>
+				<?php else:?>
+					<?php if($this->user['admin']):?>
+					<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+					<?php else:?>
+					<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+					<?php endif;?>
+				<?php endif;?>
+				</ul>
+			</div>
 		</div>
 	</div>
+</div>
+<div class="popup become-enter">
+	<?=form_open($this->uri->uri_string(),array('id'=>'form-enter','class'=>'popup-form')); ?>
+		<fieldset>
+			<label for="feedback-name">Логин <span>*</span></label>
+			<input type="text" class="valid-required FieldSend" name="login" id="feedback-login">
+		</fieldset>
+		<fieldset>
+			<label for="feedback-mail">Пароль <span>*</span></label>
+			<input type="text" class="valid-required FieldSend" name="password" id="feedback-password">
+		</fieldset>
+		<fieldset class="submit">
+			<button type="submit" name="enter" value="send" id="EnterSend">Войти</button>
+		</fieldset>
+	<?= form_close(); ?>
+</div>
+<div class="popup become-order">
+	<?=form_open($this->uri->uri_string(),array('id'=>'form-order','class'=>'popup-form')); ?>
+		<fieldset>
+			<label for="feedback-name">Ваше имя <span>*</span></label>
+			<input type="text" class="valid-required FieldSend" name="name" id="feedback-name">
+		</fieldset>
+		<fieldset>
+			<label for="feedback-mail">Эл. почта <span>*</span></label>
+			<input type="text" class="valid-required valid-email FieldSend" name="email" id="feedback-mail">
+		</fieldset>
+		<fieldset>
+			<label for="feedback-phone">Телефон <span>*</span></label>
+			<input type="text" class="valid-required valid-phone FieldSend" name="phone" id="feedback-phone">
+		</fieldset>
+		<fieldset>
+			<label for="feedback-phone">Адрес объекта <span>*</span></label>
+			<input type="text" class="valid-required FieldSend" name="address" id="feedback-address">
+		</fieldset>
+		<fieldset>
+			<label for="feedback-message">Ваше сообщение</label>
+			<textarea class="valid-required FieldSend" name="message" id="feedback-message"></textarea>
+		</fieldset>
+		<fieldset class="submit">
+			<button type="submit" name="order" value="send" id="OrderSend">Отправить</button>
+			<em>Сообщение отправлено!</em>
+		</fieldset>
+	<?= form_close(); ?>
 </div>

@@ -12,22 +12,64 @@ function isValidPhone(phoneNumber){
 	return pattern.test(phoneNumber);
 };
 
-function isValidDomen(domen){
-	var pattern = new RegExp(/^([\da-z\.-]+)\.([a-z\.]{2,6})$/);
-	return pattern.test(domen);
-};
-
-function isFindDomenToURL(platform,url){
-	var pos = url.indexOf(platform);
-	if(pos>0){return true;}else{return false;}
+function myserialize(objects){
+	var data = '';
+	$(objects).each(function(i,element){
+		if(data === ''){
+			data = $(element).attr('name')+"="+$(element).val();
+		}else{
+			data = data+"&"+$(element).attr('name')+"="+$(element).val();
+		}
+	});
+	return data;
 };
 
 (function($){
+	var baseurl = "http://sro61/";
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
 	$(".digital").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && (e.which<48 || e.which>57)){return false;}});
 	$(".negative").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && e.which!=45 && (e.which<48 || e.which>57)){return false;}});
 	$(".none").click(function(event){event.preventDefault();});
-	
 	$("a.articles").click(function(events){events.preventDefault();$("div.articles-wrapper").toggle();$(this).hide();});
+	
+	$("#OrderSend").click(function(event){
+		var err = false;
+		event.preventDefault();
+		$(".become-order fieldset").removeClass("validate");
+		$(".become-order .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
+		if(err){event.preventDefault();}
+		if(!err && !isValidEmailAddress($(".become-order .valid-email").val())){$(".become-partner .valid-email").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
+		if(!err && !isValidPhone($(".become-order .valid-phone").val())){$(".become-partner .valid-phone").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
+		if(!err){var postdata = myserialize($(".become-order .FieldSend"));
+			$.post(baseurl+"send-order",{'postdata':postdata},
+			function(data){if(data.status){$(".become-order em").show();$(".become-order .submit").addClass("submitted");}else{$(".become-order em").html(data.message).show();}},"json");
+		}
+		event.preventDefault();
+	});
+	
+	$("#EnterSend").click(function(event){
+		var err = false;
+		$(".become-enter fieldset").removeClass("validate");
+		$(".become-enter .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
+		if(err){event.preventDefault();}
+	});
+	
+	$("#action-order").click(function(e){
+		$("div.popup:not(.become-order)").hide();
+		$("div.become-order").toggle();
+		$(".become-order fieldset").removeClass("validate");
+	});
+	$("#action-enter").click(function(e){
+		$("div.popup:not(.become-enter)").hide();
+		$("div.become-enter").toggle();
+		$(".become-enter fieldset").removeClass("validate");
+	});
+	// не работает
+	$(document.body).click(function(e){
+		if(e.target == this){
+			$("div.popup").hide();
+		}
+	});
+	
 })(window.jQuery);

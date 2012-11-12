@@ -5,27 +5,7 @@ class Admin_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
-
-		$cookieuid = $this->session->userdata('logon');
-		if(isset($cookieuid) and !empty($cookieuid)):
-			$this->user['uid'] = $this->session->userdata('userid');
-			if($this->user['uid']):
-				$userinfo = $this->mdusers->read_record($this->user['uid']);
-				if($userinfo['type'] == 5):
-					$this->user['ulogin'] 		= $userinfo['login'];
-					$this->user['uname'] 		= $userinfo['fio'];
-					$this->user['utype'] 		= $userinfo['type'];
-					$this->user['balance'] 		= $userinfo['balance'];
-					$this->loginstatus['status']= TRUE;
-				else:
-					redirect('');
-				endif;
-			endif;
-			if($this->session->userdata('logon') != md5($userinfo['login'].$userinfo['password'])):
-				$this->loginstatus['status'] = FALSE;
-				redirect('');
-			endif;
-		else:
+		if(!$this->loginstatus || $this->user['uid']):
 			redirect('');
 		endif;
 	}
@@ -37,20 +17,67 @@ class Admin_interface extends MY_Controller{
 					'author'		=> '',
 					'title'			=> 'Администрирование | Панель управления',
 					'baseurl' 		=> base_url(),
-					'userinfo'		=> 
-					'webmasters'	=> count($this->mdusers->read_users_by_type(1)),
+					'userinfo'		=> $this->user,
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
 			);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
-		$pagevar['cntunit']['users'] = $this->mdusers->count_all();
-		$pagevar['cntunit']['platforms'] = $this->mdplatforms->count_all();
-		$pagevar['cntunit']['markets'] = $this->mdmarkets->count_all();
-		$pagevar['cntunit']['services'] = $this->mdservices->count_all();
-		$pagevar['cntunit']['twork'] = $this->mdtypeswork->count_all();
-		$pagevar['cntunit']['mails'] = $this->mdmessages->count_records_by_admin_new($this->user['uid']);
 		$this->load->view("admin_interface/control-panel",$pagevar);
+	}
+	
+	public function available_orders(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'author'		=> '',
+					'title'			=> 'Администрирование | Доступные заказы',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'orders'		=> $this->mdorders->read_records('orders'),
+					'pages'			=> array(),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$pagevar['pages'] = $this->pagination('admin-panel/actions/orders',5,$this->mdorders->count_all_records('orders'),10);
+		
+		for($i=0;$i<count($pagevar['orders']);$i++):
+			$pagevar['orders'][$i]['date'] = $this->operation_date_on_time($pagevar['orders'][$i]['date']);
+		endfor;
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/available-orders",$pagevar);
+	}
+	
+	public function delete_order(){
+		
+		$id = $this->uri->segment(6);
+		print_r($id);exit;
+		if($id):
+			$result = $this->mdorder->delete_record($id,'orders');
+			$this->session->set_userdata('msgs','Заявка удалена успешно.');
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
+	public function actions_users(){
+		
+		$pagevar = array(
+					'description'	=> '',
+					'author'		=> '',
+					'title'			=> 'Администрирование | Пользователи',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		$this->load->view("admin_interface/users",$pagevar);
 	}
 	
 	public function actions_profile(){
@@ -117,6 +144,6 @@ class Admin_interface extends MY_Controller{
 		$pagevar['user']['signdate'] = $this->operation_date($pagevar['user']['signdate']);
 		$pagevar['cntunit']['mails'] = $this->mdmessages->count_records_by_admin_new($this->user['uid']);
 		
-		$this->load->view("admin_interface/admin-profile",$pagevar);
+		$this->load->view("admin_interface/profile",$pagevar);
 	}
 }

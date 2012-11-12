@@ -15,6 +15,14 @@ class MY_Model extends CI_Model{
 		return NULL;
 	}
 	
+	function read_records($table){
+		
+		$query = $this->db->get($table);
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 	function record_exist($table,$field,$parameter){
 			
 		$this->db->where($field,$parameter);

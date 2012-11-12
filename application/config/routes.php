@@ -7,27 +7,27 @@ $route['404_override'] = '';
 $route[':any']			= "users_interface/index";
 $route['news']			= "users_interface/news";
 
+$route['send-order']	= "users_interface/send_order";
 
 $route['application-energy-audit']				= "users_interface/application_energy_audit";
 $route['application-passing-energy-performance']= "users_interface/application_passing_energy_performance";
 
-
-
 $route['users/login']	= "users_interface/loginin";
 $route['logoff']		= "users_interface/actions_logoff";
 
-/************************************************** CLIENTS INTRERFACE ***********************************************/
+/************************************************** USERS INTRERFACE ***********************************************/
 
-$route['webmaster-panel/actions/control']	= "clients_interface/control_panel";
-$route['webmaster-panel/actions/profile']	= "clients_interface/control_profile";
-$route['webmaster-panel/actions/logoff']	= "clients_interface/actions_logoff";
-
-/*************************************************** MAIN INTRERFACE *************************************************/
-
-$route[':any/viewimage/:num']	= "general_interface/viewimage";
+$route['cabinet/orders']			= "clients_interface/available_orders";
+$route['cabinet/orders/from']		= "clients_interface/available_orders";
+$route['cabinet/orders/from/:num']	= "clients_interface/available_orders";
 
 /*************************************************** ADMINS INTRERFACE ***********************************************/
 
-$route['admin-panel/actions/control']	= "admin_interface/control_panel";
+$route['admin-panel/actions/orders']			= "admin_interface/available_orders";
+$route['admin-panel/actions/orders/from']		= "admin_interface/available_orders";
+$route['admin-panel/actions/orders/from/:num']	= "admin_interface/available_orders";
+
+$route['admin-panel/actions/orders/delete/id/:num']= "admin_interface/delete_order";
+
+$route['admin-panel/actions/users']		= "admin_interface/actions_users";
 $route['admin-panel/actions/profile']	= "admin_interface/actions_profile";
-$route['admin-panel/actions/logoff']	= "admin_interface/actions_logoff";

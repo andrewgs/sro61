@@ -2,8 +2,8 @@
 
 class MY_Controller extends CI_Controller{
 	
-	var $user = array('uid'=>0,'uname'=>'','ulogin'=>'','utype'=>'','balance'=>0);
-	var $loginstatus = array('status'=>FALSE);
+	var $user = array('uid'=>0,'admin'=>FALSE);
+	var $loginstatus = FALSE;
 	var $months = array("01"=>"января","02"=>"февраля","03"=>"марта","04"=>"апреля","05"=>"мая","06"=>"июня","07"=>"июля","08"=>"августа","09"=>"сентября","10"=>"октября","11"=>"ноября","12"=>"декабря");
 	
 	function __construct(){
@@ -12,6 +12,76 @@ class MY_Controller extends CI_Controller{
 		$this->load->model('mdusers');
 		$this->load->model('mdunion');
 		$this->load->model('mdpages');
+		$this->load->model('mdorders');
+		
+		$cookieuid = $this->session->userdata('logon');
+		if(isset($cookieuid) and !empty($cookieuid)):
+			$this->user['uid'] = $this->session->userdata('userid');
+			if(isset($this->user['uid']) && !is_null($this->user['uid'])):
+				$userinfo = $this->mdusers->read_record($this->user['uid'],'users');
+				if($userinfo):
+					if($userinfo['id'] == 0):
+						$this->user['admin'] = TRUE;
+					endif;
+					$this->loginstatus = TRUE;
+				endif;
+			endif;
+			if($this->session->userdata('logon') != md5($userinfo['login'])):
+				$this->loginstatus = FALSE;
+				$this->user = array();
+			endif;
+		endif;
+	}
+	
+	function pagination($url,$uri_segment,$total_rows,$per_page){
+		
+		$config['base_url'] 		= base_url()."$url/from/";
+		$config['uri_segment'] 		= $uri_segment;
+		$config['total_rows'] 		= $total_rows;
+		$config['per_page'] 		= $per_page;
+		$config['num_links'] 		= 4;
+		$config['first_link']		= 'В начало';
+		$config['last_link'] 		= 'В конец';
+		$config['next_link'] 		= 'Далее &raquo;';
+		$config['prev_link'] 		= '&laquo; Назад';
+		$config['cur_tag_open']		= '<li class="active"><a href="#">';
+		$config['cur_tag_close'] 	= '</a></li>';
+		$config['full_tag_open'] 	= '<div class="pagination"><ul>';
+		$config['full_tag_close'] 	= '</ul></div>';
+		$config['first_tag_open'] 	= '<li>';
+		$config['first_tag_close'] 	= '</li>';
+		$config['last_tag_open'] 	= '<li>';
+		$config['last_tag_close'] 	= '</li>';
+		$config['next_tag_open'] 	= '<li>';
+		$config['next_tag_close'] 	= '</li>';
+		$config['prev_tag_open'] 	= '<li>';
+		$config['prev_tag_close'] 	= '</li>';
+		$config['num_tag_open'] 	= '<li>';
+		$config['num_tag_close'] 	= '</li>';
+		
+		$this->pagination->initialize($config);
+		return $this->pagination->create_links();
+	}
+	
+	function send_mail($to,$from_mail,$from_name,$subject,$text){
+		
+		$this->email->clear(TRUE);
+		$config['smtp_host'] = 'localhost';
+		$config['charset'] = 'utf-8';
+		$config['wordwrap'] = TRUE;
+		$config['mailtype'] = 'html';
+		
+		$this->email->initialize($config);
+		$this->email->to($to);
+		$this->email->from($from_mail,$from_name);
+		$this->email->bcc('');
+		$this->email->subject($subject);
+		$this->email->message($text);
+		if($this->email->send()):
+			return TRUE;
+		else:
+			return FALSE;
+		endif;
 	}
 	
 	function viewimage(){

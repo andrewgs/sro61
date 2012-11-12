@@ -5,11 +5,61 @@ class Users_interface extends MY_Controller{
 	function __construct(){
 		
 		parent::__construct();
+		
 	}
 	
 	public function index(){
 		
+		if($this->input->post('enter')):
+			unset($_POST['enter']);
+			$user = $this->mdusers->auth_user($this->input->post('login'),$this->input->post('password'));
+			if(!$user):
+				redirect($this->uri->uri_string());
+			else:
+				$session_data = array('logon'=>md5($user['login']),'userid'=>$user['id']);
+				$this->session->set_userdata($session_data);
+				if($user['id']):
+					redirect("cabinet/orders");
+				else:
+					redirect("admin-panel/actions/orders");
+				endif;
+			endif;
+		endif;
+		
 		$this->pages($this->uri->uri_string());
+	}
+	
+	public function send_order(){
+		
+		$statusval = array('status'=>FALSE,'message'=>'Сообщение не отправлено');
+		$data = trim($this->input->post('postdata'));
+		if(!$data):
+			show_404();
+		endif;
+		$data = preg_split("/&/",$data);
+		for($i=0;$i<count($data);$i++):
+			$dataid = preg_split("/=/",$data[$i]);
+			$dataval[$i] = $dataid[1];
+		endfor;
+		if($dataval):
+			ob_start();
+			?>
+			<img src="<?=base_url();?>images/logo.png" alt="" />
+			<p>Сообщение от <?=$dataval[0];?></p>
+			<p>Email: <?=$dataval[1];?></p>
+			<p>Контактный номер: <?=$dataval[2];?></p>
+			<p>Адрес объекта: <?=$dataval[3];?></p>
+			<p>Сообщение: <?=$dataval[4];?></p>
+			<br/><br/><p><a href="<?=base_url();?>">С уважением администрация СРО «Энергоаудит»</a></p>
+			<?
+			$mailtext = ob_get_clean();
+			$users = $this->mdusers->read_records('users');
+			for($i=0;$i<count($users);$i++):
+				$statusval['status'] = $this->send_mail($users[$i]['email'],'robot@sro61.ru','СРО «Энергоаудит»','Новая заявка на sro61.ru',$mailtext);
+				$this->mdorders->insert_record($dataval);
+			endfor;
+		endif;
+		echo json_encode($statusval);
 	}
 	
 	public function pages($page_url = ''){
