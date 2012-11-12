@@ -30,6 +30,7 @@
 								<nobr>Телефон: <?=$orders[$i]['phones'];?></nobr>
 							</td>
 							<td>
+								[<?=$orders[$i]['date'];?>]<br/>
 								Адрес: <strong><?=$orders[$i]['address'];?></strong><br/>
 								Сообщение: <?=$orders[$i]['text'];?>
 							</td>
@@ -38,7 +39,7 @@
 							<?php if(!$orders[$i]['closed']):?>
 								<?=anchor('admin-panel/actions/orders/closed/id/'.$orders[$i]['id'],'<i class="icon-white icon-remove"></i>',array('class'=>'btn btn-primary OrderClose','title'=>'Закрыть заявку'));?>
 							<?php else:?>
-								<?=anchor('','<i class="icon-white icon-ok"></i>',array('class'=>'btn btn-primary none','title'=>'Заявка закрыта'));?>
+								<?=anchor('','<i class="icon-white icon-ok"></i>',array('class'=>'btn btn-success none disabled','title'=>'Заявка закрыта'));?>
 							<?php endif;?>
 								<a class="deleteOrder btn btn-danger" data-param="<?=$i;?>" data-toggle="modal" href="#deleteOrder" title="Удалить"><i class="icon-white icon-trash"></i></a>
 							</td>
@@ -55,9 +56,10 @@
 		</div>
 	</div>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
-		<script type="text/javascript">
+	<script type="text/javascript">
 		$(document).ready(function(){
 			var nID = 0;
+			$(".OrderClose").click(function(){if(!confirm("Закрыть заявку")){return false;}})
 			$(".deleteOrder").click(function(){var Param = $(this).attr('data-param'); nID = $("div[id = params"+Param+"]").attr("data-nid");});
 			$("#DelOrder").click(function(){location.href='<?=$baseurl;?>admin-panel/actions/orders/delete/id/'+nID;});
 		});

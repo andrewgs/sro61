@@ -3,9 +3,6 @@
 		<div class="row">
 			<div class="span8">
 				<div class="copy">
-					<?=anchor('site-monetization','Монетизация сайта');?>
-					<?=anchor('additional-services','Дополнительные услуги');?>
-					<?=anchor('disclaimer','Уведомление об ответственности');?> <br />
 					Система мониторинга и управления &copy; Bystropost, 2012
 				</div>
 			</div>

@@ -28,13 +28,14 @@ class Admin_interface extends MY_Controller{
 	
 	public function available_orders(){
 		
+		$from = intval($this->uri->segment(5));
 		$pagevar = array(
 					'description'	=> '',
 					'author'		=> '',
 					'title'			=> 'Администрирование | Доступные заказы',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
-					'orders'		=> $this->mdorders->read_records('orders'),
+					'orders'		=> $this->mdorders->read_limit_records(10,$from,'orders'),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
@@ -51,12 +52,11 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/available-orders",$pagevar);
 	}
 	
-	public function delete_order(){
+	public function order_delete(){
 		
 		$id = $this->uri->segment(6);
-		print_r($id);exit;
 		if($id):
-			$result = $this->mdorder->delete_record($id,'orders');
+			$result = $this->mdorders->delete_record($id,'orders');
 			$this->session->set_userdata('msgs','Заявка удалена успешно.');
 			redirect($this->session->userdata('backpath'));
 		else:
@@ -64,7 +64,46 @@ class Admin_interface extends MY_Controller{
 		endif;
 	}
 	
+	public function closed_order(){
+		
+		$id = $this->uri->segment(6);
+		if($id):
+			$this->mdorders->update_field($id,'closed',1,'orders');
+			$this->session->set_userdata('msgs','Заявка закрыта.');
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
 	public function actions_users(){
+		
+		$from = intval($this->uri->segment(5));
+		$pagevar = array(
+					'description'	=> '',
+					'author'		=> '',
+					'title'			=> 'Администрирование | Пользователи',
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'users'			=> $this->mdusers->read_limit_records(3,$from,'users'),
+					'pages'			=> array(),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$pagevar['pages'] = $this->pagination('admin-panel/actions/users',5,$this->mdusers->count_all_records('users'),3);
+		
+		for($i=0;$i<count($pagevar['users']);$i++):
+			$pagevar['users'][$i]['password'] = $this->encrypt->decode($pagevar['users'][$i]['cryptpassword']);
+		endfor;
+		
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/users",$pagevar);
+	}
+	
+	public function user_add(){
 		
 		$pagevar = array(
 					'description'	=> '',
@@ -77,7 +116,38 @@ class Admin_interface extends MY_Controller{
 			);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
-		$this->load->view("admin_interface/users",$pagevar);
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('address',' ','required|trim');
+			$this->form_validation->set_rules('phones',' ','required|trim');
+			$this->form_validation->set_rules('login',' ','required|trim');
+			$this->form_validation->set_rules('password',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->user_add();
+				return FALSE;
+			else:
+				$this->mdusers->insert_record($_POST);
+				$this->session->set_userdata('msgs','Запись создана успешно.');
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/user-add",$pagevar);
+	}
+	
+	public function user_delete(){
+		
+		$id = $this->uri->segment(6);
+		if($id):
+			$result = $this->mdusers->delete_record($id,'users');
+			$this->session->set_userdata('msgs','Пользователь удален успешно.');
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
 	}
 	
 	public function actions_profile(){

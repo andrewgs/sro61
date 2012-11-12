@@ -39,7 +39,7 @@
 					<?php if($this->user['admin']):?>
 					<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
 					<?php else:?>
-					<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+					<li><?=anchor('cabinet/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
 					<?php endif;?>
 				<?php endif;?>
 				</ul>
@@ -55,7 +55,7 @@
 		</fieldset>
 		<fieldset>
 			<label for="feedback-mail">Пароль <span>*</span></label>
-			<input type="text" class="valid-required FieldSend" name="password" id="feedback-password">
+			<input type="password" class="valid-required FieldSend" name="password" id="feedback-password">
 		</fieldset>
 		<fieldset class="submit">
 			<button type="submit" name="enter" value="send" id="EnterSend">Войти</button>

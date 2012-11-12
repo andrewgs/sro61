@@ -16,7 +16,7 @@ class Mdusers extends MY_Model{
 		parent::__construct();
 	}
 	
-	function insert_record($data,$utype){
+	function insert_record($data){
 
 		$this->organization 	= $data['organization'];
 		$this->address 			= $data['address'];

@@ -28,4 +28,23 @@ class Mdorders extends MY_Model{
 		$this->db->insert('orders',$this);
 		return $this->db->insert_id();
 	}
+
+	function read_limit_active($count,$from){
+		
+		$this->db->where('closed',0);
+		$this->db->limit($count,$from);
+		$query = $this->db->get('orders');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+
+	function count_active_records(){
+		
+		$this->db->where('closed',0);
+		$query = $this->db->get('orders');
+		$data = $query->result_array();
+		if(count($data)) return count($data);
+		return 0;
+	}
 }

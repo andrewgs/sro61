@@ -23,6 +23,15 @@ class MY_Model extends CI_Model{
 		return NULL;
 	}
 	
+	function read_limit_records($count,$from,$table){
+		
+		$this->db->limit($count,$from);
+		$query = $this->db->get($table);
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
 	function record_exist($table,$field,$parameter){
 			
 		$this->db->where($field,$parameter);
@@ -50,11 +59,11 @@ class MY_Model extends CI_Model{
 		return FALSE;
 	}
 	
-	function update_field($id,$field,$value){
+	function update_field($id,$field,$value,$table){
 			
 		$this->db->set($field,$value);
 		$this->db->where('id',$id);
-		$this->db->update('users');
+		$this->db->update($table);
 		return $this->db->affected_rows();
 	}
 	
