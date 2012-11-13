@@ -78,4 +78,26 @@ class MY_Model extends CI_Model{
 		
 		return $this->db->count_all($table);
 	}
+	
+	function search_data($search,$field,$fields,$table){
+		
+		$query = "SELECT $fields FROM $table WHERE $field LIKE '%$search%' LIMIT 0,15";
+		$query = $this->db->query($query);
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
+	function read_finding_data($id = FALSE,$search,$field,$fields,$table){
+		
+		if($id):
+			$query = "SELECT $fields FROM $table WHERE (id = $id OR $field = '$search') LIMIT 0,15";
+		else:
+			$query = "SELECT $fields FROM $table WHERE $field = '$search' LIMIT 0,15";
+		endif;
+		$query = $this->db->query($query);
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
 }

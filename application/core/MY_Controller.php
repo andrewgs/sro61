@@ -13,6 +13,8 @@ class MY_Controller extends CI_Controller{
 		$this->load->model('mdunion');
 		$this->load->model('mdpages');
 		$this->load->model('mdorders');
+		$this->load->model('mdregister');
+		$this->load->model('mdorganization');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):

@@ -13,9 +13,6 @@ class Admin_interface extends MY_Controller{
 	public function control_panel(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'Администрирование | Панель управления',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
 					'msgs'			=> $this->session->userdata('msgs'),
@@ -26,13 +23,136 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/control-panel",$pagevar);
 	}
 	
+	public function register(){
+		
+		$from = intval($this->uri->segment(5));
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'register'		=> $this->mdregister->read_limit_records(10,$from,'register'),
+					'pages'			=> $this->pagination('admin-panel/actions/register',5,$this->mdregister->count_all_records('register'),10),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		if($this->input->post('scsubmit')):
+			unset($_POST['scsubmit']);
+			$result = $this->mdregister->read_finding_data($this->input->post('srid'),$this->input->post('srvalue'),'customer','*','register');
+			$pagevar['register'] = $result;
+			$pagevar['pages'] = NULL;
+		endif;
+		
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/register",$pagevar);
+	}
+	
+	public function add_register(){
+		
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'expert'		=> $this->mdorganization->read_experts(),
+					'organization'	=> $this->mdorganization->read_organization(),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('number',' ','required|trim');
+			$this->form_validation->set_rules('expert',' ','required|trim');
+			$this->form_validation->set_rules('conclusion',' ','trim');
+			$this->form_validation->set_rules('register',' ','trim');
+			$this->form_validation->set_rules('transfer',' ','trim');
+			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('customer',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->add_register();
+				return FALSE;
+			else:
+				$this->mdregister->insert_record($this->input->post());
+				$this->session->set_userdata('msgs','Запись создана успешно.');
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/register-add",$pagevar);
+	}
+	
+	public function edit_register(){
+		
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'passport'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
+					'expert'		=> $this->mdorganization->read_experts(),
+					'organization'	=> $this->mdorganization->read_organization(),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('number',' ','required|trim');
+			$this->form_validation->set_rules('expert',' ','required|trim');
+			$this->form_validation->set_rules('conclusion',' ','trim');
+			$this->form_validation->set_rules('register',' ','trim');
+			$this->form_validation->set_rules('transfer',' ','trim');
+			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('customer',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->add_register();
+				return FALSE;
+			else:
+				$this->mdregister->update_record($this->uri->segment(6),$this->input->post());
+				$this->session->set_userdata('msgs','Запись сохранена успешно.');
+				redirect($this->session->userdata('backpath'));
+			endif;
+		endif;
+		
+		$this->load->view("admin_interface/register-edit",$pagevar);
+	}
+	
+	public function search_register(){
+		
+		$statusval = array('status'=>FALSE,'retvalue'=>'');
+		$search = $this->input->post('squery');
+		if(!$search) show_404();
+		$passports = $this->mdregister->search_data($search,'customer','id,customer','register');
+		if($passports):
+			$statusval['retvalue'] = '<ul>';
+			for($i=0;$i<count($passports);$i++):
+				$statusval['retvalue'] .= '<li class="djorg" data-djid="'.$passports[$i]['id'].'">'.$passports[$i]['customer'].'</li>';
+			endfor;
+			$statusval['retvalue'] .= '</ul>';
+			$statusval['status'] = TRUE;
+		endif;
+		echo json_encode($statusval);
+	}
+	
+	public function delete_register(){
+		
+		$id = $this->uri->segment(6);
+		if($id):
+			$result = $this->mdregister->delete_record($id,'register');
+			$this->session->set_userdata('msgs','Паспорт удален успешно.');
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
 	public function available_orders(){
 		
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'Администрирование | Доступные заказы',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
 					'orders'		=> $this->mdorders->read_limit_records(10,$from,'orders'),
@@ -80,9 +200,6 @@ class Admin_interface extends MY_Controller{
 		
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'Администрирование | Пользователи',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
 					'users'			=> $this->mdusers->read_limit_records(3,$from,'users'),
@@ -106,9 +223,6 @@ class Admin_interface extends MY_Controller{
 	public function user_add(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'Администрирование | Пользователи',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
 					'msgs'			=> $this->session->userdata('msgs'),
@@ -153,9 +267,6 @@ class Admin_interface extends MY_Controller{
 	public function actions_profile(){
 		
 		$pagevar = array(
-					'description'	=> '',
-					'author'		=> '',
-					'title'			=> 'Администрирование | Личный кабинет',
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
 					'user'			=> $this->mdusers->read_record($this->user['uid']),
