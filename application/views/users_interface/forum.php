@@ -32,7 +32,7 @@
 							<a href="" class="HideAnswers none" data-number="<?=$questions[$i]['id'];?>">Скрыть ответы</a>
 						</div>
 					<?php if($kol > 0):?>
-						<a href="" class="ShowAnswers none" data-number="<?=$questions[$i]['id'];?>">Показать ответы (Количество: <?=$kol;?> шт.)</a><br/>
+						<a href="" class="ShowAnswers none" data-question="<?=$questions[$i]['id'];?>">Показать ответы (Количество: <?=$kol;?> шт.)</a><br/>
 					<?endif;?>
 					<?php if($this->loginstatus):?>
 						<a href="" class="AddAnswer none" data-question="<?=$questions[$i]['id'];?>">Ответить</a>
@@ -64,14 +64,15 @@
 			$("#AbortAnswer").click(function(){$("#DivAddQuestion").hide();$("#TextAnswer").val('');$("#DivAddAnswer").hide();$(".help-inline").hide();});
 			
 			$(".AddAnswer").click(function(){
-				$("#DivAddQuestion").hide();
-				var question = $(this).attr("data-question");
-				$("#qid").val(question);
-				$(".help-inline").hide();/*$("#TextAnswer").val('');*/
+				$("#DivAddQuestion").hide();var question = $(this).attr("data-question");
+				$("#qid").val(question);$(".help-inline").hide();/*$("#TextAnswer").val('');*/
 				$("#DivAddAnswer").insertAfter($(this)).show();
-				
 			});
 			$("#AbortQuestion").click(function(){$("#DivAddQuestion").hide();$(".help-inline").hide()});
+			
+			$(".ShowAnswers").click(function(){
+				var question = $(this).attr("data-question");
+			});
 			
 			$("#addquestion").click(function(event){
 				var err = false;$(".help-inline").hide();
@@ -82,12 +83,7 @@
 			});
 			$("#addanswer").click(function(event){
 				var err = false;$(".help-inline").hide();
-				$("#formAddAnswer .valid-required").each(function(i,element){
-					if($(this).val()==''){
-						$(this).next(".help-inline").html("Поле не может быть пустым").show();
-						err = true;
-					}
-				});
+				$("#formAddAnswer .valid-required").each(function(i,element){if($(this).val()==''){$(this).next(".help-inline").html("Поле не может быть пустым").show();err = true;}});
 				if(err){event.preventDefault();}
 			});
 		});
