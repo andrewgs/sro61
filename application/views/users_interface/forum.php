@@ -52,6 +52,9 @@
 					<div class="" id="DivAddAnswer" style="display:none;">
 						<?=$this->load->view("forms/frmaddanswer");?>
 					</div>
+					<?php if($pages): ?>
+						<?=$pages;?>
+					<?php endif;?>
 				</div>
 			</div>
 			<?php $this->load->view("users_interface/includes/sidebar");?>

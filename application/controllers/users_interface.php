@@ -95,7 +95,7 @@ class Users_interface extends MY_Controller{
 			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
 			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
 			'baseurl' 		=> base_url(),
-			'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions','id','DESC'),
+			'questions'		=> $this->mdquestions->read_limit_records(2,$from,'questions','id','DESC'),
 			'answers' 		=> array(),
 			'news' 			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
@@ -147,7 +147,7 @@ class Users_interface extends MY_Controller{
 			endif;
 		endif;
 		
-		$pagevar['pages'] = $this->pagination('admin-panel/actions/forum',5,$this->mdquestions->count_all_records('questions'),10);
+		$pagevar['pages'] = $this->pagination('forum',3,$this->mdquestions->count_all_records('questions'),2);
 		$pagevar['answers'] = $this->mdanswers->read_records_by_questions($pagevar['questions']);
 		
 		for($i=0;$i<count($pagevar['questions']);$i++):
