@@ -32,10 +32,12 @@
 							<a href="" class="HideAnswers none" data-question="<?=$questions[$i]['id'];?>">Скрыть ответы</a>
 						</div>
 					<?php if($kol > 0):?>
-						<a href="" class="ShowAnswers none" data-question="<?=$questions[$i]['id'];?>">Показать ответы (Количество: <?=$kol;?> шт.)</a><br/>
+						<a href="" class="ShowAnswers none" data-question="<?=$questions[$i]['id'];?>">Показать ответы (Количество: <?=$kol;?> шт.)</a>
 					<?endif;?>
 					<?php if($this->loginstatus):?>
-						<a href="" class="AddAnswer none" data-question="<?=$questions[$i]['id'];?>">Ответить</a>
+						<div class="">
+							<a href="" class="AddAnswer none" data-question="<?=$questions[$i]['id'];?>">Ответить</a>
+						</div>
 					<?php endif;?>
 					</div>
 					<hr/>
