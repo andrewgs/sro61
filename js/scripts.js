@@ -45,23 +45,35 @@ function backpath(path){window.location=path;}
 		event.preventDefault();
 		$(".become-order fieldset").removeClass("validate");
 		$(".become-order .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
-		if(err){event.preventDefault();}
-		if(!err && !isValidEmailAddress($(".become-order .valid-email").val())){$(".become-partner .valid-email").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
-		if(!err && !isValidPhone($(".become-order .valid-phone").val())){$(".become-partner .valid-phone").parents("fieldset").addClass('validate');err = true; event.preventDefault();}
+		if(!err && !isValidEmailAddress($(".become-order .valid-email").val())){$(".become-order .valid-email").parents("fieldset").addClass('validate');err = true;}
+		if(!err && !isValidPhone($(".become-order .valid-phone").val())){$(".become-order .valid-phone").parents("fieldset").addClass('validate');err = true;}
 		if(!err){var postdata = myserialize($(".become-order .FieldSend"));
 			$.post(baseurl+"send-order",{'postdata':postdata},
 			function(data){if(data.status){$(".become-order em").show();$(".become-order .submit").addClass("submitted");}else{$(".become-order em").html(data.message).show();}},"json");
 		}
-		event.preventDefault();
 	});
 	
 	$("#EnterSend").click(function(event){
 		var err = false;
+		$(".become-enter em").hide();
+		event.preventDefault();
 		$(".become-enter fieldset").removeClass("validate");
 		$(".become-enter .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
-		if(err){event.preventDefault();}
+		if(!err){
+			var postdata = myserialize($(".become-enter .FieldSend"));
+			$.post(baseurl+"login",{'postdata':postdata},
+				function(data){
+					if(data.status){
+						$(".become-enter").remove();
+						$("#action-enter").replaceWith(data.newlink);
+					}else{
+						$(".become-enter .FieldSend").parents("fieldset").addClass('validate');
+						$(".become-enter em").html(data.message).show();
+					}
+				}
+			,"json");
+		}
 	});
-	
 	$("#action-order").click(function(e){
 		$("div.popup:not(.become-order)").hide();
 		$("div.become-order").toggle();

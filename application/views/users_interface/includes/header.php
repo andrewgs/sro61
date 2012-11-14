@@ -49,6 +49,7 @@
 </div>
 <div class="popup become-enter">
 	<?=form_open('login',array('id'=>'form-enter','class'=>'popup-form')); ?>
+		<em></em>
 		<fieldset>
 			<label for="feedback-name">Логин <span>*</span></label>
 			<input type="text" class="valid-required FieldSend" name="login" id="feedback-login">
@@ -82,7 +83,7 @@
 		</fieldset>
 		<fieldset>
 			<label for="feedback-message">Ваше сообщение</label>
-			<textarea class="valid-required FieldSend" name="message" id="feedback-message"></textarea>
+			<textarea class="FieldSend" name="message" id="feedback-message"></textarea>
 		</fieldset>
 		<fieldset class="submit">
 			<button type="submit" name="order" value="send" id="OrderSend">Отправить</button>

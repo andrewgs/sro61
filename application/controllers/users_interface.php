@@ -201,21 +201,30 @@ class Users_interface extends MY_Controller{
 	
 	public function login(){
 		
-		if($this->input->post('enter')):
-			unset($_POST['enter']);
-			$user = $this->mdusers->auth_user($this->input->post('login'),$this->input->post('password'));
-			if(!$user):
-				redirect($this->uri->uri_string());
-			else:
+		$statusval = array('status'=>FALSE,'message'=>'Авторизация не возможна','newlink'=>'');
+		$data = trim($this->input->post('postdata'));
+		if(!$data):
+			show_404();
+		endif;
+		$data = preg_split("/&/",$data);
+		for($i=0;$i<count($data);$i++):
+			$dataid = preg_split("/=/",$data[$i]);
+			$dataval[$i] = $dataid[1];
+		endfor;
+		if($dataval):
+			$user = $this->mdusers->auth_user($dataval[0],$dataval[1]);
+			if($user):
+				$statusval['status'] = TRUE;
+				$statusval['message'] = '';
 				$session_data = array('logon'=>md5($user['login']),'userid'=>$user['id']);
 				$this->session->set_userdata($session_data);
 				if($user['id']):
-					redirect("cabinet/orders");
+					$statusval['newlink'] = '<a id="action-cabinet" href="'.base_url().'cabinet/orders">Личный кабинет</a>';
 				else:
-					redirect("admin-panel/actions/orders");
+					$statusval['newlink'] = '<a id="action-cabinet" href="'.base_url().'admin-panel/actions/orders">Личный кабинет</a>';
 				endif;
 			endif;
 		endif;
-		redirect('');
+		echo json_encode($statusval);
 	}
 }
