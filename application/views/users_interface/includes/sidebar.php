@@ -9,6 +9,7 @@
 		<li><?=anchor('equipment-rental','Аренда оборудования',array('title'=>'Аренда оборудования'));?></li>
 		<li><?=anchor('media-about-us','СМИ О НАС',array('title'=>'СМИ О НАС'));?></li>
 		<li><?=anchor('order-of-audit','Порядок проведения энергоаудита',array('title'=>'Проведение энергоаудита'));?></li>
+		<li><?=anchor('expertise-energy-performance','Экспертиза энергопаспорта',array('title'=>'Экспертиза энергопаспорта'));?></li>
 		<li><?=anchor('methodological-materials','Методические материалы',array('title'=>'Методические материалы'));?></li>
 		<li><?=anchor('regional-representative','Региональные представительства',array('title'=>'Региональные представительства'));?></li>
 		<li><?=anchor('standards-and-regulations','Стандарты и правила',array('title'=>'Стандарты и правила'));?></li>

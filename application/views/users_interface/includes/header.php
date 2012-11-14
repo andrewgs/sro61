@@ -5,12 +5,20 @@
 			<li><?=anchor('documents','Документы');?></li>
 			<li><?=anchor('register-members','Реестр членов');?></li>
 			<li><?=anchor('register-energy-performance','Реестр Энергопаспортов',array('title'=>'Обучение'));?></li>
-			<li><?=anchor('expertise-energy-performance','Экспертиза энергопаспорта',array('title'=>'Экспертиза энергопаспорта'));?></li>
-			<li><?=anchor('forum','Форум',array('title'=>'Форум'));?></li>
+			<li><?=anchor('forum','Вопрос &ndash; ответ',array('title'=>'Задайте вопрос энергоаудитору'));?></li>
 		</ul>
 		<ul class="assorted">
 			<li><?=anchor('contacts','Посмотреть на карте');?></li>
 			<li><a href="mailto:sro61@mail.ru"><img src="<?=$baseurl;?>images/mail.png" /></a></li>
+			<?php if(!$this->loginstatus):?>
+				<li><?=anchor('','Вход для членов СРО',array('id'=>'action-enter','class'=>'none globalnav__сolored'));?></li>
+			<?php else:?>
+				<?php if($this->user['admin']):?>
+				<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+				<?php else:?>
+				<li><?=anchor('cabinet/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+				<?php endif;?>
+			<?php endif;?>
 		</ul>
 	</div>
 	<div class="header__flag"></div>
@@ -35,7 +43,7 @@
 				<ul class="actions">
 				<?php if(!$this->loginstatus):?>
 					<li><?=anchor('','Вход на сайт',array('id'=>'action-enter','class'=>'none'));?></li>
-					<li><?=anchor('','Оформить заявку',array('id'=>'action-order','class'=>'none'));?></li>
+					<li><?=anchor('','Оформить заявку <span class="small">на проведение энергоаудита</span>',array('id'=>'action-order','class'=>'none'));?></li>
 				<?php else:?>
 					<?php if($this->user['admin']):?>
 					<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
