@@ -17,7 +17,7 @@
 							<span class=""><?=$questions[$i]['name'];?></span> <span class=""><?=$questions[$i]['email'];?></span><br/>
 							<span class=""><?=$questions[$i]['comment'];?></span>
 						</div>
-						<div class="" id="DivAnswers" data-question="question<?=$questions[$i]['id'];?>" style="display:none;">
+						<div class="DivAnswers" data-question="question<?=$questions[$i]['id'];?>" style="display:none;">
 					<?php for($j=0,$kol=0;$j<count($answers);$j++):?>
 						<?php if($answers[$j]['question'] == $questions[$i]['id']):?>
 							<div class="">
@@ -29,7 +29,7 @@
 							<?php $kol++;?>
 						<?php endif;?>
 					<?php endfor; ?>
-							<a href="" class="HideAnswers none" data-number="<?=$questions[$i]['id'];?>">Скрыть ответы</a>
+							<a href="" class="HideAnswers none" data-question="<?=$questions[$i]['id'];?>">Скрыть ответы</a>
 						</div>
 					<?php if($kol > 0):?>
 						<a href="" class="ShowAnswers none" data-question="<?=$questions[$i]['id'];?>">Показать ответы (Количество: <?=$kol;?> шт.)</a><br/>
@@ -72,6 +72,14 @@
 			
 			$(".ShowAnswers").click(function(){
 				var question = $(this).attr("data-question");
+				$(".DivAnswers[data-question='question"+question+"']").show();
+				$(this).hide();
+			});
+			
+			$(".HideAnswers").click(function(){
+				var question = $(this).attr("data-question");
+				$(".DivAnswers[data-question='question"+question+"']").hide();
+				$(".ShowAnswers[data-question="+question+"]").show();
 			});
 			
 			$("#addquestion").click(function(event){
