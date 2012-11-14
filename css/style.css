@@ -157,7 +157,7 @@ select, input {
 
 /* new styles */
 .top {margin: 0 auto; text-align: left; width: 1075px; overflow: hidden; position: relative;}
-.globalnav {float: left; line-height: 1; list-style: none outside none; width: 70%;}
+.globalnav {float: left; line-height: 1; list-style: none outside none; width: 80%;}
 .globalnav li {float: left; margin-right: 30px; padding: 14px 0;}
 .globalnav .globalnav__active {color: #333333; font-weight: bold;}
 .globalnav a {text-decoration: none;}

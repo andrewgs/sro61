@@ -236,8 +236,6 @@ class Admin_interface extends MY_Controller{
 		endif;
 	}
 	
-	
-	
 	public function closed_order(){
 		
 		$id = $this->uri->segment(6);

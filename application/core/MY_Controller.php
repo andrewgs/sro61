@@ -2,7 +2,7 @@
 
 class MY_Controller extends CI_Controller{
 	
-	var $user = array('uid'=>0,'admin'=>FALSE);
+	var $user = array('uid'=>0,'admin'=>FALSE,'name'=>'','email'=>'');
 	var $loginstatus = FALSE;
 	var $months = array("01"=>"января","02"=>"февраля","03"=>"марта","04"=>"апреля","05"=>"мая","06"=>"июня","07"=>"июля","08"=>"августа","09"=>"сентября","10"=>"октября","11"=>"ноября","12"=>"декабря");
 	
@@ -27,6 +27,8 @@ class MY_Controller extends CI_Controller{
 					if($userinfo['id'] == 0):
 						$this->user['admin'] = TRUE;
 					endif;
+					$this->user['name'] = $userinfo['login'];
+					$this->user['email'] = $userinfo['email'];
 					$this->loginstatus = TRUE;
 				endif;
 			endif;

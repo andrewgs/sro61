@@ -10,22 +10,6 @@ class Users_interface extends MY_Controller{
 	
 	public function index(){
 		
-		if($this->input->post('enter')):
-			unset($_POST['enter']);
-			$user = $this->mdusers->auth_user($this->input->post('login'),$this->input->post('password'));
-			if(!$user):
-				redirect($this->uri->uri_string());
-			else:
-				$session_data = array('logon'=>md5($user['login']),'userid'=>$user['id']);
-				$this->session->set_userdata($session_data);
-				if($user['id']):
-					redirect("cabinet/orders");
-				else:
-					redirect("admin-panel/actions/orders");
-				endif;
-			endif;
-		endif;
-		
 		$this->pages($this->uri->uri_string());
 	}
 	
@@ -105,17 +89,50 @@ class Users_interface extends MY_Controller{
 	
 	public function forum(){
 		
+		$from = intval($this->uri->segment(3));
 		$pagevar = array(
 			'title'			=> 'СРО НП «Энергоаудит» в Ростове, Элисте, Краснодаре, Сочи: энергетический паспорт, энергетическое обследование',
 			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
 			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
 			'baseurl' 		=> base_url(),
+			'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions'),
+			'answers' 		=> array(),
 			'news' 			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr')
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('number',' ','required|trim');
+			$this->form_validation->set_rules('expert',' ','required|trim');
+			$this->form_validation->set_rules('conclusion',' ','trim');
+			$this->form_validation->set_rules('register',' ','trim');
+			$this->form_validation->set_rules('transfer',' ','trim');
+			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('customer',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->add_register();
+				return FALSE;
+			else:
+				$this->mdregister->insert_record($this->input->post());
+				$this->session->set_userdata('msgs','Запись создана успешно.');
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		
+		$pagevar['pages'] = $this->pagination('admin-panel/actions/forum',5,$this->mdquestions->count_all_records('questions'),10);
+		$pagevar['answers'] = $this->mdanswers->read_records_by_questions($pagevar['questions']);
+		
+		for($i=0;$i<count($pagevar['questions']);$i++):
+			$pagevar['questions'][$i]['date'] = $this->operation_date_on_time($pagevar['questions'][$i]['date']);
+		endfor;
+		for($i=0;$i<count($pagevar['answers']);$i++):
+			$pagevar['answers'][$i]['date'] = $this->operation_date_on_time($pagevar['answers'][$i]['date']);
+		endfor;
 		
 		$this->load->view("users_interface/forum",$pagevar);
 	}
@@ -154,34 +171,29 @@ class Users_interface extends MY_Controller{
 		$this->load->view("users_interface/news",$pagevar);
 	}
 	
-	public function loginin(){
+	public function logoff(){
+		
+		$this->session->sess_destroy();
+		redirect('');
+	}
 	
-		if(isset($_POST['submit_x'])):
-			if(!$_POST['login'] || !$_POST['password']):
-				$this->session->set_userdata('msgauth','Не заполены необходимые поля');
-				redirect($_SERVER['HTTP_REFERER']);
+	public function login(){
+		
+		if($this->input->post('enter')):
+			unset($_POST['enter']);
+			$user = $this->mdusers->auth_user($this->input->post('login'),$this->input->post('password'));
+			if(!$user):
+				redirect($this->uri->uri_string());
 			else:
-				$user = $this->mdusers->auth_user($_POST['login'],$_POST['password']);
-				if(!$user):
-					$this->session->set_userdata('msgauth','Не верные данные для авторизации');
-					redirect($_SERVER['HTTP_REFERER']);
+				$session_data = array('logon'=>md5($user['login']),'userid'=>$user['id']);
+				$this->session->set_userdata($session_data);
+				if($user['id']):
+					redirect("cabinet/orders");
 				else:
-					if($user['type'] == 4 || $user['type'] == 3):
-						$this->session->set_userdata('msgauth','Авторизация запрещена!');
-						redirect($_SERVER['HTTP_REFERER']);
-					endif;
-					$this->session->set_userdata(array('logon'=>md5($user['login'].$user['password']),'userid'=>$user['id'],'ulogin'=>$user['login']));
-					$this->mdusers->update_field($user['id'],'lastlogin',date("Y-m-d"));
-					$this->access_cabinet($user['id'],$user['type']);
+					redirect("admin-panel/actions/orders");
 				endif;
 			endif;
 		endif;
-		show_404();
-	}
-	
-	public function actions_logoff(){
-		
-		$this->session->sess_destroy();
 		redirect('');
 	}
 }

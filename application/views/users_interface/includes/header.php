@@ -6,6 +6,7 @@
 			<li><?=anchor('register-members','Реестр членов');?></li>
 			<li><?=anchor('register-energy-performance','Реестр Энергопаспортов',array('title'=>'Обучение'));?></li>
 			<li><?=anchor('expertise-energy-performance','Экспертиза энергопаспорта',array('title'=>'Экспертиза энергопаспорта'));?></li>
+			<li><?=anchor('forum','Форум',array('title'=>'Форум'));?></li>
 		</ul>
 		<ul class="assorted">
 			<li><?=anchor('contacts','Посмотреть на карте');?></li>
@@ -48,7 +49,7 @@
 	</div>
 </div>
 <div class="popup become-enter">
-	<?=form_open($this->uri->uri_string(),array('id'=>'form-enter','class'=>'popup-form')); ?>
+	<?=form_open('login',array('id'=>'form-enter','class'=>'popup-form')); ?>
 		<fieldset>
 			<label for="feedback-name">Логин <span>*</span></label>
 			<input type="text" class="valid-required FieldSend" name="login" id="feedback-login">
@@ -63,7 +64,7 @@
 	<?= form_close(); ?>
 </div>
 <div class="popup become-order">
-	<?=form_open($this->uri->uri_string(),array('id'=>'form-order','class'=>'popup-form')); ?>
+	<?=form_open('',array('id'=>'form-order','class'=>'popup-form')); ?>
 		<fieldset>
 			<label for="feedback-name">Ваше имя <span>*</span></label>
 			<input type="text" class="valid-required FieldSend" name="name" id="feedback-name">

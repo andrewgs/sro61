@@ -57,6 +57,6 @@ $route['send-order']		= "users_interface/send_order";
 $route['application-energy-audit']				= "users_interface/application_energy_audit";
 $route['application-passing-energy-performance']= "users_interface/application_passing_energy_performance";
 
-$route['users/login']	= "users_interface/loginin";
-$route['logoff']		= "users_interface/actions_logoff";
+$route['login']			= "users_interface/login";
+$route['logoff']		= "users_interface/logoff";
 $route[':any']			= "users_interface/index";
