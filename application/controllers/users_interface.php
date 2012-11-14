@@ -95,7 +95,7 @@ class Users_interface extends MY_Controller{
 			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
 			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
 			'baseurl' 		=> base_url(),
-			'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions'),
+			'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions','id','DESC'),
 			'answers' 		=> array(),
 			'news' 			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
@@ -104,21 +104,44 @@ class Users_interface extends MY_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
-		if($this->input->post('submit')):
-			unset($_POST['submit']);
-			$this->form_validation->set_rules('number',' ','required|trim');
-			$this->form_validation->set_rules('expert',' ','required|trim');
-			$this->form_validation->set_rules('conclusion',' ','trim');
-			$this->form_validation->set_rules('register',' ','trim');
-			$this->form_validation->set_rules('transfer',' ','trim');
-			$this->form_validation->set_rules('organization',' ','required|trim');
-			$this->form_validation->set_rules('customer',' ','required|trim');
+		if($this->input->post('qsubmit')):
+			unset($_POST['qsubmit']);
+			$this->form_validation->set_rules('name',' ','required|trim');
+			$this->form_validation->set_rules('email',' ','required|valid_email|trim');
+			$this->form_validation->set_rules('text',' ','required|trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
-				$this->add_register();
+				$this->forum();
 				return FALSE;
 			else:
-				$this->mdregister->insert_record($this->input->post());
+				$data = $this->input->post();
+				if($this->loginstatus):
+					$user = $this->mdusers->read_record($this->user['uid'],'users');
+					$data['comment'] = $user['organization'].' '.$user['phones'];
+				else:
+					$data['comment'] = '';
+				endif;
+				$this->mdquestions->insert_record($data);
+				$this->session->set_userdata('msgs','Запись создана успешно.');
+				redirect($this->uri->uri_string());
+			endif;
+		endif;
+		if($this->input->post('asubmit') && $this->loginstatus):
+			unset($_POST['asubmit']);
+			$this->form_validation->set_rules('uid',' ','required|trim');
+			$this->form_validation->set_rules('qid',' ','required|trim');
+			$this->form_validation->set_rules('text',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->forum();
+				return FALSE;
+			else:
+				$data = $this->input->post();
+				$user = $this->mdusers->read_record($this->user['uid'],'users');
+				$data['name'] = $user['login'];
+				$data['email'] = $user['email'];
+				$data['comment'] = $user['organization'].' '.$user['phones'];
+				$this->mdanswers->insert_record($data);
 				$this->session->set_userdata('msgs','Запись создана успешно.');
 				redirect($this->uri->uri_string());
 			endif;

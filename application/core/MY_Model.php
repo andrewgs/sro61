@@ -15,16 +15,18 @@ class MY_Model extends CI_Model{
 		return NULL;
 	}
 	
-	function read_records($table){
+	function read_records($table,$field = 'id',$order = 'ASC'){
 		
+		$this->db->order_by($field,$order);
 		$query = $this->db->get($table);
 		$data = $query->result_array();
 		if(count($data)) return $data;
 		return NULL;
 	}
 	
-	function read_limit_records($count,$from,$table){
+	function read_limit_records($count,$from,$table,$field = 'id',$order = 'ASC'){
 		
+		$this->db->order_by($field,$order);
 		$this->db->limit($count,$from);
 		$query = $this->db->get($table);
 		$data = $query->result_array();

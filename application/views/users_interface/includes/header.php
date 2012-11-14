@@ -42,6 +42,7 @@
 					<?php else:?>
 					<li><?=anchor('cabinet/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
 					<?php endif;?>
+					<li><?=anchor('logoff','Выйти',array('id'=>'action-cabinet'));?></li>
 				<?php endif;?>
 				</ul>
 			</div>

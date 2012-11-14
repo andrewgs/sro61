@@ -6,7 +6,7 @@ class Mdanswers extends MY_Model{
 	var $question	= 0;
 	var $name		= '';
 	var $email 		= '';
-	var $data 		= '';
+	var $date 		= '';
 	var $text 		= '';
 	var $comment 	= '';
 	
@@ -16,10 +16,10 @@ class Mdanswers extends MY_Model{
 	
 	function insert_record($data){
 			
-		$this->question	= $data['question'];
+		$this->question	= $data['qid'];
 		$this->name		= $data['name'];
 		$this->email	= $data['email'];
-		$this->data		= $data['data'];
+		$this->date		= date("Y-m-d H:i:s");
 		$this->text		= $data['text'];
 		$this->comment	= $data['comment'];
 		
