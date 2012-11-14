@@ -3,6 +3,6 @@
 <script src="<?=$baseurl;?>js/bootstrap.js"></script>
 <script src="<?=$baseurl;?>js/scripts.js"></script>
 <script type="text/javascript">
-	$("li[num='<?=$this->uri->segment(3);?>']").addClass('active');
+	$("li[num='<?=$this->uri->segment(2);?>']").addClass('active');
 	$(".backpath").click(function(){backpath("<?=$this->session->userdata('backpath');?>")})
 </script>

@@ -8,7 +8,7 @@
 			<div class="span9">
 				<ul class="breadcrumb">
 					<li class="active">
-						<?=anchor($this->uri->uri_string(),"Все доступные заказы");?>
+						<?=anchor($this->uri->uri_string(),"Доступные заявки");?>
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>

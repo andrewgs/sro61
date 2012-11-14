@@ -16,30 +16,39 @@
 				
 				<div class="accordion" id="accordion2">
 				<?php for($i=0;$i<count($questions);$i++):?>
-					<div class="accordion-group">
-						<div class="accordion-heading">
-							<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<?=$i?>">
-							<?=$questions[$j]['date'];?><br/>
-							<?=$questions[$j]['name'];?> [<?=$$questions[$j]['email'];?>]<br/>
-							<?=$questions[$j]['text'];?>
-							</a>
-						</div>
-					<?php for($j=0;$j<count($answers);$j++):?>
+					<?php for($j=0,$kol=0;$j<count($answers);$j++):?>
 						<?php if($questions[$i]['id'] == $answers[$j]['question']):?>
-						<div id="collapse<?=$i?>" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<?=$answers[$j]['date'];?><br/>
-								<?=$answers[$j]['name'];?> [<?=$answers[$j]['email'];?>]<br/>
-								<?=$answers[$j]['text'];?>
-							</div>
-						</div>
+							<?php $kol++;?>
 						<?php endif;?>
 					<?php endfor;?>
+					<div class="accordion-group">
+						<div class="accordion-heading">
+							<?=$questions[$i]['date'];?><br/>
+							<?=$questions[$i]['name'];?> [<?=$questions[$i]['email'];?>]<br/>
+							<?=$questions[$i]['text'];?><br/>
+							<?php if($kol):?>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<?=$i?>">
+									<span class="">Ответов: <?=$kol;?> шт.</span>
+								</a>
+							<?php else:?>
+								<span class="">Нет ответов</span>
+							<?php endif;?>
+						</div>
+						<div id="collapse<?=$i?>" class="accordion-body collapse">
+							<div class="accordion-inner">
+						<?php for($j=0;$j<count($answers);$j++):?>
+							<?php if($questions[$i]['id'] == $answers[$j]['question']):?>
+								<span class=""><?=$answers[$j]['text'];?></span><br/>
+								<span class=""><?=$answers[$j]['date'];?></span><br/>
+								<span class=""><?=$answers[$j]['name'];?></span><br/>
+								<span class=""><?=$answers[$j]['email'];?></span><br/>
+							<?php endif;?>
+						<?php endfor;?>
+							</div>
+						</div>
 					</div>
 				<?php endfor;?>
 				</div>
-				
-				
 				<?php if($pages): ?>
 					<?=$pages;?>
 				<?php endif;?>

@@ -190,7 +190,7 @@ class Admin_interface extends MY_Controller{
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
-					'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions'),
+					'questions'		=> $this->mdquestions->read_limit_records(2,$from,'questions','id','DESC'),
 					'answers'		=> array(),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
@@ -199,7 +199,7 @@ class Admin_interface extends MY_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
-		$pagevar['pages'] = $this->pagination('admin-panel/actions/forum',5,$this->mdquestions->count_all_records('questions'),10);
+		$pagevar['pages'] = $this->pagination('admin-panel/actions/forum',5,$this->mdquestions->count_all_records('questions'),2);
 		$pagevar['answers'] = $this->mdanswers->read_records_by_questions($pagevar['questions']);
 		
 		for($i=0;$i<count($pagevar['questions']);$i++):

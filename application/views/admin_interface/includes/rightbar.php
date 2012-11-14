@@ -1,7 +1,7 @@
 <div class="span3">
 	<div class="well sidebar-nav">
 		<ul class="nav nav-pills nav-stacked">
-			<li num="orders"><?=anchor('admin-panel/actions/orders','Доступные заказы');?></li>
+			<li num="orders"><?=anchor('admin-panel/actions/orders','Доступные заявки');?></li>
 			<li num="users"><?=anchor('admin-panel/actions/users','Пользователи');?></li>
 			<li num="register"><?=anchor('admin-panel/actions/register','Реестр паспортов');?></li>
 			<li num="forum"><?=anchor('admin-panel/actions/forum','Форум');?></li>
