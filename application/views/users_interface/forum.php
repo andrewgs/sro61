@@ -8,23 +8,28 @@
 		<div id="middle">
 			<div id="container">
 				<div id="content">
-					<h1>Форум</h1>
+					<h1>Ответы и вопросы</h1>
 				<?php for($i=0;$i<count($questions);$i++):?>
 					<div class="QBlock" data-question="question<?=$questions[$i]['id'];?>">
-						<div class="">
-							<span class=""><?=$questions[$i]['date'];?></span><br/>
-							<span class=""><?=$questions[$i]['text'];?></span><br/>
-							<span class=""><?=$questions[$i]['name'];?></span> <span class=""><?=$questions[$i]['email'];?></span><br/>
-							<span class=""><?=$questions[$i]['comment'];?></span>
+						<div class="question-wrapper">
+							<div class="cf">
+								<h2 class="forum-question"><?=$questions[$i]['text'];?></h2>
+								<span class="forum-date"><?=$questions[$i]['date'];?></span><br/>
+							</div>
+							<span class="question-name">&mdash; <?=$questions[$i]['name'];?></span>
+							<span class="question-comment"><?=$questions[$i]['comment'];?></span> 
+							<!-- <span class="question-email"><?=$questions[$i]['email'];?></span> -->
+							
 						</div>
 						<div class="DivAnswers" data-question="question<?=$questions[$i]['id'];?>" style="display:none;">
 					<?php for($j=0,$kol=0;$j<count($answers);$j++):?>
 						<?php if($answers[$j]['question'] == $questions[$i]['id']):?>
-							<div class="">
-								<span class=""><?=$answers[$j]['date'];?></span><br/>
-								<span class=""><?=$answers[$j]['text'];?></span><br/>
-								<span class=""><?=$answers[$j]['name'];?></span> <span class=""><?=$answers[$j]['email'];?></span><br/>
-								<span class=""><?=$answers[$j]['comment'];?></span>
+							<div class="answer-wrapper cf">
+								<p><?=$answers[$j]['text'];?></p>
+								<span class="question-name">&mdash; <?=$answers[$j]['name'];?> </span> 
+								<span class="question-comment"><?=$answers[$j]['comment'];?></span>
+								<span class="forum-date"><?=$answers[$j]['date'];?></span>
+								<!-- <span class=""><?=$answers[$j]['email'];?></span> -->
 							</div>
 							<?php $kol++;?>
 						<?php endif;?>
@@ -32,17 +37,14 @@
 							<a href="" class="HideAnswers none" data-question="<?=$questions[$i]['id'];?>">Скрыть ответы</a>
 						</div>
 					<?php if($kol > 0):?>
-						<a href="" class="ShowAnswers none" data-question="<?=$questions[$i]['id'];?>">Показать ответы (Количество: <?=$kol;?> шт.)</a>
+						<a href="" class="ShowAnswers none" data-question="<?=$questions[$i]['id'];?>">Показать ответы (<?=$kol;?>)</a>
 					<?endif;?>
 					<?php if($this->loginstatus):?>
-						<div class="">
-							<a href="" class="AddAnswer none" data-question="<?=$questions[$i]['id'];?>">Ответить</a>
-						</div>
+						<a href="" class="AddAnswer none" data-question="<?=$questions[$i]['id'];?>">Ответить</a>
 					<?php endif;?>
 					</div>
-					<hr/>
 				<?php endfor;?>
-					<hr/>
+
 					<div class="">
 						<a href="" class="none" id="AddQuestion">Добавить вопрос</a>
 						<div class="" id="DivAddQuestion" style="display:none;">
@@ -55,6 +57,7 @@
 					<?php if($pages): ?>
 						<?=$pages;?>
 					<?php endif;?>
+					<div class="cf"> </div>
 				</div>
 			</div>
 			<?php $this->load->view("users_interface/includes/sidebar");?>
