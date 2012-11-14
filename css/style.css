@@ -157,12 +157,12 @@ select, input {
 
 /* new styles */
 .top {margin: 0 auto; text-align: left; width: 1075px; overflow: hidden; position: relative;}
-.globalnav {float: left; line-height: 1; list-style: none outside none; width: 80%;}
+.globalnav {float: left; line-height: 1; list-style: none outside none; width: 70%;}
 .globalnav li {float: left; margin-right: 30px; padding: 14px 0;}
 .globalnav .globalnav__active {color: #333333; font-weight: bold;}
 .assorted .globalnav__сolored {color: #204E8A; font-weight: bold;}
 .globalnav a {text-decoration: none;}
-.assorted {font-size: 11px; list-style: none outside none; padding: 14px 0; position: absolute; right: 0; text-align: right; width: 20%;}
+.assorted {font-size: 11px; list-style: none outside none; padding: 14px 0; position: absolute; right: 0; text-align: right; width: 30%;}
 .assorted li {display: inline-block; line-height: 1.35em; vertical-align: top;}
 
 .inlinesvg .assorted__twitter a {background-attachment: scroll; background-clip: border-box; background-color: transparent; background-image: url("../images/twitter.svg"); background-origin: padding-box; background-position: 2px 0; background-repeat: no-repeat; background-size: 18px auto;}

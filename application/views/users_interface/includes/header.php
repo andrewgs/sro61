@@ -41,17 +41,7 @@
 			</div>
 			<div class="column">
 				<ul class="actions">
-				<?php if(!$this->loginstatus):?>
-					<li><?=anchor('','Вход на сайт',array('id'=>'action-enter','class'=>'none'));?></li>
 					<li><?=anchor('','Оформить заявку <span class="small">на проведение энергоаудита</span>',array('id'=>'action-order','class'=>'none'));?></li>
-				<?php else:?>
-					<?php if($this->user['admin']):?>
-					<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
-					<?php else:?>
-					<li><?=anchor('cabinet/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
-					<?php endif;?>
-					<li><?=anchor('logoff','Выйти',array('id'=>'action-cabinet'));?></li>
-				<?php endif;?>
 				</ul>
 			</div>
 		</div>
