@@ -149,7 +149,6 @@ class Users_interface extends MY_Controller{
 		
 		$pagevar['pages'] = $this->pagination('forum',3,$this->mdquestions->count_all_records('questions'),2);
 		$pagevar['answers'] = $this->mdanswers->read_records_by_questions($pagevar['questions']);
-		
 		for($i=0;$i<count($pagevar['questions']);$i++):
 			$pagevar['questions'][$i]['date'] = $this->operation_date_on_time($pagevar['questions'][$i]['date']);
 		endfor;

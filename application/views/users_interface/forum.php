@@ -21,10 +21,10 @@
 					<?php for($j=0,$kol=0;$j<count($answers);$j++):?>
 						<?php if($answers[$j]['question'] == $questions[$i]['id']):?>
 							<div class="">
-								<span class=""><?=$answers[$i]['date'];?></span><br/>
-								<span class=""><?=$answers[$i]['text'];?></span><br/>
-								<span class=""><?=$answers[$i]['name'];?></span> <span class=""><?=$answers[$i]['email'];?></span><br/>
-								<span class=""><?=$answers[$i]['comment'];?></span>
+								<span class=""><?=$answers[$j]['date'];?></span><br/>
+								<span class=""><?=$answers[$j]['text'];?></span><br/>
+								<span class=""><?=$answers[$j]['name'];?></span> <span class=""><?=$answers[$j]['email'];?></span><br/>
+								<span class=""><?=$answers[$j]['comment'];?></span>
 							</div>
 							<?php $kol++;?>
 						<?php endif;?>
