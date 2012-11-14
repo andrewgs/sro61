@@ -233,7 +233,7 @@ class Admin_interface extends MY_Controller{
 		
 		$id = $this->uri->segment(6);
 		if($id):
-			$result = $this->mdorders->delete_record($id,'forum');
+			$result = $this->mdquestions->delete_record($id,'questions');
 			$this->session->set_userdata('msgs','Запись удалена успешно.');
 			redirect($this->session->userdata('backpath'));
 		else:
@@ -245,7 +245,7 @@ class Admin_interface extends MY_Controller{
 		
 		$id = $this->uri->segment(6);
 		if($id):
-			$result = $this->mdorders->delete_record($id,'forum');
+			$result = $this->mdanswers->delete_record($id,'answers');
 			$this->session->set_userdata('msgs','Запись удалена успешно.');
 			redirect($this->session->userdata('backpath'));
 		else:
