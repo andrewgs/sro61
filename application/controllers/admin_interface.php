@@ -234,6 +234,9 @@ class Admin_interface extends MY_Controller{
 		$id = $this->uri->segment(6);
 		if($id):
 			$result = $this->mdquestions->delete_record($id,'questions');
+			if($result):
+				$this->mdanswers->delete_records($id);
+			endif;
 			$this->session->set_userdata('msgs','Запись удалена успешно.');
 			redirect($this->session->userdata('backpath'));
 		else:

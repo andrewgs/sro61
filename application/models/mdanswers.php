@@ -27,6 +27,13 @@ class Mdanswers extends MY_Model{
 		return $this->db->insert_id();
 	}
 	
+	function delete_records($question){
+	
+		$this->db->where('question',$question);
+		$this->db->delete('answers');
+		return $this->db->affected_rows();
+	}
+	
 	function update_record($id,$data){
 			
 		$this->db->set('text',$data['text']);
