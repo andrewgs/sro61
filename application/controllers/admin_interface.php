@@ -184,6 +184,60 @@ class Admin_interface extends MY_Controller{
 		endif;
 	}
 	
+	public function forum(){
+		
+		$from = intval($this->uri->segment(5));
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions'),
+					'answers'		=> array(),
+					'pages'			=> array(),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$pagevar['pages'] = $this->pagination('admin-panel/actions/forum',5,$this->mdquestions->count_all_records('questions'),10);
+		$pagevar['answers'] = $this->mdanswers->read_records_by_questions($pagevar['questions']);
+		
+		for($i=0;$i<count($pagevar['questions']);$i++):
+			$pagevar['questions'][$i]['date'] = $this->operation_date_on_time($pagevar['questions'][$i]['date']);
+		endfor;
+		for($i=0;$i<count($pagevar['answers']);$i++):
+			$pagevar['answers'][$i]['date'] = $this->operation_date_on_time($pagevar['answers'][$i]['date']);
+		endfor;
+		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
+		$this->load->view("admin_interface/forum",$pagevar);
+	}
+	
+	public function delete_question(){
+		
+		$id = $this->uri->segment(6);
+		if($id):
+			$result = $this->mdorders->delete_record($id,'forum');
+			$this->session->set_userdata('msgs','Запись удалена успешно.');
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
+	public function delete_answer(){
+		
+		$id = $this->uri->segment(6);
+		if($id):
+			$result = $this->mdorders->delete_record($id,'forum');
+			$this->session->set_userdata('msgs','Запись удалена успешно.');
+			redirect($this->session->userdata('backpath'));
+		else:
+			show_404();
+		endif;
+	}
+	
+	
+	
 	public function closed_order(){
 		
 		$id = $this->uri->segment(6);

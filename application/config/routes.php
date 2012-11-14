@@ -20,6 +20,13 @@ $route['admin-panel/actions/orders/from/:num']		= "admin_interface/available_ord
 $route['admin-panel/actions/orders/delete/id/:num']	= "admin_interface/delete_order";
 $route['admin-panel/actions/orders/closed/id/:num']	= "admin_interface/closed_order";
 
+$route['admin-panel/actions/forum']					= "admin_interface/forum";
+$route['admin-panel/actions/forum/from']			= "admin_interface/forum";
+$route['admin-panel/actions/forum/from/:num']		= "admin_interface/forum";
+
+$route['admin-panel/actions/forum/delete-question/id/:num']	= "admin_interface/delete_question";
+$route['admin-panel/actions/forum/delete-answer/id/:num']	= "admin_interface/delete_answer";
+
 $route['admin-panel/actions/users']					= "admin_interface/actions_users";
 $route['admin-panel/actions/users/from']			= "admin_interface/actions_users";
 $route['admin-panel/actions/users/from/:num']		= "admin_interface/actions_users";
@@ -39,9 +46,13 @@ $route['admin-panel/actions/register/search']			= "admin_interface/search_regist
 $route['admin-panel/actions/register/delete/id/:num']	= "admin_interface/delete_register";
 
 /*************************************************** USERS INTRERFACE ***********************************************/
-$route['news']			= "users_interface/news";
+$route['news']				= "users_interface/news";
 
-$route['send-order']	= "users_interface/send_order";
+$route['forum']				= "users_interface/forum";
+$route['forum/from']		= "users_interface/forum";
+$route['forum/from/:num']	= "users_interface/forum";
+
+$route['send-order']		= "users_interface/send_order";
 
 $route['application-energy-audit']				= "users_interface/application_energy_audit";
 $route['application-passing-energy-performance']= "users_interface/application_passing_energy_performance";
