@@ -212,6 +212,23 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/forum",$pagevar);
 	}
 	
+	public function save_forum_text(){
+		
+		$statusval = array('status'=>FALSE,'retvalue'=>'');
+		$text = $this->input->post('text');
+		$type = $this->input->post('type');
+		$id = $this->input->post('id');
+		if(!$text || !$type || !$id):
+			show_404();
+		endif;
+		$model = 'md'.$type;
+		$result = $this->$model->update_field($id,'text',$text,$type);
+		if($result):
+			$statusval['status'] = TRUE;
+		endif;
+		echo json_encode($statusval);
+	}
+	
 	public function delete_question(){
 		
 		$id = $this->uri->segment(6);

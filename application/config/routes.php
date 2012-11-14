@@ -24,6 +24,8 @@ $route['admin-panel/actions/forum']					= "admin_interface/forum";
 $route['admin-panel/actions/forum/from']			= "admin_interface/forum";
 $route['admin-panel/actions/forum/from/:num']		= "admin_interface/forum";
 
+$route['admin-panel/actions/forum/save-text']		= "admin_interface/save_forum_text";
+
 $route['admin-panel/actions/forum/delete-question/id/:num']	= "admin_interface/delete_question";
 $route['admin-panel/actions/forum/delete-answer/id/:num']	= "admin_interface/delete_answer";
 
