@@ -72,7 +72,7 @@
 			$("#DelQuestion").click(function(){location.href='<?=$baseurl;?>admin-panel/actions/forum/delete-question/id/'+rID;});
 			
 			$(".editQuestion").click(function(){
-				$(".QText").show();$(".editQuestion").show();
+				$(".QText").css('color','#333333').show();$(".editQuestion").show();
 				question = $(this).attr("data-question");
 				var text = $(".QText[data-question='question"+question+"']").html();
 				$("#EditText").val(text);
@@ -92,10 +92,10 @@
 			function save_text(text,type,id){
 				$.post("<?=$baseurl;?>admin-panel/actions/forum/save-text",{'text':text,'type':type,'id':id},function(data){
 					if(data.status){
-						$(".QText[data-text="+id+"]").html(text).css('color','#00ff00');
+						$(".QText[data-text="+id+"]").html(text).css('color','#4B7CB7');
 						$(".QText").show();$(".editQuestion").show();$("#DivEditText").hide();
 					}else{
-						$(".QText[data-text="+id+"]").css('color','#ff0000');
+						$(".QText[data-text="+id+"]").css('color','#ca3632');
 						$(".QText").show();$(".editQuestion").show();$("#DivEditText").hide();
 					}
 				},"json");
