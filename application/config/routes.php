@@ -65,6 +65,8 @@ $route['forum/from']		= "users_interface/forum";
 $route['forum/from/:num']	= "users_interface/forum";
 
 $route['send-order']		= "users_interface/send_order";
+$route['send-order-audit']	= "users_interface/send_order_audit";
+$route['send-energy-passport']	= "users_interface/send_energy_passport";
 
 $route['login']				= "users_interface/login";
 $route['logoff']			= "users_interface/logoff";

@@ -327,7 +327,7 @@ table {
 a.doc-scan {background: #fff; padding: 5px; border: 1px solid #CCC; -webkit-box-shadow: 0 0 5px #CCC; -moz-box-shadow: 0 0 5px #CCC; box-shadow: 0 0 5px #CCC; display: inline-block; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; margin: 0 15px 15px 0; }
 ol li {margin-bottom: 0.5em;}
 table th {text-align: left !important;}
-/*fieldset {border: 1px solid #CCC; padding: 12px; width: 445px;}*/
+table th fieldset {border: 1px solid #CCC; padding: 12px; width: 445px;}
 legend {padding: 0 5px;}
 .sidebar ul {margin-bottom: 2em;}
 .banner-link {display: inline-block; margin: 0.5em 0 0; -webkit-border: 1px solid  #E0E0E0; -moz-border: 1px solid  #E0E0E0; border: 1px solid  #E0E0E0; background:  white; padding: 4px 4px 1px; border-radius: 2px;}
@@ -380,11 +380,12 @@ h2.forum-question { color: #4B7CB7; margin: 0; display: inline-block; float: lef
 #AddQuestion { display: block; background: #4B7CB7; color: #fff; border: 1px solid #4B7CB7; border-radius: 2px; padding: 0.5em 1em; margin-top: 1em; cursor: pointer; text-decoration: none; display: inline-block; }
 .HideAnswers { float: left; margin: 0.5em 1em 0 0	; }
 .DivAnswers { margin: 1.5em 0 0; } 
-#DivAddAnswer fieldset, #DivAddQuestion fieldset, #formOrderAudit fieldset{ border: 0 none; margin: 1em 0 0; border-left: 1px dotted #ccc; padding-left: 1em; }
-#DivAddAnswer textarea, #DivAddQuestion textarea, #formOrderAudit textarea{ width: 30em; height: 8em; border: 1px solid #ccc; padding: 0.4em;  }
+#DivAddAnswer fieldset, #DivAddQuestion fieldset, #formOrderAudit fieldset, #formEnergoPassport fieldset{ border: 0 none; margin: 1em 0 0; border-left: 1px dotted #ccc; padding-left: 1em; }
+#DivAddAnswer textarea, #DivAddQuestion textarea, #formOrderAudit textarea, #formEnergoPassport textarea{ width: 30em; height: 8em; border: 1px solid #ccc; padding: 0.4em;  }
 .form-actions { border-left: 1px dotted #ccc; padding: 1em 0 0 1em; margin-bottom: 1em; }
 .form-actions button { padding: 0.25em 0.75em; margin: 0 0.25em 0 0; cursor: pointer; text-decoration: none; display: inline-block; }
-#DivAddQuestion label,#formOrderAudit label { display: block; font-weight: bold; color: #999; margin: 0 0 0.25em;  }
+#DivAddQuestion label,#formOrderAudit label,#formEnergoPassport label { display: block; font-weight: bold; color: #999; margin: 0 0 0.25em;  }
+.ShowFullText, .HideFullText { text-decoration: none; display: inline-block; margin: 0.75em 0 0.25; border-bottom: 1px dotted; line-height: 1.25em; }
 
 /* PAGINATION
 ----------------------------------------------------------------------------------------*/

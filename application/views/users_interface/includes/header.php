@@ -14,9 +14,9 @@
 				<li><?=anchor('','Вход для членов СРО',array('id'=>'action-enter','class'=>'none globalnav__сolored'));?></li>
 			<?php else:?>
 				<?php if($this->user['admin']):?>
-				<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+				<li><?=anchor('admin-panel/actions/orders','Личный кабинет',array('id'=>'action-cabinet','class'=>'globalnav__сolored'));?></li>
 				<?php else:?>
-				<li><?=anchor('cabinet/orders','Личный кабинет',array('id'=>'action-cabinet'));?></li>
+				<li><?=anchor('cabinet/orders','Личный кабинет',array('id'=>'action-cabinet','class'=>'globalnav__сolored'));?></li>
 				<?php endif;?>
 			<?php endif;?>
 		</ul>

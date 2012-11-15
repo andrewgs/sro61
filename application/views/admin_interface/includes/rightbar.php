@@ -7,7 +7,7 @@
 			<li num="forum"><?=anchor('admin-panel/actions/forum','Форум');?></li>
 			<li num="news"><?=anchor('admin-panel/actions/news','Новости');?></li>
 			<li class="nav-header">Действия</li>
-			<li num="profile"><?=anchor('admin-panel/actions/profile','Смена пароля ');?></li>
+			<!-- <li num="profile"><?=anchor('admin-panel/actions/profile','Смена пароля ');?></li> -->
 			<li><?=anchor('logoff','Завершить сеанс');?></li>
 		</ul>
 	</div>

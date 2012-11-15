@@ -46,6 +46,74 @@ class Users_interface extends MY_Controller{
 		echo json_encode($statusval);
 	}
 	
+	public function send_order_audit(){
+		
+		$statusval = array('status'=>FALSE,'message'=>'Ваша заявка принята');
+		$data = trim($this->input->post('postdata'));
+		if(!$data):
+			show_404();
+		endif;
+		$data = preg_split("/&/",$data);
+		for($i=0;$i<count($data);$i++):
+			$dataid = preg_split("/=/",$data[$i]);
+			$dataval[$i] = $dataid[1];
+		endfor;
+		if($dataval):
+			$this->mdorders->insert_record($dataval);
+			ob_start();
+			?>
+			<img src="<?=base_url();?>images/logo.png" alt="" />
+			<p>Название организации / контактное лицо: <?=$dataval[0];?></p>
+			<p>Email: <?=$dataval[1];?></p>
+			<p>Телефон для связи: <?=$dataval[2];?></p>
+			<p>Федеральный округ: <?=$dataval[3];?></p>
+			<p>Область, населенный пункт: <?=$dataval[4];?></p>
+			<p>Описание объекта (название, площадь объекта, ТЭР):<br/> <?=$dataval[5];?></p>
+			<p>Заказать полный сметный расчет (услуга платная): <?=$dataval[6];?></p>
+			<?
+			$mailtext = ob_get_clean();
+			$statusval['status'] = $this->send_mail('sro61@mail.ru','robot@sro61.ru','СРО «Энергоаудит»','Заявка на проведение энергоаудита',$mailtext);
+		endif;
+		echo json_encode($statusval);
+	}
+	
+	public function send_energy_passport(){
+		
+		$statusval = array('status'=>FALSE,'message'=>'Ваша заявка принята');
+		$data = trim($this->input->post('postdata'));
+		if(!$data):
+			show_404();
+		endif;
+		$data = preg_split("/&/",$data);
+		for($i=0;$i<count($data);$i++):
+			$dataid = preg_split("/=/",$data[$i]);
+			$dataval[$i] = $dataid[1];
+		endfor;
+		if($dataval):
+			$this->mdorders->insert_record($dataval);
+			ob_start();
+			?>
+			<img src="<?=base_url();?>images/logo.png" alt="" />
+			<p>Номер Организации в Реестре СРО (№ свидетельства о членстве в СРО): <?=$dataval[0];?></p>
+			<p>Вид Энергетического обследования: <?=$dataval[1];?></p>
+			<p>Дата заключения договора на проведение энергетического обследования: <?=$dataval[2].'.'.$dataval[3].'.'.$dataval[4];?></p>
+			<p>Номер договора на проведение энергетического обследования: <?=$dataval[5];?></p>
+			<p>Наименование организации Заказчика проведения Энергетического обследования: <?=$dataval[6];?></p>
+			<p>Стоимость Договора на проведение Энергетического обследования (в тыс.руб.):<br/> <?=$dataval[7];?></p>
+			<p>Форма собственности объекта энергооследования: <?=$dataval[8];?></p>
+			<p>Стоимость договора на экспертизу паспорта: <?=$dataval[9];?></p>
+			<p>Характеристика объекта энергетического обследования (энергоаудита): <?=$dataval[10];?></p>
+			<p>Площадь обследуемого объекта (в кв. метрах): <?=$dataval[11];?></p>
+			<p>Стоимость потребления топливно-энергетических ресурсов (ТЭР) за год. (в тыс.руб.): <?=$dataval[12];?></p>
+			<p>E-mail заявителя: <?=$dataval[13];?></p>
+			<p>Контактный телефон: <?=$dataval[14];?></p>
+			<?
+			$mailtext = ob_get_clean();
+			$statusval['status'] = $this->send_mail('sro61@mail.ru','robot@sro61.ru','СРО «Энергоаудит»','Заявка на проведение энергоаудита',$mailtext);
+		endif;
+		echo json_encode($statusval);
+	}
+	
 	public function pages($page_url = ''){
 		
 		$page_data = $this->mdpages->read_fields_url($page_url,'*','pages');

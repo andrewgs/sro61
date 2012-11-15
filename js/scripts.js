@@ -28,6 +28,8 @@ function backpath(path){window.location=path;}
 
 (function($){
 	var baseurl = "http://sro61/";
+//	var baseurl = "http://sro61.ru/";
+//	var baseurl = "http://dev.realitygroup.ru/sro61/";
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
 	$(".digital").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && (e.which<48 || e.which>57)){return false;}});
@@ -75,33 +77,75 @@ function backpath(path){window.location=path;}
 		$("div.become-enter").toggle();
 		$(".become-enter fieldset").removeClass("validate");
 	});
-	$("#ShowOrderAudit").click(function(){
+	$("#ShowFormOrder").click(function(){
+		var scrolling = $(this).attr("data-scroll");
+		$(this).next('em').remove();
 		$(this).hide();
-		$("#DivOrderAudit").show();
+		$("#DivOrder").show();
+		$("html, body").animate({scrollTop:scrolling},"slow");
 	});
-	$("#AbortOrderAudit").click(function(){
-		$("#DivOrderAudit").hide();
-		$("#ShowOrderAudit").show();
+	$("#AbortFormOrder").click(function(){
+		$(".help-inline").hide();
+		$("#DivOrder").hide();
+		$("#ShowFormOrder").show();
+		$("html, body").animate({scrollTop:'0'},"slow");
+		
 	});
-	$("#addOderAudit").click(function(){
+	$("#addOderAudit").click(function(event){
 		var err = false;
 		event.preventDefault();
-		$("#formOrderAudit fieldset").removeClass("validate");
-		$(".become-enter .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
+		$(".help-inline").hide();
+		
+		$("#formOrderAudit .valid-required").each(function(i,element){if($(this).val()==''){$(this).next(".help-inline").html("Поле не может быть пустым").show();err = true;}});
+		if(!err && !isValidEmailAddress($("#formOrderAudit .valid-email").val())){$("#formOrderAudit .valid-email").next(".help-inline").html("Не верный Email").show();err = true;}
+		if(!err && !isValidPhone($("#formOrderAudit .valid-phone").val())){$("#formOrderAudit .valid-phone").next(".help-inline").html("Не верный номер").show();err = true;}
 		if(!err){
-			var postdata = myserialize($(".become-enter .FieldSend"));
-			$.post(baseurl+"login",{'postdata':postdata},
+			var postdata = myserialize($("#formOrderAudit .FieldSend"));
+			$.post(baseurl+"send-order-audit",{'postdata':postdata},
 				function(data){
 					if(data.status){
-						$(".become-enter").remove();
-						$("#action-enter").replaceWith(data.newlink);
-					}else{
-						$(".become-enter .FieldSend").parents("fieldset").addClass('validate');
-						$(".become-enter em").html(data.message).show();
+						$("#formOrderAudit .valid-required").val('');
+						$("#ShowFormOrder").after('<em style="margin-left:10px;">'+data.message+'<em>')
+						$("#DivOrder").hide();
+						$("#ShowFormOrder").show();
+						$("html, body").animate({scrollTop:'0'},"slow");
 					}
 				}
 			,"json");
 		}
 	});
+	
+	$("#addEnergoPassport").click(function(event){
+		var err = false;
+		event.preventDefault();
+		$(".help-inline").hide();
+		
+		$("#formEnergoPassport .valid-required").each(function(i,element){if($(this).val()==''){$(this).next(".help-inline").html("Поле не может быть пустым").show();err = true;}});
+		if(!err && !isValidEmailAddress($("#formEnergoPassport .valid-email").val())){$("#formEnergoPassport .valid-email").next(".help-inline").html("Не верный Email").show();err = true;}
+		if(!err && !isValidPhone($("#formEnergoPassport .valid-phone").val())){$("#formEnergoPassport .valid-phone").next(".help-inline").html("Не верный номер").show();err = true;}
+		if(!err){
+			var postdata = myserialize($("#formEnergoPassport .FieldSend"));
+			$.post(baseurl+"send-energy-passport",{'postdata':postdata},
+				function(data){
+					if(data.status){
+						$("#formEnergoPassport .valid-required").val('');
+						$("#ShowFormOrder").after('<em style="margin-left:10px;">'+data.message+'<em>')
+						$("#DivOrder").hide();
+						$("#ShowFormOrder").show();
+						$("html, body").animate({scrollTop:'0'},"slow");
+					}
+				}
+			,"json");
+		}
+	});
+	$("#formEnergoPassport input[type='radio']:checked").addClass("FieldSend");
+	$(".RType").click(function(){Set_FieldSend($(".RType"),this);});
+	$(".RForma").click(function(){Set_FieldSend($(".RForma"),this);});
+	$(".RProperties").click(function(){Set_FieldSend($(".RProperties"),this);});
+	
+	function Set_FieldSend(objects,the_this){
+		$(objects).removeClass("FieldSend");
+		$(the_this).addClass("FieldSend");
+	}
 	
 })(window.jQuery);
