@@ -61,17 +61,8 @@ function backpath(path){window.location=path;}
 		$(".become-enter .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
 		if(!err){
 			var postdata = myserialize($(".become-enter .FieldSend"));
-			$.post(baseurl+"login",{'postdata':postdata},
-				function(data){
-					if(data.status){
-						$(".become-enter").remove();
-						$("#action-enter").replaceWith(data.newlink);
-					}else{
-						$(".become-enter .FieldSend").parents("fieldset").addClass('validate');
-						$(".become-enter em").html(data.message).show();
-					}
-				}
-			,"json");
+			$.post(baseurl+"login",{'postdata':postdata},function(data){if(data.status){$(".become-enter").remove();$("#action-enter").replaceWith(data.newlink);
+			}else{$(".become-enter .FieldSend").parents("fieldset").addClass('validate');$(".become-enter em").html(data.message).show();}},"json");
 		}
 	});
 	$("#action-order").click(function(e){
@@ -87,6 +78,30 @@ function backpath(path){window.location=path;}
 	$("#ShowOrderAudit").click(function(){
 		$(this).hide();
 		$("#DivOrderAudit").show();
+	});
+	$("#AbortOrderAudit").click(function(){
+		$("#DivOrderAudit").hide();
+		$("#ShowOrderAudit").show();
+	});
+	$("#addOderAudit").click(function(){
+		var err = false;
+		event.preventDefault();
+		$("#formOrderAudit fieldset").removeClass("validate");
+		$(".become-enter .valid-required").each(function(i,element){if($(this).val()==''){$(this).parents("fieldset").addClass('validate');err = true;}});
+		if(!err){
+			var postdata = myserialize($(".become-enter .FieldSend"));
+			$.post(baseurl+"login",{'postdata':postdata},
+				function(data){
+					if(data.status){
+						$(".become-enter").remove();
+						$("#action-enter").replaceWith(data.newlink);
+					}else{
+						$(".become-enter .FieldSend").parents("fieldset").addClass('validate');
+						$(".become-enter em").html(data.message).show();
+					}
+				}
+			,"json");
+		}
 	});
 	
 })(window.jQuery);
