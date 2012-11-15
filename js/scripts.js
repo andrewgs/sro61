@@ -84,11 +84,9 @@ function backpath(path){window.location=path;}
 		$("div.become-enter").toggle();
 		$(".become-enter fieldset").removeClass("validate");
 	});
-	// не работает
-	$(document.body).click(function(e){
-		if(e.target == this){
-			$("div.popup").hide();
-		}
+	$("#ShowOrderAudit").click(function(){
+		$(this).hide();
+		$("#DivOrderAudit").show();
 	});
 	
 })(window.jQuery);
