@@ -12,12 +12,14 @@
 				<?php for($i=0;$i<count($allnews);$i++):?>
 					<a name="<?=$allnews[$i]['translit'];?>"></a>
 					<h2><?=$allnews[$i]['title'];?> <span class="news-date"><?=$allnews[$i]['date'];?></span></h2>
-					<div class=""><?=$allnews[$i]['small_text'];?></div>
-					<a href="" class="ShowFullText none" data-news="<?=$allnews[$i]['id'];?>">Читать полностью &darr;</a>
-					<div class="FullText" data-news="news<?=$allnews[$i]['id'];?>" style="display:none;">
-						<p><?=$allnews[$i]['text'];?></p>
-						<a href="" class="HideFullText none" data-news="<?=$allnews[$i]['id'];?>">Скрыть текст &uarr;</a>
-					</div>
+					<p><?=$allnews[$i]['small_text'];?></p>
+					<?  if (strlen($allnews[$i]['text']) > 5):  ?>
+						<a href="" class="ShowFullText none" data-news="<?=$allnews[$i]['id'];?>">Читать полностью</a>
+						<div class="FullText" data-news="news<?=$allnews[$i]['id'];?>" style="display:none;">
+							<p><?=$allnews[$i]['text'];?></p>
+							<a href="" class="HideFullText none" data-news="<?=$allnews[$i]['id'];?>">Скрыть текст</a>
+						</div>
+					<? endif; ?>
 					<div class="sep"> </div>
 				<?php endfor;?>
 				<?php if($pages): ?>
