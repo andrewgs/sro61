@@ -1,12 +1,12 @@
 <?=form_open_multipart($this->uri->uri_string(),array('id'=>'formAddQuestion')); ?>
 	<fieldset>
-		<label for="name " class="control-label">Ваше имя: </label>
+		<label for="name" class="control-label">Ваше имя: </label>
 		<input type="text" class="valid-required" name="name" placeholder="Введите имя" value="<?=($this->loginstatus)?$this->user['name']:'';?>">
 		<span class="help-inline" style="display:none;">&nbsp;</span><br/>
-		<label for="email " class="control-label">Email: </label>
+		<label for="email" class="control-label">Email: </label>
 		<input type="text" class="valid-required valid-email" name="email" placeholder="Введите Email" value="<?=($this->loginstatus)?$this->user['email']:'';?>">
 		<span class="help-inline" style="display:none;">&nbsp;</span><br/>
-		<label for="text " class="control-label">Вопрос: </label>
+		<label for="text" class="control-label">Вопрос: </label>
 		<textarea class="valid-required" name="text" placeholder="Введите текст вопроса"></textarea>
 		<span class="help-inline" style="display:none;">&nbsp;</span><br/>
 	</fieldset>

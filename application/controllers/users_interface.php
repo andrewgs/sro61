@@ -26,6 +26,7 @@ class Users_interface extends MY_Controller{
 			$dataval[$i] = $dataid[1];
 		endfor;
 		if($dataval):
+			$this->mdorders->insert_record($dataval);
 			ob_start();
 			?>
 			<img src="<?=base_url();?>images/logo.png" alt="" />
@@ -40,7 +41,6 @@ class Users_interface extends MY_Controller{
 			$users = $this->mdusers->read_records('users');
 			for($i=0;$i<count($users);$i++):
 				$statusval['status'] = $this->send_mail($users[$i]['email'],'robot@sro61.ru','СРО «Энергоаудит»','Новая заявка на sro61.ru',$mailtext);
-				$this->mdorders->insert_record($dataval);
 			endfor;
 		endif;
 		echo json_encode($statusval);

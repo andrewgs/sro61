@@ -234,7 +234,7 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/available-orders",$pagevar);
 	}
 	
-	public function order_delete(){
+	public function delete_order(){
 		
 		$id = $this->uri->segment(6);
 		if($id):
