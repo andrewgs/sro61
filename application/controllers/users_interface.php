@@ -163,6 +163,59 @@ class Users_interface extends MY_Controller{
 		$this->load->view("users_interface/news",$pagevar);
 	}
 	
+	public function register_members(){
+	
+		$from = intval($this->uri->segment(3));
+		$pagevar = array(
+			'title'			=> 'СРО НП «Энергоаудит» в Ростове, Элисте, Краснодаре, Сочи: энергетический паспорт, энергетическое обследование',
+			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
+			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
+			'baseurl' 		=> base_url(),
+			'register'		=> $this->mdusers->read_limit_members(25,$from),
+			'news' 			=> NULL,
+			'pages'			=> array(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr')
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$pagevar['pages'] = $this->pagination('register-members',3,$this->mdusers->count_members(),25);
+		
+		$this->load->view("users_interface/register-members",$pagevar);
+	}
+	
+	public function register_passports(){
+	
+		$from = intval($this->uri->segment(3));
+		$pagevar = array(
+			'title'			=> 'СРО НП «Энергоаудит» в Ростове, Элисте, Краснодаре, Сочи: энергетический паспорт, энергетическое обследование',
+			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
+			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
+			'baseurl' 		=> base_url(),
+			'passports'		=> $this->mdunion->read_passports(25,$from),
+			'news' 			=> NULL,
+			'pages'			=> array(),
+			'msgs'			=> $this->session->userdata('msgs'),
+			'msgr'			=> $this->session->userdata('msgr')
+		);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$pagevar['pages'] = $this->pagination('register-passports',3,$this->mdregister->count_all_records('register'),25);
+		
+		$organization = $this->mdorganization->read_records('organization');
+		
+		for($i=0;$i<count($pagevar['passports']);$i++):
+			for($j=0;$j<count($organization);$j++):
+				if($pagevar['passports'][$i]['organization'] == $organization[$j]['id']):
+					$pagevar['passports'][$i]['organization'] = $organization[$j]['title'];
+				endif;
+			endfor;
+		endfor;
+		$this->load->view("users_interface/register-passports",$pagevar);
+	}
+	
 	public function forum(){
 		
 		$from = intval($this->uri->segment(3));

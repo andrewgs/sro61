@@ -465,7 +465,7 @@ class Admin_interface extends MY_Controller{
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
-					'users'			=> $this->mdusers->read_limit_records(3,$from,'users'),
+					'users'			=> $this->mdusers->read_limit_records(10,$from,'users'),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
@@ -473,7 +473,7 @@ class Admin_interface extends MY_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
-		$pagevar['pages'] = $this->pagination('admin-panel/actions/users',5,$this->mdusers->count_all_records('users'),3);
+		$pagevar['pages'] = $this->pagination('admin-panel/actions/users',5,$this->mdusers->count_all_records('users'),10);
 		
 		for($i=0;$i<count($pagevar['users']);$i++):
 			$pagevar['users'][$i]['password'] = $this->encrypt->decode($pagevar['users'][$i]['cryptpassword']);
@@ -497,8 +497,11 @@ class Admin_interface extends MY_Controller{
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
 			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('grn',' ','required|trim');
+			$this->form_validation->set_rules('inn',' ','required|trim');
+			$this->form_validation->set_rules('number',' ','required|trim');
 			$this->form_validation->set_rules('address',' ','required|trim');
-			$this->form_validation->set_rules('phones',' ','required|trim');
+			$this->form_validation->set_rules('phones',' ','trim');
 			$this->form_validation->set_rules('login',' ','required|trim');
 			$this->form_validation->set_rules('password',' ','required|trim');
 			if(!$this->form_validation->run()):

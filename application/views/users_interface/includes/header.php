@@ -4,7 +4,7 @@
 			<li><?=anchor('','СРО НП «Энергоаудит»',array('class'=>'globalnav__active'));?></li>
 			<li><?=anchor('documents','Документы');?></li>
 			<li><?=anchor('register-members','Реестр членов');?></li>
-			<li><?=anchor('register-energy-performance','Реестр Энергопаспортов',array('title'=>'Обучение'));?></li>
+			<li><?=anchor('register-passports','Реестр Энергопаспортов',array('title'=>'Обучение'));?></li>
 			<li><?=anchor('forum','Вопрос &ndash; ответ',array('title'=>'Задайте вопрос энергоаудитору'));?></li>
 		</ul>
 		<ul class="assorted">

@@ -68,6 +68,14 @@ $route['send-order']		= "users_interface/send_order";
 $route['send-order-audit']	= "users_interface/send_order_audit";
 $route['send-energy-passport']	= "users_interface/send_energy_passport";
 
+$route['register-members']			= "users_interface/register_members";
+$route['register-members/from']		= "users_interface/register_members";
+$route['register-members/from/:num']= "users_interface/register_members";
+
+$route['register-passports']			= "users_interface/register_passports";
+$route['register-passports/from']		= "users_interface/register_passports";
+$route['register-passports/from/:num']	= "users_interface/register_passports";
+
 $route['login']				= "users_interface/login";
 $route['logoff']			= "users_interface/logoff";
 $route[':any']				= "users_interface/index";

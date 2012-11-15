@@ -4,6 +4,11 @@ class Mdusers extends MY_Model{
 
 	var $id   			= 0;
 	var $organization	= '';
+	var $access			= 1;
+	var $grn			= '';
+	var $inn			= '';
+	var $number			= '';
+	
 	var $login 			= '';
 	var $address		= '';
 	var $email			= '';
@@ -19,6 +24,9 @@ class Mdusers extends MY_Model{
 	function insert_record($data){
 
 		$this->organization 	= $data['organization'];
+		$this->grn 				= $data['grn'];
+		$this->inn 				= $data['inn'];
+		$this->number 			= $data['number'];
 		$this->address 			= $data['address'];
 		$this->login 			= $data['login'];
 		$this->cryptpassword	= $this->encrypt->encode($data['password']);
@@ -29,29 +37,6 @@ class Mdusers extends MY_Model{
 		
 		$this->db->insert('users',$this);
 		return $this->db->insert_id();
-	}
-	
-	function update_record($data){
-		
-		if(isset($data['password'])):
-			$this->db->set('password',md5($data['password']));
-			$this->db->set('cryptpassword',$this->encrypt->encode($data['password']));
-		endif;
-		if(isset($data['email'])):
-			$this->db->set('email',$data['email']);
-		endif;
-		if(isset($data['phones'])):
-			$this->db->set('phones',$data['phones']);
-		endif;
-		if(isset($data['address'])):
-			$this->db->set('address',$data['address']);
-		endif;
-		if(isset($data['organization'])):
-			$this->db->set('organization',$data['organization']);
-		endif;
-		$this->db->where('id',$data['uid']);
-		$this->db->update('users');
-		return $this->db->affected_rows();
 	}
 	
 	function auth_user($login,$password){
@@ -72,4 +57,26 @@ class Mdusers extends MY_Model{
 		if(count($data)) return $data[0]['id'];
 		return FALSE;
 	}
+
+	function read_limit_members($count,$from){
+		
+		$this->db->where("id >",1);
+		$this->db->order_by('organization','ASC');
+		$this->db->limit($count,$from);
+		$query = $this->db->get('users');
+		$data = $query->result_array();
+		if(count($data)) return $data;
+		return NULL;
+	}
+	
+	function count_members(){
+		
+		$this->db->select("COUNT(*) AS cnt");
+		$this->db->where("id >",1);
+		$query = $this->db->get('users');
+		$data = $query->result_array();
+		if(isset($data[0])) return $data[0]['cnt'];
+		return 0;
+	}
+	
 }
