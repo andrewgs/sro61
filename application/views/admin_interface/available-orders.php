@@ -16,8 +16,8 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w200"><center>Пользователь</center></th>
-							<th class="w600"><center>Содержание</center></th>
+							<th class="w200">Пользователь</th>
+							<th class="w600">Содержание</th>
 							<th class="w50">&nbsp;</th>
 						</tr>
 					</thead>

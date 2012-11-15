@@ -102,4 +102,13 @@ class MY_Model extends CI_Model{
 		if(count($data)) return $data;
 		return NULL;
 	}
+	
+	function return_image($id,$field,$table){
+		
+		$this->db->where('id',$id);
+		$this->db->select($field);
+		$query = $this->db->get($table);
+		$data = $query->result_array();
+		return $data[0][$field];
+	}
 }

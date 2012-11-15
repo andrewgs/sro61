@@ -29,6 +29,14 @@ $route['admin-panel/actions/forum/save-text']		= "admin_interface/save_forum_tex
 $route['admin-panel/actions/forum/delete-question/id/:num']	= "admin_interface/delete_question";
 $route['admin-panel/actions/forum/delete-answer/id/:num']	= "admin_interface/delete_answer";
 
+$route['admin-panel/actions/news']					= "admin_interface/news";
+$route['admin-panel/actions/news/from']				= "admin_interface/news";
+$route['admin-panel/actions/news/from/:num']		= "admin_interface/news";
+
+$route['admin-panel/actions/news/add']				= "admin_interface/add_new";
+$route['admin-panel/actions/news/edit/id/:num'] 	= "admin_interface/edit_news";
+$route['admin-panel/actions/news/delete/id/:num'] 	= "admin_interface/delete_news";
+
 $route['admin-panel/actions/users']					= "admin_interface/actions_users";
 $route['admin-panel/actions/users/from']			= "admin_interface/actions_users";
 $route['admin-panel/actions/users/from/:num']		= "admin_interface/actions_users";
@@ -49,6 +57,8 @@ $route['admin-panel/actions/register/delete/id/:num']	= "admin_interface/delete_
 
 /*************************************************** USERS INTRERFACE ***********************************************/
 $route['news']				= "users_interface/news";
+$route['news/from']			= "users_interface/news";
+$route['news/from/:num']	= "users_interface/news";
 
 $route['forum']				= "users_interface/forum";
 $route['forum/from']		= "users_interface/forum";

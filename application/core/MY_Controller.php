@@ -17,6 +17,7 @@ class MY_Controller extends CI_Controller{
 		$this->load->model('mdorganization');
 		$this->load->model('mdquestions');
 		$this->load->model('mdanswers');
+		$this->load->model('mdnews');
 		
 		$cookieuid = $this->session->userdata('logon');
 		if(isset($cookieuid) and !empty($cookieuid)):

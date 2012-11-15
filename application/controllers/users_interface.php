@@ -71,18 +71,27 @@ class Users_interface extends MY_Controller{
 	}
 	
 	public function news(){
-		
+	
+		$from = intval($this->uri->segment(3));
 		$pagevar = array(
 			'title'			=> 'СРО НП «Энергоаудит» в Ростове, Элисте, Краснодаре, Сочи: энергетический паспорт, энергетическое обследование',
 			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
 			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
 			'baseurl' 		=> base_url(),
+			'allnews'		=> $this->mdnews->read_limit_records(5,$from,'news','id','DESC'),
 			'news' 			=> array(),
+			'pages'			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr')
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
+		
+		$pagevar['pages'] = $this->pagination('news',3,$this->mdnews->count_all_records('news'),5);
+		
+		for($i=0;$i<count($pagevar['allnews']);$i++):
+			$pagevar['allnews'][$i]['date'] = $this->operation_dot_date($pagevar['allnews'][$i]['date']);
+		endfor;
 		
 		$this->load->view("users_interface/news",$pagevar);
 	}
@@ -95,7 +104,7 @@ class Users_interface extends MY_Controller{
 			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
 			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
 			'baseurl' 		=> base_url(),
-			'questions'		=> $this->mdquestions->read_limit_records(2,$from,'questions','id','DESC'),
+			'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions','id','DESC'),
 			'answers' 		=> array(),
 			'news' 			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
@@ -147,7 +156,7 @@ class Users_interface extends MY_Controller{
 			endif;
 		endif;
 		
-		$pagevar['pages'] = $this->pagination('forum',3,$this->mdquestions->count_all_records('questions'),2);
+		$pagevar['pages'] = $this->pagination('forum',3,$this->mdquestions->count_all_records('questions'),10);
 		$pagevar['answers'] = $this->mdanswers->read_records_by_questions($pagevar['questions']);
 		for($i=0;$i<count($pagevar['questions']);$i++):
 			$pagevar['questions'][$i]['date'] = $this->operation_date_on_time($pagevar['questions'][$i]['date']);
