@@ -201,7 +201,7 @@ class Users_interface extends MY_Controller{
 	
 	public function login(){
 		
-		$statusval = array('status'=>FALSE,'message'=>'Авторизация не возможна','newlink'=>'');
+		$statusval = array('status'=>FALSE,'message'=>'Авторизация невозможна','newlink'=>'');
 		$data = trim($this->input->post('postdata'));
 		if(!$data):
 			show_404();
