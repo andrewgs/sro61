@@ -18,13 +18,15 @@
 		<li><?=anchor('energosmeta','Энергосмета',array('title'=>'Сметный расчет'));?></li>
 		<li><?=anchor('contacts','Контакты',array('title'=>'Контакты'));?></li>
 	</ul>
+	<?php if(isset($news)):?>
 	<div class="news_bar">
 		<span class="news_hed h2"><?=anchor('news','Новости');?></span>
 	<?php for($i=0;$i<count($news);$i++):?>
 		<span class="news_date"><?=$news[$i]['date'];?></span>
-		<?=anchor('news/'.$news[$i]['translit'],$news[$i]['title'],array('class'=>'a_news'));?>
+		<?=anchor('news#'.$news[$i]['translit'],$news[$i]['title'],array('class'=>'a_news'));?>
 	<?php endfor;?>
 	</div>
+	<?php endif;?>
 	<a class="banner-link" href="http://energoauditsro.ru/zakazchiku/onlinecalculator" target="_blank"><img src="<?=$baseurl;?>images/calc31.jpg" width="220"></a><br>
 	<a class="banner-link" href="http://energoauditsro.ru/?id=598" target="_blank"><img src="<?=$baseurl;?>images/popr.jpg" width="220"></a><br>
 </div>

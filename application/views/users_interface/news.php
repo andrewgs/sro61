@@ -10,6 +10,7 @@
 				<div id="content">
 					<h1>Новости</h1>
 				<?php for($i=0;$i<count($allnews);$i++):?>
+					<a name="<?=$allnews[$i]['translit'];?>"></a>
 					<h2><?=$allnews[$i]['title'];?> <span class="news-date"><?=$allnews[$i]['date'];?></span></h2>
 					<div class=""><?=$allnews[$i]['small_text'];?></div>
 					<a href="" class="ShowFullText none" data-news="<?=$allnews[$i]['id'];?>">Читать полностью &darr;</a>

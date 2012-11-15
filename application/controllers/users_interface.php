@@ -60,13 +60,12 @@ class Users_interface extends MY_Controller{
 			'keywords'		=> $page_data['keywords'],
 			'content'		=> $page_data['content'],
 			'baseurl' 		=> base_url(),
-			'news' 			=> array(),
+			'news' 			=> $this->mdnews->read_limit_records(3,0,'news','id','DESC'),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr')
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
-		
 		$this->load->view("users_interface/pages",$pagevar);
 	}
 	
@@ -79,7 +78,7 @@ class Users_interface extends MY_Controller{
 			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
 			'baseurl' 		=> base_url(),
 			'allnews'		=> $this->mdnews->read_limit_records(5,$from,'news','id','DESC'),
-			'news' 			=> array(),
+			'news' 			=> NULL,
 			'pages'			=> array(),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr')
@@ -106,7 +105,7 @@ class Users_interface extends MY_Controller{
 			'baseurl' 		=> base_url(),
 			'questions'		=> $this->mdquestions->read_limit_records(10,$from,'questions','id','DESC'),
 			'answers' 		=> array(),
-			'news' 			=> array(),
+			'news' 			=> $this->mdnews->read_limit_records(3,0,'news','id','DESC'),
 			'msgs'			=> $this->session->userdata('msgs'),
 			'msgr'			=> $this->session->userdata('msgr')
 		);
@@ -166,40 +165,6 @@ class Users_interface extends MY_Controller{
 		endfor;
 		
 		$this->load->view("users_interface/forum",$pagevar);
-	}
-	
-	public function application_energy_audit(){
-		
-		$pagevar = array(
-			'title'			=> 'СРО НП «Энергоаудит» в Ростове, Элисте, Краснодаре, Сочи: энергетический паспорт, энергетическое обследование',
-			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
-			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
-			'baseurl' 		=> base_url(),
-			'news' 			=> array(),
-			'msgs'			=> $this->session->userdata('msgs'),
-			'msgr'			=> $this->session->userdata('msgr')
-		);
-		$this->session->unset_userdata('msgs');
-		$this->session->unset_userdata('msgr');
-		
-		$this->load->view("users_interface/news",$pagevar);
-	}
-	
-	public function application_passing_energy_performance(){
-		
-		$pagevar = array(
-			'title'			=> 'СРО НП «Энергоаудит» в Ростове, Элисте, Краснодаре, Сочи: энергетический паспорт, энергетическое обследование',
-			'description'	=> 'СРО ЮФО – некоммерческая саморегулируемая организация в Ростове на Дону, которая предлагает оформить энергетический паспорт.',
-			'keywords'		=> 'сро юфо, вступить в, стоимость энергопаспорта, ростов на дону, энергосбережение, ставрополь, энергетический паспорт, краснодар, программа энергосбережения, сочи, обследования, астрахань, обязательное энергетическое обследование, пятигорск, энергоаудит, элиста, нп обинж энерго, майкоп, энергопаспорт, гильдия энергоаудиторов, волгоград, махачкала',
-			'baseurl' 		=> base_url(),
-			'news' 			=> array(),
-			'msgs'			=> $this->session->userdata('msgs'),
-			'msgr'			=> $this->session->userdata('msgr')
-		);
-		$this->session->unset_userdata('msgs');
-		$this->session->unset_userdata('msgr');
-		
-		$this->load->view("users_interface/news",$pagevar);
 	}
 	
 	public function logoff(){
