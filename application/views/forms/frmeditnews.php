@@ -18,14 +18,14 @@
 		<div class="control-group">
 			<label for="text" class="control-label">Содержание: </label>
 			<div class="controls">
-				<textarea rows="10" class="span6 input-valid redactor" name="text"><?=$news['text'];?></textarea>
+				<textarea rows="10" class="span6" name="text"><?=$news['text'];?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="small_text" class="control-label">Короткое содержание: </label>
 			<div class="controls">
-				<textarea rows="5" class="span6 input-valid redactor" name="small_text"><?=$news['small_text'];?></textarea>
+				<textarea rows="5" class="span6 input-valid" name="small_text"><?=$news['small_text'];?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

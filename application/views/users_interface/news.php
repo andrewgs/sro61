@@ -13,13 +13,13 @@
 					<a name="<?=$allnews[$i]['translit'];?>"></a>
 					<h2><?=$allnews[$i]['title'];?> <span class="news-date"><?=$allnews[$i]['date'];?></span></h2>
 					<p><?=$allnews[$i]['small_text'];?></p>
-					<?  if (strlen($allnews[$i]['text']) > 5):  ?>
+					<?php if(strlen($allnews[$i]['text']) > 5):?>
 						<a href="" class="ShowFullText none" data-news="<?=$allnews[$i]['id'];?>">Читать полностью</a>
 						<div class="FullText" data-news="news<?=$allnews[$i]['id'];?>" style="display:none;">
 							<p><?=$allnews[$i]['text'];?></p>
 							<a href="" class="HideFullText none" data-news="<?=$allnews[$i]['id'];?>">Скрыть текст</a>
 						</div>
-					<? endif; ?>
+					<?php endif; ?>
 					<div class="sep"> </div>
 				<?php endfor;?>
 				<?php if($pages): ?>

@@ -25,14 +25,14 @@
 		<div class="control-group">
 			<label for="phones " class="control-label">Телефон: </label>
 			<div class="controls">
-				<input type="text" class="span5 input-valid" name="phones" value="<?=set_value('phones ');?>">
+				<input type="text" class="span5" name="phones" value="<?=set_value('phones ');?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">
 			<label for="login " class="control-label">Логин: </label>
 			<div class="controls">
-				<input type="text" class="span5 input-valid" name="login" value="<?=set_value('login ');?>">
+				<input type="text" class="span5 input-valid " name="login" value="<?=set_value('login ');?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

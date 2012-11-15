@@ -8,6 +8,7 @@ class Mdquestions extends MY_Model{
 	var $date 		= '';
 	var $text 		= '';
 	var $comment 	= '';
+	var $user_ip 	= '';
 	
 	function __construct(){
 		parent::__construct();
@@ -20,6 +21,7 @@ class Mdquestions extends MY_Model{
 		$this->date		= date("Y-m-d H:i:s");
 		$this->text		= $data['text'];
 		$this->comment	= $data['comment'];
+		$this->user_ip	= $data['ip'];
 		
 		$this->db->insert('questions',$this);
 		return $this->db->insert_id();

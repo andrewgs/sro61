@@ -197,6 +197,7 @@ class Users_interface extends MY_Controller{
 				else:
 					$data['comment'] = '';
 				endif;
+				$data['ip'] = $_SERVER['REMOTE_ADDR'];
 				$this->mdquestions->insert_record($data);
 				$this->session->set_userdata('msgs','Запись создана успешно.');
 				redirect($this->uri->uri_string());
@@ -217,6 +218,7 @@ class Users_interface extends MY_Controller{
 				$data['name'] = $user['login'];
 				$data['email'] = $user['email'];
 				$data['comment'] = $user['organization'].' '.$user['phones'];
+				$data['ip'] = $_SERVER['REMOTE_ADDR'];
 				$this->mdanswers->insert_record($data);
 				$this->session->set_userdata('msgs','Запись создана успешно.');
 				redirect($this->uri->uri_string());
