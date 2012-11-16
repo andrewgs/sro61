@@ -55,6 +55,9 @@ $route['admin-panel/actions/register/edit/id/:num']		= "admin_interface/edit_reg
 $route['admin-panel/actions/register/search']			= "admin_interface/search_register";
 $route['admin-panel/actions/register/delete/id/:num']	= "admin_interface/delete_register";
 
+
+$route['admin-panel/actions/register/print/id/:num']	= "admin_interface/print_register";
+
 /*************************************************** USERS INTRERFACE ***********************************************/
 $route['news']				= "users_interface/news";
 $route['news/from']			= "users_interface/news";

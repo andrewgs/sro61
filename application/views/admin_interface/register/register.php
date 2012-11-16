@@ -44,6 +44,7 @@
 								<div id="params<?=$i;?>" style="display:none" data-rid="<?=$register[$i]['id'];?>"></div>
 								<?=anchor('admin-panel/actions/register/edit/id/'.$register[$i]['id'],'<i class="icon-white icon-edit"></i>',array('class'=>'btn btn-primary','title'=>'Редактировать'));?>
 								<a class="deleteRegister btn btn-danger" data-param="<?=$i;?>" data-toggle="modal" href="#deleteRegister" title="Удалить"><i class="icon-white icon-trash"></i></a>
+								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'],'<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank'))?>
 							</td>
 						</tr>
 					<?php endfor; ?>

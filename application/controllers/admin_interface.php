@@ -110,6 +110,21 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/register/register",$pagevar);
 	}
 	
+	public function print_register(){
+		
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'register'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		$this->load->view("admin_interface/register/print-register",$pagevar);
+	}
+	
+	
 	public function add_register(){
 		
 		$pagevar = array(
