@@ -8,9 +8,8 @@
 		<div id="middle">
 			<div id="container">
 				<div id="content">
-					<h1>Реестр членов</h1>
-					<table border="1">
-						<caption>Реестр членов саморегулируемой организаций в области энергетического обследования СРО НП «Энергоаудит»</caption>
+					<h1>Реестр членов саморегулируемой организаций в области энергетического обследования СРО НП «Энергоаудит»</h1>
+					<table class="table table-bordered table-condensed table-hover table-striped">
 						<thead>
 							<tr>
 								<th>№ в реестре</th>

@@ -8,12 +8,11 @@
 		<div id="middle">
 			<div id="container">
 				<div id="content">
-					<h1>Реестр энергопаспортов</h1>
-					<table border="1">
-						<caption>РЕЕСТР ЭНЕРГОПАСПОРТОВ ЧЛЕНОВ СРО НП «ЭНЕРГОАУДИТ»</caption>
+					<h1>Реестр энергопаспортов членов СРО НП «ЭНЕРГОАУДИТ»</h1>
+					<table class="table table-bordered table-condensed table-hover table-striped">
 						<thead>
 							<tr>
-								<th>№ п/п</th>
+								<th><nobr>№ п/п</nobr></th>
 								<th>Номер энергопаспорта в реестре СРО</th>
 								<th>Экспертная организация</th>
 								<th>Дата положительного заключения экспертной организации</th>
