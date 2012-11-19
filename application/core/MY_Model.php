@@ -35,7 +35,11 @@ class MY_Model extends CI_Model{
 	}
 	
 	function record_exist($table,$field,$parameter){
-			
+		
+		if(empty($parameter) || is_null($parameter)):
+			return FALSE;
+		endif;
+		
 		$this->db->where($field,$parameter);
 		$query = $this->db->get($table,1);
 		$data = $query->result_array();

@@ -31,9 +31,21 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label for="survey" class="control-label">Вид обследования: </label>
+			<div class="controls">
+				<input type="text" class="span5" name="survey" value="<?=$passport['survey'];?>">
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="transfer" class="control-label">Дата передачи: </label>
 			<div class="controls">
 				<input type="text" class="input-medium" name="transfer" value="<?=$passport['transfer'];?>">
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="inn" class="control-label">ИНН: </label>
+			<div class="controls">
+				<input type="text" class="input-medium" name="inn" value="<?=$passport['inn'];?>">
 			</div>
 		</div>
 		<div class="control-group">
@@ -49,7 +61,28 @@
 		<div class="control-group">
 			<label for="customer" class="control-label">Заказчик: </label>
 			<div class="controls">
-				<textarea rows="2" class="span5 input-valid" name="customer"><?=$passport['customer'];?></textarea>
+				<textarea rows="2" class="span5" name="customer"><?=$passport['customer'];?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="solution" class="control-label">Решение Минэнерго: </label>
+			<div class="controls">
+				<textarea rows="2" class="span5" name="solution"><?=$passport['solution'];?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="availability" class="control-label">Наличие: </label>
+			<div class="controls">
+				<textarea rows="2" class="span5" name="availability"><?=$passport['availability'];?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="corrections" class="control-label">Направление в Минэнерго после исправления замечаний в случае обнаружения таковых: </label>
+			<div class="controls">
+				<textarea rows="4" class="span5" name="corrections"><?=$passport['corrections'];?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

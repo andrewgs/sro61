@@ -31,9 +31,21 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label for="survey" class="control-label">Вид обследования: </label>
+			<div class="controls">
+				<input type="text" class="span5" name="survey" value="">
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="transfer" class="control-label">Дата передачи: </label>
 			<div class="controls">
 				<input type="text" class="input-medium" name="transfer" value="">
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="inn" class="control-label">ИНН: </label>
+			<div class="controls">
+				<input type="text" class="input-medium" name="inn" value="">
 			</div>
 		</div>
 		<div class="control-group">
@@ -50,6 +62,27 @@
 			<label for="customer" class="control-label">Заказчик: </label>
 			<div class="controls">
 				<textarea rows="2" class="span5 input-valid" name="customer"><?=set_value('customer');?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="solution" class="control-label">Решение Минэнерго: </label>
+			<div class="controls">
+				<textarea rows="2" class="span5" name="solution"><?=set_value('solution');?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="availability" class="control-label">Наличие: </label>
+			<div class="controls">
+				<textarea rows="2" class="span5" name="availability"><?=set_value('availability');?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="corrections" class="control-label">Направление в Минэнерго после исправления замечаний в случае обнаружения таковых: </label>
+			<div class="controls">
+				<textarea rows="4" class="span5" name="corrections"><?=set_value('corrections');?></textarea>
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

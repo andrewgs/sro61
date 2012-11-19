@@ -124,7 +124,6 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/register/print-register",$pagevar);
 	}
 	
-	
 	public function add_register(){
 		
 		$pagevar = array(
@@ -146,14 +145,27 @@ class Admin_interface extends MY_Controller{
 			$this->form_validation->set_rules('transfer',' ','trim');
 			$this->form_validation->set_rules('organization',' ','required|trim');
 			$this->form_validation->set_rules('customer',' ','required|trim');
+			$this->form_validation->set_rules('survey',' ','trim');
+			$this->form_validation->set_rules('solution',' ','trim');
+			$this->form_validation->set_rules('availability',' ','trim');
+			$this->form_validation->set_rules('corrections',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->add_register();
 				return FALSE;
 			else:
-				$this->mdregister->insert_record($this->input->post());
-				$this->session->set_userdata('msgs','Запись создана успешно.');
-				redirect($this->uri->uri_string());
+				$data = $this->input->post();
+				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
+				if($record):
+					$data['inn'] = '';
+					$this->session->set_userdata('msgr','Внимание. Паспорт создан но ИНН уже существует.<br/>Измените данные паспорта.');
+					$id = $this->mdregister->insert_record($data);
+					redirect('admin-panel/actions/register/edit/id/'.$id);
+				else:
+					$this->mdregister->insert_record($data);
+					$this->session->set_userdata('msgs','Запись создана успешно.');
+					redirect($this->uri->uri_string());
+				endif;
 			endif;
 		endif;
 		
@@ -182,14 +194,29 @@ class Admin_interface extends MY_Controller{
 			$this->form_validation->set_rules('transfer',' ','trim');
 			$this->form_validation->set_rules('organization',' ','required|trim');
 			$this->form_validation->set_rules('customer',' ','required|trim');
+			$this->form_validation->set_rules('survey',' ','trim');
+			$this->form_validation->set_rules('solution',' ','trim');
+			$this->form_validation->set_rules('availability',' ','trim');
+			$this->form_validation->set_rules('corrections',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
 				$this->add_register();
 				return FALSE;
 			else:
-				$this->mdregister->update_record($this->uri->segment(6),$this->input->post());
-				$this->session->set_userdata('msgs','Запись сохранена успешно.');
-				redirect($this->session->userdata('backpath'));
+				$data = $this->input->post();
+				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
+				if($record):
+					$data['inn'] = '';
+					$this->session->set_userdata('msgr','Внимание. Паспорт сохранен но ИНН уже существует.<br/>Измените данные паспорта.');
+					$this->mdregister->update_record($this->uri->segment(6),$data);
+					redirect($this->uri->uri_string());
+				else:
+					$this->mdregister->update_record($this->uri->segment(6),$data);
+					$this->session->set_userdata('msgs','Запись сохранена успешно.');
+					redirect($this->session->userdata('backpath'));
+				endif;
+				
+				
 			endif;
 		endif;
 		
