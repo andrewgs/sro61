@@ -66,6 +66,13 @@
 			</div>
 		</div>
 		<div class="control-group">
+			<label for="address" class="control-label">Юридический адрес: </label>
+			<div class="controls">
+				<textarea rows="2" class="span5 input-valid" name="address"><?=set_value('address');?></textarea>
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
 			<label for="solution" class="control-label">Решение Минэнерго: </label>
 			<div class="controls">
 				<textarea rows="2" class="span5" name="solution"><?=set_value('solution');?></textarea>

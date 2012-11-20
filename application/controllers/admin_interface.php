@@ -110,18 +110,32 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/register/register",$pagevar);
 	}
 	
-	public function print_register(){
+	public function print_covering_letter(){
 		
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
-					'register'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
+					'passport'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
 			);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
+		$pagevar['passport']['member'] = $this->mdorganization->read_field($pagevar['passport']['organization'],'organization','title');
+		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
+	}
+	
+	public function print_sample_notice(){
 		
-		$this->load->view("admin_interface/register/print-register",$pagevar);
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'passport'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		$pagevar['passport']['member'] = $this->mdorganization->read_field($pagevar['passport']['organization'],'organization','title');
+		$this->load->view("admin_interface/register/print-sample-notice",$pagevar);
 	}
 	
 	public function add_register(){
@@ -558,6 +572,42 @@ class Admin_interface extends MY_Controller{
 		endif;
 		
 		$this->load->view("admin_interface/users/user-add",$pagevar);
+	}
+	
+	public function user_edit(){
+		
+		$pagevar = array(
+					'baseurl' 		=> base_url(),
+					'userinfo'		=> $this->user,
+					'user'			=> $this->mdusers->read_record($this->uri->segment(6),'users'),
+					'msgs'			=> $this->session->userdata('msgs'),
+					'msgr'			=> $this->session->userdata('msgr')
+			);
+		$this->session->unset_userdata('msgs');
+		$this->session->unset_userdata('msgr');
+		
+		if($this->input->post('submit')):
+			unset($_POST['submit']);
+			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('grn',' ','required|trim');
+			$this->form_validation->set_rules('inn',' ','required|trim');
+			$this->form_validation->set_rules('number',' ','required|trim');
+			$this->form_validation->set_rules('address',' ','required|trim');
+			$this->form_validation->set_rules('phones',' ','trim');
+			$this->form_validation->set_rules('login',' ','required|trim');
+			$this->form_validation->set_rules('password',' ','required|trim');
+			if(!$this->form_validation->run()):
+				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
+				$this->user_edit();
+				return FALSE;
+			else:
+				$this->mdusers->update_record($this->uri->segment(6),$_POST);
+				$this->session->set_userdata('msgs','Запись сохранена успешно.');
+				redirect($this->session->userdata('backpath'));
+			endif;
+		endif;
+		$pagevar['user']['pass'] = $this->encrypt->decode($pagevar['user']['cryptpassword']);
+		$this->load->view("admin_interface/users/user-edit",$pagevar);
 	}
 	
 	public function user_delete(){

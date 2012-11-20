@@ -10,6 +10,7 @@ class Mdregister extends MY_Model{
 	var $transfer	= '';
 	var $organization= 0;
 	var $customer	= '';
+	var $address	= '';
 	var $survey	= '';
 	var $solution	= '';
 	var $availability	= '';
@@ -29,6 +30,7 @@ class Mdregister extends MY_Model{
 		$this->transfer		= $data['transfer'];
 		$this->organization	= $data['organization'];
 		$this->customer		= $data['customer'];
+		$this->address		= $data['address'];
 		$this->survey		= $data['survey'];
 		$this->solution		= $data['solution'];
 		$this->availability	= $data['availability'];
@@ -48,6 +50,7 @@ class Mdregister extends MY_Model{
 		$this->db->set('transfer',$data['transfer']);
 		$this->db->set('organization',$data['organization']);
 		$this->db->set('customer',$data['customer']);
+		$this->db->set('address',$data['address']);
 		$this->db->set('survey',$data['survey']);
 		$this->db->set('solution',$data['solution']);
 		$this->db->set('availability',$data['availability']);

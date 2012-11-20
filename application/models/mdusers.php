@@ -38,6 +38,22 @@ class Mdusers extends MY_Model{
 		$this->db->insert('users',$this);
 		return $this->db->insert_id();
 	}
+	function update_record($id,$data){
+
+		$this->db->set('organization',$data['organization']);
+		$this->db->set('grn',$data['grn']);
+		$this->db->set('inn',$data['inn']);
+		$this->db->set('number',$data['number']);
+		$this->db->set('address',$data['address']);
+		$this->db->set('login',$data['login']);
+		$this->db->set('cryptpassword',$this->encrypt->encode($data['password']));
+		$this->db->set('password',md5($data['password']));
+		$this->db->set('email',$data['email']);
+		$this->db->set('phones',$data['phones']);
+		$this->db->where('id',$id);
+		$this->db->update('users');
+		return $this->db->affected_rows();
+	}
 	
 	function auth_user($login,$password){
 		

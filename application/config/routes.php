@@ -42,6 +42,7 @@ $route['admin-panel/actions/users/from']			= "admin_interface/actions_users";
 $route['admin-panel/actions/users/from/:num']		= "admin_interface/actions_users";
 
 $route['admin-panel/actions/users/add']				= "admin_interface/user_add";
+$route['admin-panel/actions/users/edit/id/:num']	= "admin_interface/user_edit";
 $route['admin-panel/actions/users/delete/id/:num']	= "admin_interface/user_delete";
 
 $route['admin-panel/actions/profile']				= "admin_interface/actions_profile";
@@ -56,7 +57,8 @@ $route['admin-panel/actions/register/search']			= "admin_interface/search_regist
 $route['admin-panel/actions/register/delete/id/:num']	= "admin_interface/delete_register";
 
 
-$route['admin-panel/actions/register/print/id/:num']	= "admin_interface/print_register";
+$route['admin-panel/actions/register/print/id/:num/covering-letter']	= "admin_interface/print_covering_letter";
+$route['admin-panel/actions/register/print/id/:num/sample-notice']	= "admin_interface/print_sample_notice";
 
 /*************************************************** USERS INTRERFACE ***********************************************/
 $route['news']				= "users_interface/news";

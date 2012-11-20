@@ -27,24 +27,23 @@
 					<thead>
 						<tr>
 							<th class="w100">Номер</th>
-							<th class="w100">Дата заключения</th>
-							<th class="w100">Дата регистрации</th>
+							<th class="w100">Дата заключения<br/>регистрации</th>
 							<th class="w300">Заказчик</th>
-							<th class="w50">&nbsp;</th>
+							<th class="w85">&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($register);$i++):?>
 						<tr class="align-center">
 							<td><nobr><?=$register[$i]['number'];?></nobr></td>
-							<td><nobr><?=$register[$i]['conclusion'];?></nobr></td>
-							<td><nobr><?=$register[$i]['register'];?></nobr></td>
+							<td><?=$register[$i]['conclusion'];?><br/><?=$register[$i]['register'];?></nobr></td>
 							<td><?=$register[$i]['customer'];?></td>
 							<td>
 								<div id="params<?=$i;?>" style="display:none" data-rid="<?=$register[$i]['id'];?>"></div>
 								<?=anchor('admin-panel/actions/register/edit/id/'.$register[$i]['id'],'<i class="icon-white icon-edit"></i>',array('class'=>'btn btn-primary','title'=>'Редактировать'));?>
 								<a class="deleteRegister btn btn-danger" data-param="<?=$i;?>" data-toggle="modal" href="#deleteRegister" title="Удалить"><i class="icon-white icon-trash"></i></a>
-								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'],'<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank'))?>
+								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/covering-letter','<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Печать сопроводительного листа'));?>
+								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/sample-notice','<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Печать уведомления'));?>
 							</td>
 						</tr>
 					<?php endfor; ?>

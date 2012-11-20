@@ -33,6 +33,7 @@
 								<?php endif;?>
 							</td>
 							<td>
+								<?=anchor('admin-panel/actions/users/edit/id/'.$users[$i]['id'],'<i class="icon-edit icon-white"></i>',array('class'=>'btn btn-success'));?>
 							<?php if($users[$i]['id'] != $userinfo['uid']):?>
 								<div id="params<?=$i;?>" style="display:none" data-uid="<?=$users[$i]['id'];?>"></div>
 								<a class="deleteUser btn btn-danger" data-param="<?=$i;?>" data-toggle="modal" href="#deleteUser" title="Удалить"><i class="icon-white icon-trash"></i></a>
