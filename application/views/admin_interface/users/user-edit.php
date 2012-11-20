@@ -11,7 +11,7 @@
 						<?=anchor('',"Пользователи",array('class'=>'none backpath'));?><span class="divider">/</span>
 					</li>
 					<li class="active">
-						Добавление
+						Редактирование
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>

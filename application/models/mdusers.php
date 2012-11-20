@@ -38,6 +38,7 @@ class Mdusers extends MY_Model{
 		$this->db->insert('users',$this);
 		return $this->db->insert_id();
 	}
+	
 	function update_record($id,$data){
 
 		$this->db->set('organization',$data['organization']);
@@ -67,6 +68,16 @@ class Mdusers extends MY_Model{
 
 	function user_exist($field,$parameter){
 			
+		$this->db->where($field,$parameter);
+		$query = $this->db->get('users',1);
+		$data = $query->result_array();
+		if(count($data)) return $data[0]['id'];
+		return FALSE;
+	}
+
+	function valid_password($id,$field,$parameter){
+			
+		$this->db->where('id',$id);
 		$this->db->where($field,$parameter);
 		$query = $this->db->get('users',1);
 		$data = $query->result_array();
