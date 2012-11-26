@@ -42,6 +42,7 @@
 					<?php if($this->loginstatus):?>
 						<a href="" class="AddAnswer none" data-question="<?=$questions[$i]['id'];?>">Ответить</a>
 					<?php endif;?>
+					<div class="cf"> </div>
 					</div>
 				<?php endfor;?>
 

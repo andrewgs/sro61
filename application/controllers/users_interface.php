@@ -134,6 +134,11 @@ class Users_interface extends MY_Controller{
 		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
+		
+		for($i=0;$i<count($pagevar['news']);$i++):
+			$pagevar['news'][$i]['date'] = $this->operation_dot_date($pagevar['news'][$i]['date']);
+		endfor;
+		
 		$this->load->view("users_interface/pages",$pagevar);
 	}
 	

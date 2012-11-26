@@ -13,7 +13,7 @@
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<div style="margin-left:215px;">
+				<div style="margin-left:110px;">
 				<?=form_open($this->uri->uri_string(),array('class'=>'bs-docs-example form-search')); ?>
 					<input type="hidden" id="srid" name="srdjid" value="">
 					<input type="text" class="span5 search-query" id="srdjurl" name="srvalue" value="" autocomplete="off" placeholder="Поиск по заказчикам (от 5-х символов)">
@@ -21,6 +21,7 @@
 						<div class="suggestionList" id="suggestionsList"> &nbsp; </div>
 					</div>
 					<button type="submit" class="btn btn-primary" id="seacrh" name="scsubmit" value="seacrh"><i class="icon-search icon-white"></i> Найти</button>
+					<a class="btn btn-info" data-toggle="modal" href="#getDocument" id="getDoc"><i class="icon-download-alt icon-white"></i> Экспорт</a>
 					<?= form_close(); ?>
 				</div>
 				<table class="table table-striped table-bordered">
@@ -56,6 +57,7 @@
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		<?php $this->load->view("admin_interface/modal/delete-register");?>
+		<?php $this->load->view('admin_interface/modal/import-csv');?>
 		</div>
 	</div>
 	<?php $this->load->view("admin_interface/includes/scripts");?>
@@ -88,7 +90,10 @@
 				$("#srdjid").val(plid);
 				setTimeout("$('#suggestions').fadeOut();", 600);
 			};
-			
+			$("#download").click(function(event){
+				window.open("<?=$baseurl;?>admin-panel/actions/register/import-csv");
+				event.preventDefault();
+			});
 			$("#srdjurl").keyup(function(){$("#srdjid").val('');suggest(this.value)});
 			$("#srdjurl").focusout(function(){setTimeout("$('#suggestions').fadeOut();",600);});
 			

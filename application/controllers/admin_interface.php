@@ -203,6 +203,56 @@ class Admin_interface extends MY_Controller{
 		endif;
 	}
 	
+	public function import_csv(){
+		
+		$registers = $this->mdregister->read_records('register');
+		$organizations = $this->mdorganization->read_records('organization');
+		$file_name = getcwd().'/doc/tmp/passports.tmp';
+		$fp = fopen($file_name,'w');
+		$this->load->helper('download');
+		$mass[0] = array(
+			'id'=>mb_convert_encoding('№ п/п','Windows-1251','utf-8'),
+			'number'=>mb_convert_encoding('Номер энергопаспорта','Windows-1251','utf-8'),
+			'expert'=>mb_convert_encoding('Экспертная орган','Windows-1251','utf-8'),
+			'conclusion'=>mb_convert_encoding('Дата заключения','Windows-1251','utf-8'),
+			'register'=>mb_convert_encoding('Дата регистрации','Windows-1251','utf-8'),
+			'survey'=>mb_convert_encoding('Вид обследования','Windows-1251','utf-8'),
+			'transfer'=>mb_convert_encoding('Дата передачи','Windows-1251','utf-8'),
+			'inn'=>mb_convert_encoding('ИНН','Windows-1251','utf-8'),
+			'organization'=>mb_convert_encoding('Член СРО','Windows-1251','utf-8'),
+			'customer'=>mb_convert_encoding('Заказчик','Windows-1251','utf-8'),
+			'address'=>mb_convert_encoding('Юридический адрес','Windows-1251','utf-8'),
+			'solution'=>mb_convert_encoding('Решение Минэнерго','Windows-1251','utf-8'),
+			'availability'=>mb_convert_encoding('Наличие','Windows-1251','utf-8'),
+			'corrections'=>mb_convert_encoding('Направление в Минэнерго после исправления замечаний в случае обнаружения таковых','Windows-1251','utf-8')
+		);
+		for($i=1;$i<count($registers);$i++):
+			$mass[$i]['id'] = $i;
+			$mass[$i]['number'] = mb_convert_encoding($registers[$i]['number'],'Windows-1251','utf-8');
+			$mass[$i]['expert'] = mb_convert_encoding($organizations[$registers[$i]['expert']]['title'],'Windows-1251','utf-8');
+			$mass[$i]['conclusion'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['conclusion']),'Windows-1251','utf-8');
+			$mass[$i]['register'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['register']),'Windows-1251','utf-8');
+			$mass[$i]['survey'] = mb_convert_encoding($registers[$i]['survey'],'Windows-1251','utf-8');
+			$mass[$i]['transfer'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['transfer']),'Windows-1251','utf-8');;
+			$mass[$i]['inn'] = mb_convert_encoding($registers[$i]['inn'],'Windows-1251','utf-8');
+			$mass[$i]['organization'] = mb_convert_encoding($organizations[$registers[$i]['organization']]['title'],'Windows-1251','utf-8');;
+			$mass[$i]['customer'] = mb_convert_encoding($registers[$i]['customer'],'Windows-1251','utf-8');
+			$mass[$i]['address'] = mb_convert_encoding($registers[$i]['address'],'Windows-1251','utf-8');
+			$mass[$i]['solution'] = mb_convert_encoding($registers[$i]['solution'],'Windows-1251','utf-8');
+			$mass[$i]['availability'] = mb_convert_encoding($registers[$i]['availability'],'Windows-1251','utf-8');
+			$mass[$i]['corrections'] = mb_convert_encoding($registers[$i]['corrections'],'Windows-1251','utf-8');
+		endfor;
+		foreach($mass AS $mas):
+			fputcsv($fp,$mas,';');
+		endforeach;
+		fclose($fp);
+		$fdata = file_get_contents($file_name);
+		unlink($file_name);
+		if($fdata && $file_name):
+			force_download('passports.csv',$fdata);
+		endif;
+	}
+	
 	/******************************************* orders **********************************************************/
 	
 	public function available_orders(){
