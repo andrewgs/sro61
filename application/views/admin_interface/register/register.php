@@ -28,7 +28,7 @@
 					<thead>
 						<tr>
 							<th class="w100">Номер</th>
-							<th class="w100">Дата заключения<br/>регистрации</th>
+							<th class="w85">Дата закл.<br/>регистр.</th>
 							<th class="w300">Заказчик</th>
 							<th class="w85">&nbsp;</th>
 						</tr>

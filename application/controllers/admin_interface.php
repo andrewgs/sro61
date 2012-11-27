@@ -29,7 +29,7 @@ class Admin_interface extends MY_Controller{
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
-					'register'		=> $this->mdregister->read_limit_records(10,$from,'register'),
+					'register'		=> $this->mdregister->read_limit_records(10,$from,'register','number','ASC'),
 					'pages'			=> $this->pagination('admin-panel/actions/register',5,$this->mdregister->count_all_records('register'),10),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
@@ -106,10 +106,11 @@ class Admin_interface extends MY_Controller{
 				return FALSE;
 			else:
 				$data = $this->input->post();
+				$nextnumber = $this->mdorganization->read_field($data['organization'],'organization','docnumber');
 				if(empty($data['number'])):
-					$data['number'] = 'СРО-Э-101-'.str_pad($data['organization'],3,"0",STR_PAD_LEFT);
+					$data['number'] = 'СРО-Э-101-'.str_pad($data['organization'],3,"0",STR_PAD_LEFT).'-'.str_pad($nextnumber,4,"0",STR_PAD_LEFT);
+					$this->mdorganization->update_field($data['organization'],'docnumber',$nextnumber+1,'organization');
 				endif;
-				print_r($data['number']);exit;
 				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
 				if($record):
 					$data['inn'] = '';
@@ -118,7 +119,7 @@ class Admin_interface extends MY_Controller{
 					redirect('admin-panel/actions/register/edit/id/'.$id);
 				else:
 					$this->mdregister->insert_record($data);
-					$this->session->set_userdata('msgs','Запись создана успешно.');
+					$this->session->set_userdata('msgs','Паспорт создан успешно.<br/>Номер паспорта: '.$data['number']);
 					redirect($this->uri->uri_string());
 				endif;
 			endif;
@@ -160,7 +161,7 @@ class Admin_interface extends MY_Controller{
 			else:
 				$data = $this->input->post();
 				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
-				if($record):
+				if($record != $this->uri->segment(6)):
 					$data['inn'] = '';
 					$this->session->set_userdata('msgr','Внимание. Паспорт сохранен но ИНН уже существует.<br/>Измените данные паспорта.');
 					$this->mdregister->update_record($this->uri->segment(6),$data);
@@ -211,6 +212,11 @@ class Admin_interface extends MY_Controller{
 		
 		$registers = $this->mdregister->read_records('register');
 		$organizations = $this->mdorganization->read_records('organization');
+		$company = array();
+		foreach($organizations as $key => $value):
+			$company[$value['id']] = $value;
+		endforeach;
+		$organizations = $company;
 		$file_name = getcwd().'/doc/tmp/passports.tmp';
 		$fp = fopen($file_name,'w');
 		$this->load->helper('download');
