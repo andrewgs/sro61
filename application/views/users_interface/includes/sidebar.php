@@ -27,6 +27,6 @@
 	<?php endfor;?>
 	</div>
 	<?php endif;?>
-	<a class="banner-link" href="http://energoauditsro.ru/zakazchiku/onlinecalculator" target="_blank"><img src="<?=$baseurl;?>images/calc31.jpg" width="220"></a><br>
+	<a class="banner-link" href="http://energoauditsro.ru/onlinecalculator" target="_blank"><img src="<?=$baseurl;?>images/calc31.jpg" width="220"></a><br>
 	<a class="banner-link" href="http://energoauditsro.ru/?id=598" target="_blank"><img src="<?=$baseurl;?>images/popr.jpg" width="220"></a><br>
 </div>

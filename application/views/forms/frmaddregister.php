@@ -4,8 +4,9 @@
 		<div class="control-group">
 			<label for="number" class="control-label">Номер энергопаспорта: </label>
 			<div class="controls">
-				<input type="text" class="span5 input-valid" name="number" value="<?=set_value('number');?>">
+				<input type="text" class="span5" name="number" value="<?=set_value('number');?>" placeholder="Введите номер паспорта вручную если требуется">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
+				<p class="help-block">Внимание! Номер назначается автоматически</p>
 			</div>
 		</div>
 		<div class="control-group">

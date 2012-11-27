@@ -1,7 +1,7 @@
 <div id="getDocument" class="modal hide">
 	<div class="modal-header">
 		<a class="close" data-dismiss="modal">×</a>
-		<h3>Импорт реестра паспортов</h3>
+		<h3>Экспорт реестра паспортов</h3>
 	</div>
 	<div class="modal-body">
 		<ol>

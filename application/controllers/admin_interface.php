@@ -89,7 +89,7 @@ class Admin_interface extends MY_Controller{
 		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
-			$this->form_validation->set_rules('number',' ','required|trim');
+			$this->form_validation->set_rules('number',' ','trim');
 			$this->form_validation->set_rules('expert',' ','required|trim');
 			$this->form_validation->set_rules('conclusion',' ','trim');
 			$this->form_validation->set_rules('register',' ','trim');
@@ -106,6 +106,10 @@ class Admin_interface extends MY_Controller{
 				return FALSE;
 			else:
 				$data = $this->input->post();
+				if(empty($data['number'])):
+					$data['number'] = 'СРО-Э-101-'.str_pad($data['organization'],3,"0",STR_PAD_LEFT);
+				endif;
+				print_r($data['number']);exit;
 				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
 				if($record):
 					$data['inn'] = '';
