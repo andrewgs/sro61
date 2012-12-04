@@ -87,8 +87,8 @@ class Mdusers extends MY_Model{
 
 	function read_limit_members($count,$from){
 		
-		$this->db->where("id >",1);
-		$this->db->order_by('organization','ASC');
+		$this->db->where("id >",0);
+		$this->db->order_by('id','ASC');
 		$this->db->limit($count,$from);
 		$query = $this->db->get('users');
 		$data = $query->result_array();

@@ -22,9 +22,9 @@
 							</tr>
 						</thead>
 						<tbody>
-						<?php for($i=0,$num=$this->uri->segment(3)+1;$i<count($register);$i++,$num++):?>
+						<?php for($i=0;$i<count($register);$i++):?>
 							<tr>
-								<td><?=$num;?></td>
+								<td><?=$register[$i]['id'];?></td>
 								<td><?=($register[$i]['access'])?'действует':'не действует';?></td>
 								<td><?=$register[$i]['organization'];?></td>
 								<td><?=$register[$i]['grn'];?></td>
