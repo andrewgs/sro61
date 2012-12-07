@@ -111,8 +111,8 @@ class Admin_interface extends MY_Controller{
 					$data['number'] = 'СРО-Э-101-'.str_pad($data['organization'],3,"0",STR_PAD_LEFT).'-'.str_pad($nextnumber,4,"0",STR_PAD_LEFT);
 					$this->mdorganization->update_field($data['organization'],'docnumber',$nextnumber+1,'organization');
 				endif;
-				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
-				if($record):
+				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
+				if($record && !empty($record)):
 					$data['inn'] = '';
 					$this->session->set_userdata('msgr','Внимание. Паспорт создан но ИНН уже существует.<br/>Измените данные паспорта.');
 					$id = $this->mdregister->insert_record($data);
@@ -156,12 +156,12 @@ class Admin_interface extends MY_Controller{
 			$this->form_validation->set_rules('corrections',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
-				$this->add_register();
+				$this->edit_register();
 				return FALSE;
 			else:
 				$data = $this->input->post();
-				$record = $this->mdregister->record_exist('register','inn',$this->input->post('inn'));
-				if($record != $this->uri->segment(6)):
+				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
+				if($record != $this->uri->segment(6) && !empty($record)):
 					$data['inn'] = '';
 					$this->session->set_userdata('msgr','Внимание. Паспорт сохранен но ИНН уже существует.<br/>Измените данные паспорта.');
 					$this->mdregister->update_record($this->uri->segment(6),$data);
