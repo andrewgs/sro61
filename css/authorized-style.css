@@ -29,3 +29,19 @@
 .suggestionList ul {font-family:Arial, Helvetica, sans-serif;font-size:11px;color:#000000;padding:0;margin:0;}
 .load{background-image:url(../images/loader.gif);background-position:right;background-repeat:no-repeat;}
 #suggest {position:relative;}
+
+/* PRINT DOCUMENTS
+----------------------------------------------------------------------------------------*/
+p.title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 18px;
+	margin: 2em 0 3em;
+	font-family: Arial, Helvetica, sans-serif; 
+}
+p.colored { color: #17365D; }
+p.title strong { font-family: Cambria, 'Times New Roman', Times, serif; font-size: 21px; line-height: 1.1em;}
+p.intend { text-indent: 2em; text-align: justify; }
+ul.nolist { list-style: none; }
+table.no-border td { border: 0 none !important; }
