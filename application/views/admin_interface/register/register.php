@@ -20,8 +20,8 @@
 					<div class="suggestionsBox" id="suggestions" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 30px;" alt="upArrow" />
 						<div class="suggestionList" id="suggestionsList"> &nbsp; </div>
 					</div>
-					<button type="submit" class="btn btn-primary" id="seacrh" name="scsubmit" value="seacrh"><i class="icon-search icon-white"></i> Найти</button>
-					<a class="btn btn-info" data-toggle="modal" href="#getDocument" id="getDoc"><i class="icon-download-alt icon-white"></i> Экспорт</a>
+					<button type="submit" class="btn btn-info" id="seacrh" name="scsubmit" value="seacrh"><i class="icon-search icon-white"></i> Найти</button>
+					<a class="btn btn-success" data-toggle="modal" href="#getDocument" id="getDoc"><i class="icon-download-alt icon-white"></i> Экспорт</a>
 					<?= form_close(); ?>
 				</div>
 				<table class="table table-striped table-bordered">
@@ -41,8 +41,9 @@
 							<td><?=$register[$i]['customer'];?></td>
 							<td>
 								<div id="params<?=$i;?>" style="display:none" data-rid="<?=$register[$i]['id'];?>"></div>
-								<?=anchor('admin-panel/actions/register/edit/id/'.$register[$i]['id'],'<i class="icon-white icon-edit"></i>',array('class'=>'btn btn-primary','title'=>'Редактировать'));?>
+								<?=anchor('admin-panel/actions/register/edit/id/'.$register[$i]['id'],'<i class="icon-white icon-pencil"></i>',array('class'=>'btn btn-info','title'=>'Редактировать'));?>
 								<a class="deleteRegister btn btn-danger" data-param="<?=$i;?>" data-toggle="modal" href="#deleteRegister" title="Удалить"><i class="icon-white icon-trash"></i></a>
+								<div style="height:3px;">&nbsp;</div>
 								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/covering-letter','<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Печать сопроводительного листа'));?>
 								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/sample-notice','<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Печать уведомления'));?>
 							</td>

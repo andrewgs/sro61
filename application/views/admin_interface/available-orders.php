@@ -37,10 +37,11 @@
 							<td>
 								<div id="params<?=$i;?>" style="display:none" data-nid="<?=$orders[$i]['id'];?>"></div>
 							<?php if(!$orders[$i]['closed']):?>
-								<?=anchor('admin-panel/actions/orders/closed/id/'.$orders[$i]['id'],'<i class="icon-white icon-remove"></i>',array('class'=>'btn btn-primary OrderClose','title'=>'Закрыть заявку'));?>
+								<?=anchor('admin-panel/actions/orders/closed/id/'.$orders[$i]['id'],'<i class="icon-white icon-remove"></i>',array('class'=>'btn btn-info OrderClose','title'=>'Закрыть заявку'));?>
 							<?php else:?>
 								<?=anchor('','<i class="icon-white icon-ok"></i>',array('class'=>'btn btn-success none disabled','title'=>'Заявка закрыта'));?>
 							<?php endif;?>
+								<div style="height:3px;">&nbsp;</div>
 								<a class="deleteOrder btn btn-danger" data-param="<?=$i;?>" data-toggle="modal" href="#deleteOrder" title="Удалить"><i class="icon-white icon-trash"></i></a>
 							</td>
 						</tr>
