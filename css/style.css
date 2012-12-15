@@ -52,7 +52,7 @@ select, input {
 -----------------------------------------------------------------------------*/
 #header {
 	height: 220px;
-	margin-bottom: 20px;
+	margin-bottom: 12px;
 }
 .logo {position:relative;top:0;margin-left:4%;float:left;z-index:30;}
 .icons {float:right;margin:28px 100px 0 0;}
@@ -333,6 +333,9 @@ legend {padding: 0 5px;}
 .banner-link {display: inline-block; margin: 0.5em 0 0; -webkit-border: 1px solid  #E0E0E0; -moz-border: 1px solid  #E0E0E0; border: 1px solid  #E0E0E0; background:  white; padding: 4px 4px 1px; border-radius: 2px;}
 .news_bar {margin: 2.5em 0;}
 .main-banner {-webkit-box-shadow: 0 1px 7px #333; -moz-box-shadow: 0 1px 7px #333; box-shadow: 0 1px 7px #333; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; margin-bottom: 1.5em; }
+.news_bar_mainstream { border: 1px solid #EEE; border-radius: 2px; padding: 1em 0.75em 0.85em 1.25em; margin: 0 5em 1.5em 334px; box-shadow: 0 0 7px #eee; }
+.news_bar_mainstream a { display: inline-block; margin-left: 0.5em;}
+.mainstream-title { color: #999; font: bold 12px Arial, sans-serif; }
 
 .articles {cursor: pointer;}
 .articles-wrapper {display: none;}
