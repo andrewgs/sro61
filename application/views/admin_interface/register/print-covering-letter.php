@@ -4,7 +4,7 @@
 <body>
 	<style type="text/css">
 		@media print { 
-			body, p { font-family: Cambria, 'Times New Roman', Times, serif; font-size: 16px; line-height: 24px; margin-bottom: 14px;}
+			body, p { font-family: 'Times New Roman', Times, serif; font-size: 18px; line-height: 26px; margin-bottom: 14px;}
 			body { padding: 60px; } 
 		}
 	</style>
@@ -15,10 +15,10 @@
 					<p class="center title colored">
 						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="140"/><br/>
 						<span>Саморегулируемая организация</span><br/>
-						<span>Некоммерческое партнерство</span><br/>
-						<span>344002, г.Ростов-на-Дону, ул., Московская д.63, оф. 247</span><br/>
+						<span>некоммерческое партнерство</span><br/>
+						<span>344002, г.Ростов-на-Дону, ул. Московская д.63, оф. 247</span><br/>
 						<span>Телефон: (863) 296-20-92, Факс: (863) 219-15-68</span><br/>
-						<span>E-mail: <?=safe_mailto('sro61@mail.ru','sro61@mail.ru');?> <?=anchor('http://sro61.ru/','http: sro61.ru');?></span><br/>
+						<span>e-mail: <?=safe_mailto('sro61@mail.ru','sro61@mail.ru');?>, www: <?=anchor('http://sro61.ru/','http://sro61.ru');?></span><br/>
 						<span>Рег. № СРО-Э-101</span><br/><br/>
 						<span>Исх. №_______ от __________________</span>
 						
@@ -58,19 +58,19 @@
 	<li>- Приказ Минэнерго России от 19 апреля 2010 года № 182.</li>
 	</ul></p>
 
-<p>Приложения:</p>
+<p class="intend">Приложения:</p>
 <p class="intend">
 <ul class="nolist">
 <li>- Энергетический паспорт объекта на бумажном носителе;</li>
 <li>- CD диск, содержащий электронные копии энергетических паспортов в формате PDF и XML.</li>
 				</p>
-				<p>&nbsp;</p>
+				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 				<p>
 					<table class="table no-border">
 						<tbody>
 							<tr>
-								<td width="85%">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
-								<td width="15%"><em>Л.К. Евкина</em></td>
+								<td width="83%" style="font-size: 1.2em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
+								<td width="17%" style="font-size: 1.2em;"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>
@@ -80,7 +80,7 @@
 	</div>
 	<script type="text/javascript">
 		window.onload = function(){
-			//setTimeout(function() { window.print(); }, 1000);
+			setTimeout(function() { window.print(); }, 1000);
 		};
 	</script>
 </body>
