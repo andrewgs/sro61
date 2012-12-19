@@ -4,29 +4,29 @@
 <body>
 	<style type="text/css">
 		@media print { 
-			body, p { font-family: 'Times New Roman', Times, serif; font-size: 18px; line-height: 26px; margin-bottom: 14px;}
+			body, p { font-family: 'Times New Roman', Times, serif; font-size: 19px; line-height: 24px; margin-bottom: 16px; text-align: left; }
 			body { padding: 60px; } 
 		}
 	</style>
 	<div class="container-fluid" style="position: relative; ">
 		<div class="row">
 			<div class="span12">
-				<div class="span5">
+				<div class="span6">
 					<p class="center title colored">
 						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="140"/><br/>
 						<span>Саморегулируемая организация</span><br/>
 						<span>некоммерческое партнерство</span><br/>
 						<span>344002, г.Ростов-на-Дону, ул. Московская д.63, оф. 247</span><br/>
-						<span>Телефон: (863) 296-20-92, Факс: (863) 219-15-68</span><br/>
+						<span>Телефон: (863) 296-20-92, Факс: (863) 236-53-53</span><br/>
 						<span>e-mail: <?=safe_mailto('sro61@mail.ru','sro61@mail.ru');?>, www: <?=anchor('http://sro61.ru/','http://sro61.ru');?></span><br/>
 						<span>Рег. № СРО-Э-101</span><br/><br/>
 						<span>Исх. №_______ от __________________</span>
 						
 					</p>
 				</div>
-				<div class="span5 offset1">
-					<p class="center title">
-						<br/><br/><br/>
+				<div class="span5" style="margin-left: 50px;">
+					<p class="title smaller">
+						<br/><br/><br/><br/>
 						<strong>Директору департамента</strong><br/>
 						<strong>энергоэффективности</strong><br/>
 						<strong>модернизации и развития ТЭК</strong><br/>
@@ -44,12 +44,13 @@
 					<strong>Уважаемый Павел Валентинович!</strong>
 				</p>
 				<p class="intend">
-					Саморегулируемая организация Некоммерческое Партнерство «Энергоаудит» 
-					(регистрационный номер <nobr>СРО-Э-101</nobr> от <nobr>07 июля 2011 года</nobr>) просит Вас принять для регистрации энергетический паспорт 
+					Саморегулируемая организация Некоммерческое Партнерство «Энергоаудит» (регистрационный номер <nobr>СРО-Э-101</nobr> 
+					от <nobr>07 июля 2011 года</nobr>) просит Вас принять для регистрации энергетический паспорт 
 					<nobr>№<?=$passport['number'];?></nobr> составленный на <?=$passport['customer'];?><br/>
-Юридический адрес:<br/> <?=$passport['address'];?><br/>
-ИНН <?=$passport['inn'];?><br/>
-членом СРО НП «Энергоаудит» - организацией <?=$passport['member'];?>.</p>
+					Юридический адрес:<br/> <?=$passport['address'];?><br/>
+					ИНН <?=$passport['inn'];?><br/>
+					членом СРО НП «Энергоаудит» - организацией <?=$passport['member'];?>.
+				</p>
 				<p class="intend">
 	Основанием для проведения обязательного энергетического обследования является:<br/>
 	<ul class="nolist">
@@ -69,8 +70,8 @@
 					<table class="table no-border">
 						<tbody>
 							<tr>
-								<td width="83%" style="font-size: 1.2em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
-								<td width="17%" style="font-size: 1.2em;"><em>Л.К. Евкина</em></td>
+								<td width="80%" style="font-size: 1.2em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
+								<td width="20%" style="font-size: 1.2em;"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>
