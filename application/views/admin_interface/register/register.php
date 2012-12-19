@@ -6,22 +6,61 @@
 	<div class="container">
 		<div class="row">
 			<div class="span9">
-				<ul class="breadcrumb">
+				<ul class="breadcrumb" style="height:30px;">
 					<li class="active">
 						<?=anchor($this->uri->uri_string(),"Реестр паспортов");?>
+					</li>
+					<li style="float:right;">
+						<?=anchor('admin-panel/actions/register/add','<nobr><i class="icon-plus icon-white"></i> Добавить</nobr>',array('class'=>'btn btn-info'));?>
+					<?php if($this->session->userdata('query_string')):?>
+						<?=anchor('admin-panel/actions/register/all-list','<i class="icon-list-alt icon-white"></i> Весь список',array('class'=>'btn btn-info'))?>
+					<?php else:?>
+						<a class="btn btn-info" data-toggle="modal" href="#getDocument" id="getDoc"><i class="icon-download-alt icon-white"></i> Экспорт в CSV</a>
+					<?php endif;?>
+						<a class="btn btn-primary FormSearch"><i class="icon-search icon-white"></i> Поиск паспорта</a>
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
 				<?php $this->load->view("alert_messages/alert-success");?>
-				<div style="margin-left:110px;">
-				<?=form_open($this->uri->uri_string(),array('class'=>'bs-docs-example form-search')); ?>
-					<input type="hidden" id="srid" name="srdjid" value="">
-					<input type="text" class="span5 search-query" id="srdjurl" name="srvalue" value="" autocomplete="off" placeholder="Поиск по заказчикам (от 5-х символов)">
-					<div class="suggestionsBox" id="suggestions" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 30px;" alt="upArrow" />
-						<div class="suggestionList" id="suggestionsList"> &nbsp; </div>
+				<div style="display: none;" id="divFormSearch">
+				<?=form_open($this->uri->uri_string(),array('class'=>'form-inline')); ?>
+					<h4>Поиск энергопаспортов</h4>
+					<div style="margin:5px 0;">
+						<span class="badge">1</span>&nbsp;<input type="text" class="span3 search-query digital" id="srInn" name="srinn" value="" autocomplete="off" placeholder="Поиск по ИНН">
 					</div>
-					<button type="submit" class="btn btn-primary" id="seacrh" name="scsubmit" value="seacrh"><i class="icon-search icon-white"></i> Найти</button>
-					<a class="btn btn-info" data-toggle="modal" href="#getDocument" id="getDoc"><i class="icon-download-alt icon-white"></i> Экспорт</a>
+					<div class="clear"></div>
+					<div style="margin:5px 0;">
+						<input type="hidden" id="srcid" name="srcid" value="">
+						<span class="badge badge-success">2</span>&nbsp;<input type="text" class="span8 search-query SrName" data-hidden="srcid" data-field="customer" name="srcusvalue" value="" autocomplete="off" placeholder="Поиск по заказчикам (от 3-х символов)">
+						<div class="suggestionsBox" id="DivSuggestcustomer" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 50px;" alt="upArrow" />
+							<div class="suggestionList" id="suggestcustomer"> &nbsp; </div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div style="margin:5px 0;">
+						<input type="hidden" id="sroid" name="sroid" value="">
+						<span class="badge badge-warning">3</span>&nbsp;<input type="text" class="span8 search-query SrName" data-hidden="sroid" data-field="organization" name="srorgvalue" value="" autocomplete="off" placeholder="Поиск по членам СРО (от 3-х символов)">
+						<div class="suggestionsBox" id="DivSuggestorganization" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 50px;" alt="upArrow" />
+							<div class="suggestionList" id="suggestorganization"> &nbsp; </div>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<label class="checkbox" style="margin-left:35px;">
+						<input type="checkbox" id="chExpert" name="expert" value="1" checked="checked">Наличие экспертной оценки
+					</label>
+					<div class="clear"></div>
+					<div style="margin-top:15px;">
+						<span class="label label-info">
+							Заполните необходимые поля и нажмите "Поиск". Число выводимых результатов не превышает 15.<br/>
+							Если в списке нет нужного варианта - измените условие поиска.<br/>
+							Номера 1..3 - порядок приоритета для поиска.
+						</span><br/>
+					</div>
+					<div class="clear"></div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-primary" id="seacrh" name="scsubmit" value="seacrh">&nbsp;&nbsp;Поиск&nbsp;&nbsp;</button>
+						<button class="btn btn-inverse FormSearch">Отмена</button>
+					</div>
 					<?= form_close(); ?>
 				</div>
 				<table class="table table-striped table-bordered">
@@ -53,7 +92,6 @@
 				<?php if($pages): ?>
 					<?=$pages;?>
 				<?php endif;?>
-				<?=anchor('admin-panel/actions/register/add','<nobr><i class="icon-plus icon-white"></i> Добавить</nobr>',array('class'=>'btn btn-info'));?>
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		<?php $this->load->view("admin_interface/modal/delete-register");?>
@@ -66,38 +104,42 @@
 			var rID = 0;
 			$(".deleteRegister").click(function(){var Param = $(this).attr('data-param'); rID = $("div[id = params"+Param+"]").attr("data-rid");});
 			$("#DelRegister").click(function(){location.href='<?=$baseurl;?>admin-panel/actions/register/delete/id/'+rID;});
-			function suggest(inputString){
-				if(inputString.length < 5){
-					$("#suggestions").fadeOut();
+			
+			function suggest(textObj,hidObj,suggest){
+				
+				var inputString = $(textObj).val();
+				if(inputString.length < 3){
+					$(".suggestionsBox").fadeOut();
 				}else{
-					$("#srdjurl").addClass('load');
-					$.post("<?=$baseurl;?>admin-panel/actions/register/search",{squery: ""+inputString+""},
+					$(textObj).addClass('load');
+					$.post("<?=$baseurl;?>admin-panel/actions/register/search",{squery: ""+inputString+"",searchfield: ""+suggest+""},
 						function(data){
 							if(data.status){
-								$("#suggestions").fadeIn();
-								$("#suggestionsList").html(data.retvalue);
-								$(".djorg").live('click',function(){fill($(this).html(),$(this).attr("data-djid"));});
+								$("#DivSuggest"+suggest).fadeIn();
+								$("#suggest"+suggest).html(data.retvalue);
+								$(".resli").live('click',function(){fill(hidObj,textObj,$(this).html(),$(this).attr("data-resid"));});
 							}else{
-								$('#suggestions').fadeOut();
+								$('.suggestionsBox').fadeOut();
 							};
-							$("#srdjurl").removeClass('load');
+							$(textObj).removeClass('load');
 					},"json");
 				}
 			};
 			
-			function fill(url,plid){
-				$("#srdjurl").val(url);
-				$("#srdjid").val(plid);
-				setTimeout("$('#suggestions').fadeOut();", 600);
+			function fill(hidObj,textObj,html,valueid){
+				$(textObj).val(html);$(hidObj).val(valueid);
+				setTimeout("$('.suggestionsBox').fadeOut();$('.resli').die('click');$('.suggestionList').html('');", 600);
 			};
-			$("#download").click(function(event){
-				window.open("<?=$baseurl;?>admin-panel/actions/register/import-csv");
-				event.preventDefault();
+			$("#download").click(function(event){window.open("<?=$baseurl;?>admin-panel/actions/register/import-csv");event.preventDefault();});
+			$(".SrName").keyup(function(){
+				var hidObj = $("#"+$(this).attr('data-hidden'));
+				$(hidObj).val('');
+				suggest($(this),hidObj,$(this).attr('data-field'));
 			});
-			$("#srdjurl").keyup(function(){$("#srdjid").val('');suggest(this.value)});
-			$("#srdjurl").focusout(function(){setTimeout("$('#suggestions').fadeOut();",600);});
+			$(".SrName").focusout(function(){setTimeout("$('.suggestionsBox').fadeOut();",600);});
 			
-			$("#seacrh").click(function(event){if($("#srdjurl").val() == ''){event.preventDefault();}});
+			
+			$(".FormSearch").click(function(){$("#divFormSearch").toggle(); return false;});
 		});
 	</script>
 </body>

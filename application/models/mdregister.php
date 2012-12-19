@@ -60,4 +60,14 @@ class Mdregister extends MY_Model{
 		$this->db->update('register');
 		return $this->db->affected_rows();
 	}
+
+	function search_query($id = FALSE,$search){
+		
+		if($id):
+			$query = "SELECT * FROM register WHERE (id = $id OR customer = '$search')";
+		else:
+			$query = "SELECT * FROM register WHERE customer = '$search'";
+		endif;
+		return $query;
+	}
 }

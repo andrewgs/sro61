@@ -47,6 +47,8 @@ $route['admin-panel/actions/users/delete/id/:num']	= "admin_interface/user_delet
 
 $route['admin-panel/actions/profile']				= "admin_interface/actions_profile";
 
+$route['admin-panel/actions/register/all-list']		= "admin_interface/full_register_list";
+
 $route['admin-panel/actions/register']				= "admin_interface/register";
 $route['admin-panel/actions/register/from']			= "admin_interface/register";
 $route['admin-panel/actions/register/from/:num']	= "admin_interface/register";

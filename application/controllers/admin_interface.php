@@ -29,22 +29,65 @@ class Admin_interface extends MY_Controller{
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
-					'register'		=> $this->mdregister->read_limit_records(10,$from,'register','number','ASC'),
-					'pages'			=> $this->pagination('admin-panel/actions/register',5,$this->mdregister->count_all_records('register'),10),
+					'register'		=> array(),
+					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
-			);
+		);
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
+		
+		$query_string = $this->session->userdata('query_string');
+		if($query_string):
+			$pagevar['register'] = $this->mdregister->query_execute($query_string,"LIMIT $from,10");
+			$pagevar['pages'] = $this->pagination('admin-panel/actions/register',5,count($this->mdregister->query_execute($query_string)),10);
+		else:
+			$pagevar['register'] = $this->mdregister->read_limit_records(10,$from,'register','number','ASC');
+			$pagevar['pages'] = $this->pagination('admin-panel/actions/register',5,$this->mdregister->count_all_records('register'),10);
+		endif;
 		if($this->input->post('scsubmit')):
 			unset($_POST['scsubmit']);
-			$result = $this->mdregister->read_finding_data($this->input->post('srid'),$this->input->post('srvalue'),'customer','*','register');
+			$post = $this->input->post();
+			$result = array();
+			$conclusion = "AND register.conclusion != ''";
+			if(!isset($post['expert'])):
+				$conclusion = '';
+				$post['expert'] = 0;
+			endif;
+			$query = "SELECT * FROM register WHERE TRUE $conclusion";
+			if(!empty($post['srinn'])):
+				$query = "SELECT * FROM register WHERE inn = '".trim($post['srinn'])."' ".$conclusion;
+				$result = $this->mdregister->query_execute($query);
+			else:
+				$organization = $this->mdorganization->read_finding_data($post['sroid'],$post['srorgvalue'],'title','id','organization');
+				if($organization):
+					$org_id = $organization[0]['id'];
+					$adding = '';
+					if($post['srcid'] && !empty($post['srcusvalue'])):
+						$adding = "AND (id =".$post['srcid']." OR customer = '".$post['srcusvalue']."')";
+					elseif(!empty($post['srcusvalue'])):
+						$adding = "AND customer = '".$post['srcusvalue']."'";
+					endif;
+					$query = "SELECT * FROM register WHERE organization = $org_id $adding $conclusion";
+					$result = $this->mdregister->query_execute($query);
+				else:
+					$result = $this->mdregister->read_finding_data($post['srcid'],$post['srcusvalue'],'customer','*','register');
+					$query = $this->mdregister->search_query($post['srcid'],$post['srcusvalue']);
+				endif;
+			endif;
 			$pagevar['register'] = $result;
-			$pagevar['pages'] = NULL;
+			$this->session->set_userdata('query_string',$query);
+			redirect('admin-panel/actions/register');
 		endif;
 		
 		$this->session->set_userdata('backpath',$pagevar['baseurl'].$this->uri->uri_string());
 		$this->load->view("admin_interface/register/register",$pagevar);
+	}
+	
+	public function full_register_list(){
+	
+		$this->session->unset_userdata('query_string');
+		redirect('admin-panel/actions/register');
 	}
 	
 	public function print_covering_letter(){
@@ -114,7 +157,8 @@ class Admin_interface extends MY_Controller{
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record && !empty($record)):
 					$data['inn'] = '';
-					$this->session->set_userdata('msgr','Внимание. Паспорт создан но ИНН уже существует.<br/>Измените данные паспорта.');
+					$passport = $this->mdregister->read_field($record,'register','number');
+					$this->session->set_userdata('msgr',"Внимание. Паспорт создан но ИНН пренадлежит паспорту $passport.<br/>Измените данные паспорта.");
 					$id = $this->mdregister->insert_record($data);
 					redirect('admin-panel/actions/register/edit/id/'.$id);
 				else:
@@ -156,14 +200,14 @@ class Admin_interface extends MY_Controller{
 			$this->form_validation->set_rules('corrections',' ','trim');
 			if(!$this->form_validation->run()):
 				$this->session->set_userdata('msgr','Ошибка. Неверно заполены необходимые поля<br/>');
-				$this->edit_register();
-				return FALSE;
+				redirect($this->uri->uri_string());
 			else:
 				$data = $this->input->post();
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
-				if($record != $this->uri->segment(6) && !empty($record)):
+				if($record != $this->uri->segment(6) && !empty($record) && !empty($data['inn'])):
 					$data['inn'] = '';
-					$this->session->set_userdata('msgr','Внимание. Паспорт сохранен но ИНН уже существует.<br/>Измените данные паспорта.');
+					$passport = $this->mdregister->read_field($record,'register','number');
+					$this->session->set_userdata('msgr',"Внимание. Паспорт сохранен но ИНН пренадлежит паспорту $passport.<br/>Измените данные паспорта.");
 					$this->mdregister->update_record($this->uri->segment(6),$data);
 					redirect($this->uri->uri_string());
 				else:
@@ -171,8 +215,6 @@ class Admin_interface extends MY_Controller{
 					$this->session->set_userdata('msgs','Запись сохранена успешно.');
 					redirect($this->session->userdata('backpath'));
 				endif;
-				
-				
 			endif;
 		endif;
 		
@@ -183,12 +225,27 @@ class Admin_interface extends MY_Controller{
 		
 		$statusval = array('status'=>FALSE,'retvalue'=>'');
 		$search = $this->input->post('squery');
-		if(!$search) show_404();
-		$passports = $this->mdregister->search_data($search,'customer','id,customer','register');
+		$searchfield = $this->input->post('searchfield');
+		if(!$search || !$searchfield) show_404();
+		$passports = array();
+		switch($searchfield):
+			case 'customer':
+				$result = $this->mdregister->search_data($search,'customer','id,customer','register');
+				for($i=0;$i<count($result);$i++):
+					$passports[$i]['id'] = $result[$i]['id'];
+					$passports[$i]['title'] = $result[$i]['customer'];
+				endfor;
+				break;
+			case 'organization':
+				$passports = $this->mdregister->search_data($search,'title','id,title','organization','AND type = 1');
+				break;
+			default: show_404();
+				break;
+		endswitch;
 		if($passports):
 			$statusval['retvalue'] = '<ul>';
 			for($i=0;$i<count($passports);$i++):
-				$statusval['retvalue'] .= '<li class="djorg" data-djid="'.$passports[$i]['id'].'">'.$passports[$i]['customer'].'</li>';
+				$statusval['retvalue'] .= '<li class="resli" data-resid="'.$passports[$i]['id'].'">'.$passports[$i]['title'].'</li>';
 			endfor;
 			$statusval['retvalue'] .= '</ul>';
 			$statusval['status'] = TRUE;
@@ -508,7 +565,6 @@ class Admin_interface extends MY_Controller{
 			show_404();
 		endif;
 	}
-	
 	
 	/******************************************* users **********************************************************/
 	
