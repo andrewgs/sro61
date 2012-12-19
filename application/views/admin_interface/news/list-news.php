@@ -37,6 +37,7 @@
 							<td>
 								<div id="params<?=$i;?>" style="display:none" data-nid="<?=$news[$i]['id'];?>"></div>
 								<?=anchor('admin-panel/actions/news/edit/id/'.$news[$i]['id'],'<i class="icon-pencil"></i>',array('title'=>'Редактировать', 'class'=>'btn'));?>
+								<div style="height:3px;">&nbsp;</div>
 								<a class="deleteNews btn" data-param="<?=$i;?>" data-toggle="modal" href="#deleteNews" title="Удалить"><i class="icon-trash"></i></a>
 							</td>
 						</tr>

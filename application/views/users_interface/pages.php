@@ -7,6 +7,10 @@
 	<?php $this->load->view("users_interface/includes/header");?>
 		<div id="middle">
 			<div id="container">
+				<div class="news_bar_mainstream">
+					<span class="mainstream-title">Последние новости: </span>
+					<?=anchor('news#'.@$news[0]['translit'],$news[0]['title'],array('class'=>'a_news'));?>
+				</div>
 				<?=$content;?>
 			</div>
 			<?php $this->load->view("users_interface/includes/sidebar");?>
