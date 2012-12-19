@@ -6,9 +6,12 @@
 	<div class="container">
 		<div class="row">
 			<div class="span9">
-				<ul class="breadcrumb">
+				<ul class="breadcrumb" style="height:30px;">
 					<li class="active">
 						<?=anchor($this->uri->uri_string(),"Пользователи");?>
+					</li>
+					<li style="float:right;">
+						<?=anchor('admin-panel/actions/users/add','<nobr><i class="icon-plus icon-white"></i> Добавить</nobr>',array('class'=>'btn btn-info'));?>
 					</li>
 				</ul>
 				<?php $this->load->view("alert_messages/alert-error");?>
@@ -47,7 +50,6 @@
 				<?php if($pages): ?>
 					<?=$pages;?>
 				<?php endif;?>
-				<?=anchor('admin-panel/actions/users/add','<nobr><i class="icon-plus icon-white"></i> Добавить</nobr>',array('class'=>'btn btn-info'));?>
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		<?php $this->load->view("admin_interface/modal/delete-user");?>

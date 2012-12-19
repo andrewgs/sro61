@@ -85,9 +85,9 @@ class MY_Model extends CI_Model{
 		return $this->db->count_all($table);
 	}
 	
-	function search_data($search,$field,$fields,$table){
+	function search_data($search,$field,$fields,$table,$where = ''){
 		
-		$query = "SELECT $fields FROM $table WHERE $field LIKE '%$search%' LIMIT 0,15";
+		$query = "SELECT $fields FROM $table WHERE $field LIKE '%$search%' $where LIMIT 0,15";
 		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(count($data)) return $data;
@@ -96,15 +96,19 @@ class MY_Model extends CI_Model{
 	
 	function read_finding_data($id = FALSE,$search,$field,$fields,$table){
 		
+		if(empty($search)):
+			return FALSE;
+		endif;
+		
 		if($id):
-			$query = "SELECT $fields FROM $table WHERE (id = $id OR $field = '$search') LIMIT 0,15";
+			$query = "SELECT $fields FROM $table WHERE (id = $id OR $field = '$search')";
 		else:
-			$query = "SELECT $fields FROM $table WHERE $field = '$search' LIMIT 0,15";
+			$query = "SELECT $fields FROM $table WHERE $field = '$search'";
 		endif;
 		$query = $this->db->query($query);
 		$data = $query->result_array();
 		if(count($data)) return $data;
-		return NULL;
+		return FALSE;
 	}
 	
 	function return_image($id,$field,$table){
@@ -114,5 +118,16 @@ class MY_Model extends CI_Model{
 		$query = $this->db->get($table);
 		$data = $query->result_array();
 		return $data[0][$field];
+	}
+
+	function query_execute($query,$param = ''){
+		
+		if(empty($query)):
+			return NULL;
+		endif;
+		$result = $this->db->query($query.' '.$param);
+		$data = $result->result_array();
+		if(count($data)) return $data;
+		return NULL;
 	}
 }
