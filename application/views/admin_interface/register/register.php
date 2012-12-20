@@ -30,18 +30,18 @@
 					</div>
 					<div class="clear"></div>
 					<div style="margin:5px 0;">
-						<input type="hidden" id="srcid" name="srcid" value="">
-						<span class="badge badge-success">2</span>&nbsp;<input type="text" class="span8 search-query SrName" data-hidden="srcid" data-field="customer" name="srcusvalue" value="" autocomplete="off" placeholder="Поиск по заказчикам (от 3-х символов)">
-						<div class="suggestionsBox" id="DivSuggestcustomer" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 50px;" alt="upArrow" />
-							<div class="suggestionList" id="suggestcustomer"> &nbsp; </div>
+						<input type="hidden" id="sroid" name="sroid" value="">
+						<span class="badge badge-warning">2</span>&nbsp;<input type="text" class="span8 search-query SrName" data-hidden="sroid" data-field="organization" name="srorgvalue" value="" autocomplete="off" placeholder="Поиск по членам СРО (от 3-х символов)">
+						<div class="suggestionsBox" id="DivSuggestorganization" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 50px;" alt="upArrow" />
+							<div class="suggestionList" id="suggestorganization"> &nbsp; </div>
 						</div>
 					</div>
 					<div class="clear"></div>
 					<div style="margin:5px 0;">
-						<input type="hidden" id="sroid" name="sroid" value="">
-						<span class="badge badge-warning">3</span>&nbsp;<input type="text" class="span8 search-query SrName" data-hidden="sroid" data-field="organization" name="srorgvalue" value="" autocomplete="off" placeholder="Поиск по членам СРО (от 3-х символов)">
-						<div class="suggestionsBox" id="DivSuggestorganization" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 50px;" alt="upArrow" />
-							<div class="suggestionList" id="suggestorganization"> &nbsp; </div>
+						<input type="hidden" id="srcid" name="srcid" value="">
+						<span class="badge badge-success">3</span>&nbsp;<input type="text" class="span8 search-query SrName" data-hidden="srcid" data-field="customer" name="srcusvalue" value="" autocomplete="off" placeholder="Поиск по заказчикам (от 3-х символов)">
+						<div class="suggestionsBox" id="DivSuggestcustomer" style="display: none;"> <img src="<?=$baseurl;?>images/arrow.png" style="position: relative; top: -15px; left: 50px;" alt="upArrow" />
+							<div class="suggestionList" id="suggestcustomer"> &nbsp; </div>
 						</div>
 					</div>
 					<div class="clear"></div>

@@ -157,8 +157,8 @@ class Admin_interface extends MY_Controller{
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record && !empty($record)):
 					$data['inn'] = '';
-					$passport = $this->mdregister->read_field($record,'register','number');
-					$this->session->set_userdata('msgr',"Внимание. Паспорт создан но ИНН пренадлежит паспорту $passport.<br/>Измените данные паспорта.");
+					$passport = $this->mdregister->read_field($record,'register','customer');
+					$this->session->set_userdata('msgr',"Внимание. Паспорт создан но ИНН пренадлежит: $passport.<br/>Измените данные паспорта.");
 					$id = $this->mdregister->insert_record($data);
 					redirect('admin-panel/actions/register/edit/id/'.$id);
 				else:
@@ -206,8 +206,8 @@ class Admin_interface extends MY_Controller{
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record != $this->uri->segment(6) && !empty($record) && !empty($data['inn'])):
 					$data['inn'] = '';
-					$passport = $this->mdregister->read_field($record,'register','number');
-					$this->session->set_userdata('msgr',"Внимание. Паспорт сохранен но ИНН пренадлежит паспорту $passport.<br/>Измените данные паспорта.");
+					$passport = $this->mdregister->read_field($record,'register','customer');
+					$this->session->set_userdata('msgr',"Внимание. Паспорт сохранен но ИНН пренадлежит: $passport.<br/>Измените данные паспорта.");
 					$this->mdregister->update_record($this->uri->segment(6),$data);
 					redirect($this->uri->uri_string());
 				else:
