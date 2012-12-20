@@ -11,7 +11,7 @@
 	<div class="container-fluid" style="position: relative; ">
 		<div class="row">
 			<div class="span12">
-				<div class="span6">
+				<div class="grif">
 					<p class="center title colored">
 						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="140"/><br/>
 						<span>Саморегулируемая организация</span><br/>
@@ -24,7 +24,7 @@
 						
 					</p>
 				</div>
-				<div class="span5" style="margin-left: 50px;">
+				<div class="span5" style="margin-left: 80px;">
 					<p class="title smaller">
 						<br/><br/><br/><br/>
 						<strong>Директору департамента</strong><br/>
@@ -39,11 +39,11 @@
 	</div>
 	<div class="row">
 		<div class="span11">
-				<p>&nbsp;</p><p>&nbsp;</p>
+				<p>&nbsp;</p>
 				<p class="center title">
 					<strong>Уважаемый Павел Валентинович!</strong>
 				</p>
-				<p class="intend">
+				<p class="intend main">
 					Саморегулируемая организация Некоммерческое Партнерство «Энергоаудит» (регистрационный номер <nobr>СРО-Э-101</nobr> 
 					от <nobr>07 июля 2011 года</nobr>) просит Вас принять для регистрации энергетический паспорт 
 					<nobr>№<?=$passport['number'];?></nobr> составленный на <?=$passport['customer'];?><br/>
@@ -51,7 +51,7 @@
 					ИНН <?=$passport['inn'];?><br/>
 					членом СРО НП «Энергоаудит» - организацией <?=$passport['member'];?>.
 				</p>
-				<p class="intend">
+				<p class="intend main">
 	Основанием для проведения обязательного энергетического обследования является:<br/>
 	<ul class="nolist">
 	<li>- Федеральный Закон №261;</li>
@@ -59,19 +59,19 @@
 	<li>- Приказ Минэнерго России от 19 апреля 2010 года № 182.</li>
 	</ul></p>
 
-<p class="intend">Приложения:</p>
-<p class="intend">
+<p class="intend main">Приложения:</p>
+<p class="intend main">
 <ul class="nolist">
 <li>- Энергетический паспорт объекта на бумажном носителе;</li>
 <li>- CD диск, содержащий электронные копии энергетических паспортов в формате PDF и XML.</li>
 				</p>
-				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+				<p>&nbsp;</p><p>&nbsp;</p>
 				<p>
-					<table class="table no-border">
+					<table class="table no-border times">
 						<tbody>
 							<tr>
-								<td width="80%" style="font-size: 1.2em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
-								<td width="20%" style="font-size: 1.2em;"><em>Л.К. Евкина</em></td>
+								<td width="80%" style="font-size: 1.1em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
+								<td width="20%" style="font-size: 1.25em;"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>

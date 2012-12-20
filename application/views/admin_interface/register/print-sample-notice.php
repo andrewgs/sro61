@@ -4,14 +4,17 @@
 <body>
 	<style type="text/css">
 		@media print {
+			/*
 			body, p { font-family: 'Times New Roman', Times, serif; font-size: 19px; line-height: 24px; margin-bottom: 16px; text-align: left; }
-			body { padding: 60px; } 
+			body { padding: 60px; }
+			*/
+			body, p { color: #333; } 
 		}
 	</style>
 	<div class="container-fluid" style="position: relative; ">
 		<div class="row">
 			<div class="span12">
-				<div class="span6">
+				<div class="grif">
 					<p class="center title colored">
 						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="140"/><br/>
 						<span>Саморегулируемая организация</span><br/>
@@ -24,7 +27,7 @@
 						
 					</p>
 				</div>
-				<div class="span5" style="margin-left: 50px;">
+				<div class="span5" style="margin-left: 80px;">
 					<p class="center title">
 						<br/><br/><br/><br/><br/><br/>
 						<strong><?=$passport['member'];?></strong>
@@ -40,7 +43,7 @@
 				<p class="center title">
 					<strong>УВЕДОМЛЕНИЕ</strong>
 				</p>
-				<p class="intend">
+				<p class="intend main">
 					Настоящим подтверждаем принятие и регистрацию энергетического паспорта,  
 					составленного по результатам энергетического обследования объекта: <?=$passport['customer'];?> 
 					(ИНН <?=$passport['inn'];?>), расположенного по адресу: <?=$passport['address'];?>, 
@@ -48,11 +51,11 @@
 				</p>
 				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
 				<p>
-					<table class="table no-border">
+					<table class="table no-border times">
 						<tbody>
 							<tr>
-								<td width="80%" style="font-size: 1.2em;">Директор</td>
-								<td width="20%" style="font-size: 1.2em;"><em>Л.К. Евкина</em></td>
+								<td width="80%" style="font-size: 1.1em;">Директор</td>
+								<td width="20%" style="font-size: 1.25em;"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>
