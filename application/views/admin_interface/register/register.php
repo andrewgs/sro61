@@ -51,15 +51,14 @@
 					<div class="clear"></div>
 					<div style="margin-top:15px;">
 						<span class="label label-info">
-							Заполните необходимые поля и нажмите "Поиск". Число выводимых результатов не превышает 15.<br/>
-							Если в списке нет нужного варианта - измените условие поиска.<br/>
-							Номера 1..3 - порядок приоритета для поиска.
+							Заполните необходимые поля и нажмите "Поиск". Если в списке нет нужного варианта - измените условие поиска.
+							<!--Номера 1..3 - порядок приоритета для поиска.-->
 						</span><br/>
 					</div>
 					<div class="clear"></div>
 					<div class="form-actions">
-						<button type="submit" class="btn btn-primary" id="seacrh" name="scsubmit" value="seacrh">&nbsp;&nbsp;Поиск&nbsp;&nbsp;</button>
-						<button class="btn btn-inverse FormSearch">Отмена</button>
+						<button type="submit" class="btn btn-info" id="seacrh" name="scsubmit" value="seacrh">&nbsp;&nbsp;Поиск&nbsp;&nbsp;</button>
+						<button class="btn FormSearch">Отмена</button>
 					</div>
 					<?= form_close(); ?>
 				</div>
