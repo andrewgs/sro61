@@ -5,7 +5,7 @@
 	<style type="text/css">
 		@media print { 
 			body, p { font-family: 'Times New Roman', Times, serif; font-size: 19px; line-height: 24px; margin-bottom: 16px; text-align: left; }
-			body { padding: 60px; } 
+			body { padding: 0; margin: 0; } 
 		}
 	</style>
 	<div class="container-fluid" style="position: relative; ">
@@ -16,7 +16,7 @@
 						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="140"/><br/>
 						<span>Саморегулируемая организация</span><br/>
 						<span>некоммерческое партнерство</span><br/>
-						<span>344002, г.Ростов-на-Дону, ул. Московская д.63, оф. 247</span><br/>
+						<span>344001 г. Ростов-на-Дону, ул. Республиканская, д. 86</span><br/>
 						<span>Телефон: (863) 296-20-92, Факс: (863) 236-53-53</span><br/>
 						<span>e-mail: <?=safe_mailto('sro61@mail.ru','sro61@mail.ru');?>, www: <?=anchor('http://sro61.ru/','http://sro61.ru');?></span><br/>
 						<span>Рег. № СРО-Э-101</span><br/><br/>
@@ -38,7 +38,7 @@
 			</div>
 	</div>
 	<div class="row">
-		<div class="span11">
+		<div class="span12">
 				<p>&nbsp;</p>
 				<p class="center title">
 					<strong>Уважаемый Павел Валентинович!</strong>
@@ -70,8 +70,8 @@
 					<table class="table no-border times">
 						<tbody>
 							<tr>
-								<td width="80%" style="font-size: 1.1em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
-								<td width="20%" style="font-size: 1.25em;"><em>Л.К. Евкина</em></td>
+								<td width="83%">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
+								<td width="17%" class="sign"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>
