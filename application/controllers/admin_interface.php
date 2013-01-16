@@ -154,6 +154,13 @@ class Admin_interface extends MY_Controller{
 					$data['number'] = 'СРО-Э-101-'.str_pad($data['organization'],3,"0",STR_PAD_LEFT).'-'.str_pad($nextnumber,4,"0",STR_PAD_LEFT);
 					$this->mdorganization->update_field($data['organization'],'docnumber',$nextnumber+1,'organization');
 				endif;
+				if(isset($data['double'])):
+					$this->mdregister->insert_record($data);
+					$this->session->set_userdata('msgs','Паспорт создан успешно.<br/>Номер паспорта: '.$data['number']);
+					redirect($this->uri->uri_string());
+				else:
+					$data['double'] = 0;
+				endif;
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record && !empty($record)):
 					$data['inn'] = '';
@@ -203,6 +210,13 @@ class Admin_interface extends MY_Controller{
 				redirect($this->uri->uri_string());
 			else:
 				$data = $this->input->post();
+				if(isset($data['double'])):
+					$this->mdregister->update_record($this->uri->segment(6),$data);
+					$this->session->set_userdata('msgs','Запись сохранена успешно.');
+					redirect($this->session->userdata('backpath'));
+				else:
+					$data['double'] = 0;
+				endif;
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record != $this->uri->segment(6) && !empty($record) && !empty($data['inn'])):
 					$data['inn'] = '';

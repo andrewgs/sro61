@@ -16,6 +16,7 @@ class Mdregister extends MY_Model{
 	var $availability	= '';
 	var $corrections	= '';
 	var $inn			= '';
+	var $double			= 0;
 	
 	function __construct(){
 		parent::__construct();
@@ -36,6 +37,7 @@ class Mdregister extends MY_Model{
 		$this->availability	= $data['availability'];
 		$this->corrections	= $data['corrections'];
 		$this->inn			= $data['inn'];
+		$this->double		= $data['double'];
 		
 		$this->db->insert('register',$this);
 		return $this->db->insert_id();
@@ -56,6 +58,7 @@ class Mdregister extends MY_Model{
 		$this->db->set('availability',$data['availability']);
 		$this->db->set('corrections',$data['corrections']);
 		$this->db->set('inn',$data['inn']);
+		$this->db->set('double',$data['double']);
 		$this->db->where('id',$id);
 		$this->db->update('register');
 		return $this->db->affected_rows();
