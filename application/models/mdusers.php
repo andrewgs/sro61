@@ -23,6 +23,7 @@ class Mdusers extends MY_Model{
 	
 	function insert_record($data){
 
+		$this->org_id 			= $data['id'];
 		$this->organization 	= $data['organization'];
 		$this->grn 				= $data['grn'];
 		$this->inn 				= $data['inn'];

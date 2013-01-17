@@ -2,12 +2,29 @@
 
 class Mdorganization extends MY_Model{
 	
-	var $id		= 0;
-	var $title	= 0;
-	var $type	= 0;
+	var $id			= 0;
+	var $docnumber  = 1;
+	var $title		= 0;
+	var $type		= 0;
 	
 	function __construct(){
 		parent::__construct();
+	}
+	
+	function insert_record($id,$title,$type){
+
+		$this->id 	 = $id;
+		$this->title = $title;
+		$this->type  = $type;
+		$this->db->insert('organization',$this);
+	}
+	
+	function update_record($id,$title){
+
+		$this->db->set('title',$title);
+		$this->db->where('id',$id);
+		$this->db->update('organization');
+		return $this->db->affected_rows();
 	}
 	
 	function read_experts(){

@@ -288,7 +288,7 @@ class Admin_interface extends MY_Controller{
 			$company[$value['id']] = $value;
 		endforeach;
 		$organizations = $company;
-		$file_name = getcwd().'/doc/tmp/passports.tmp';
+		$file_name = getcwd().'/docs/tmp/passports.tmp';
 		$fp = fopen($file_name,'w');
 		$this->load->helper('download');
 		$mass[0] = array(
@@ -619,7 +619,9 @@ class Admin_interface extends MY_Controller{
 		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
-			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('id',' ','required|trim');
+			$this->form_validation->set_rules('organization',' ','required|trim|xss_clean');
+			$this->form_validation->set_rules('title',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('grn',' ','required|trim');
 			$this->form_validation->set_rules('inn',' ','required|trim');
 			$this->form_validation->set_rules('number',' ','required|trim');
@@ -632,7 +634,16 @@ class Admin_interface extends MY_Controller{
 				$this->user_add();
 				return FALSE;
 			else:
-				$this->mdusers->insert_record($_POST);
+				if($this->mdorganization->record_exist('organization','id',$_POST['id'])):
+					$this->session->set_userdata('msgr','Номер организации занят. Повторите ввод!');
+					redirect($this->uri->uri_string());
+				endif;
+				if($_POST['class']):
+					$this->mdorganization->insert_record($_POST['id'],$_POST['title'],$_POST['class']);
+					$this->mdusers->insert_record($_POST);
+				else:
+					$this->mdorganization->insert_record($_POST['id'],$_POST['title'],$_POST['class']);
+				endif;
 				$this->session->set_userdata('msgs','Запись создана успешно.');
 				redirect($this->uri->uri_string());
 			endif;
@@ -653,9 +664,12 @@ class Admin_interface extends MY_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		$pagevar['user']['title'] = $this->mdorganization->read_field($pagevar['user']['org_id'],'organization','title');
+		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
-			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('organization',' ','required|trim|xss_clean');
+			$this->form_validation->set_rules('title',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('grn',' ','required|trim');
 			$this->form_validation->set_rules('inn',' ','required|trim');
 			$this->form_validation->set_rules('number',' ','required|trim');
@@ -669,6 +683,7 @@ class Admin_interface extends MY_Controller{
 				return FALSE;
 			else:
 				$this->mdusers->update_record($this->uri->segment(6),$_POST);
+				$this->mdorganization->update_field($pagevar['user']['org_id'],'title',$_POST['title'],'organization');
 				$this->session->set_userdata('msgs','Запись сохранена успешно.');
 				redirect($this->session->userdata('backpath'));
 			endif;
