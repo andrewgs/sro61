@@ -27,7 +27,7 @@ function myserialize(objects){
 function backpath(path){window.location=path;}
 
 (function($){
-	var baseurl = "http://sro61.ru/";
+	var baseurl = "http://sro61/";
 	$("#msgeclose").click(function(){$("#msgdealert").fadeOut(1000,function(){$(this).remove();});});
 	$("#msgsclose").click(function(){$("#msgdsalert").fadeOut(1000,function(){$(this).remove();});});
 	$(".digital").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && (e.which<48 || e.which>57)){return false;}});
@@ -117,10 +117,7 @@ function backpath(path){window.location=path;}
 		var err = false;
 		event.preventDefault();
 		$(".help-inline").hide();
-		
-		$("#formEnergoPassport .valid-required").each(function(i,element){if($(this).val()==''){$(this).next(".help-inline").html("Поле не может быть пустым").show();err = true;}});
-		if(!err && !isValidEmailAddress($("#formEnergoPassport .valid-email").val())){$("#formEnergoPassport .valid-email").next(".help-inline").html("Не верный Email").show();err = true;}
-		if(!err && !isValidPhone($("#formEnergoPassport .valid-phone").val())){$("#formEnergoPassport .valid-phone").next(".help-inline").html("Не верный номер").show();err = true;}
+		$("#formEnergoPassport .valid-required").each(function(i,element){if($(this).val()==''){$(this).next().next(".help-inline").html("Поле не может быть пустым").show();err = true;}});
 		if(!err){
 			var postdata = myserialize($("#formEnergoPassport .FieldSend"));
 			$.post(baseurl+"send-energy-passport",{'postdata':postdata},
