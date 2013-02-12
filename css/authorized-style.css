@@ -42,17 +42,19 @@ p.title {
 }
 p.title.right { text-align: right; }
 
-p.colored { color: #17365D; font-size: 16px; line-height: 1.5em; }
+p.colored { color: #17365D; font-size: 16px; line-height: 1.35em; }
 .large p.colored { font-size: 18px; }
 p.colored a { color: #17365D !important; }
 p.title strong { font-family: 'Times New Roman', Times, serif; font-size: 24px; line-height: 1.1em;}
-p.title.smaller strong { font-size: 21px; }
+p.title.smaller strong { font-size: 26px; line-height: 1.2em; }
 p.intend { text-indent: 2em; text-align: justify; }
+td p.intend { text-indent: 1.95em; }
 ul.nolist { list-style: none; }
-ul.nolist li { font: 20px/1.4em 'Times New Roman', Times, serif !important; }
+ul.nolist li { font: 22px/1.4em 'Times New Roman', Times, serif !important; }
 table.no-border td { border: 0 none !important; }
 .grif { float: left; margin: 0; width: 450px; }
-.grif.large { float: left; margin: 0; width: 540px; }
-p.intend.main { font: 20px/1.4em 'Times New Roman', Times, serif !important; }
-table.times td { font: 20px/1.4em 'Times New Roman', Times, serif !important; }
+.grif.large { float: left; margin: 0; width: 485px; }
+p.intend.main { font: 22px/1.4em 'Times New Roman', Times, serif !important; }
+table.times td { font: 22px/1.4em 'Times New Roman', Times, serif !important; }
 table.times td.sign { font-size: 24px !important; }
+table.times td.padding { padding-top: 35px; }

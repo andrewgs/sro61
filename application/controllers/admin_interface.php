@@ -341,7 +341,7 @@ class Admin_interface extends MY_Controller{
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
-					'orders'		=> $this->mdorders->read_limit_records(10,$from,'orders'),
+					'orders'		=> $this->mdorders->read_limit_records(10,$from,'orders','id','DESC'),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
