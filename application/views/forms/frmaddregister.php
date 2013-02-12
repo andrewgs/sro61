@@ -48,6 +48,9 @@
 			<div class="controls">
 				<input type="text" class="input-medium" name="inn" value="">
 			</div>
+			<div class="controls">
+				<label class="checkbox"><input type="checkbox" value="1" id="double" name="double">По проектной документации</label>
+			</div>
 		</div>
 		<div class="control-group">
 			<label for="organization" class="control-label">Член СРО: </label>

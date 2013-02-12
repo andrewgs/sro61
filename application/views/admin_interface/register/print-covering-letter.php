@@ -3,20 +3,21 @@
 <?php $this->load->view('admin_interface/includes/head');?>
 <body>
 	<style type="text/css">
-		@media print { 
-			body, p { font-family: 'Times New Roman', Times, serif; font-size: 19px; line-height: 24px; margin-bottom: 16px; text-align: left; }
-			body { padding: 60px; } 
-		}
+		body { padding: 0; margin: 0; }
+		ol li { font-size: 22px; line-height: 1.2em; font-family: 'Times New Roman', Times, serif; }
+		body { padding-left: 40px; }
+		color: #000;
 	</style>
 	<div class="container-fluid" style="position: relative; ">
 		<div class="row">
 			<div class="span12">
-				<div class="span6">
+				<div class="grif large">
 					<p class="center title colored">
-						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="140"/><br/>
+						<img src="<?=$baseurl;?>images/print-logo.png" alt="" width="220" style="margin-bottom: 6px;"/><br/>
 						<span>Саморегулируемая организация</span><br/>
 						<span>некоммерческое партнерство</span><br/>
-						<span>344002, г.Ростов-на-Дону, ул. Московская д.63, оф. 247</span><br/>
+						<span>«Энергоаудит»</span><br/>
+						<span>344001, г. Ростов-на-Дону, ул. Республиканская, д. 86</span><br/>
 						<span>Телефон: (863) 296-20-92, Факс: (863) 236-53-53</span><br/>
 						<span>e-mail: <?=safe_mailto('sro61@mail.ru','sro61@mail.ru');?>, www: <?=anchor('http://sro61.ru/','http://sro61.ru');?></span><br/>
 						<span>Рег. № СРО-Э-101</span><br/><br/>
@@ -24,13 +25,16 @@
 						
 					</p>
 				</div>
-				<div class="span5" style="margin-left: 50px;">
+				<div class="span5" style="margin-left: 75px;">
 					<p class="title smaller">
 						<br/><br/><br/><br/>
-						<strong>Директору департамента</strong><br/>
+						<br/><br/>
+						<strong>Исполняющему обязанности</strong><br/>
+						<strong>директора департамента</strong><br/>
 						<strong>энергоэффективности</strong><br/>
 						<strong>модернизации и развития ТЭК</strong><br/>
-						<strong>Свистунову П.В.</strong>
+						<strong>Минэнерго России</strong><br/>
+						<strong>А.В. Кулапину</strong>
 						
 					</p>
 				</div>
@@ -38,40 +42,50 @@
 			</div>
 	</div>
 	<div class="row">
-		<div class="span11">
-				<p>&nbsp;</p><p>&nbsp;</p>
+		<div class="span12">
+				<p>&nbsp;</p>
 				<p class="center title">
-					<strong>Уважаемый Павел Валентинович!</strong>
+					<strong>Уважаемый Алексей Иванович!</strong>
 				</p>
-				<p class="intend">
-					Саморегулируемая организация Некоммерческое Партнерство «Энергоаудит» (регистрационный номер <nobr>СРО-Э-101</nobr> 
-					от <nobr>07 июля 2011 года</nobr>) просит Вас принять для регистрации энергетический паспорт 
-					<nobr>№<?=$passport['number'];?></nobr> составленный на <?=$passport['customer'];?><br/>
-					Юридический адрес:<br/> <?=$passport['address'];?><br/>
-					ИНН <?=$passport['inn'];?><br/>
-					членом СРО НП «Энергоаудит» - организацией <?=$passport['member'];?>.
+				<p class="intend main">
+					Саморегулируемая организация некоммерческое партнерство «Энергоаудит» (регистрационный номер 
+					<nobr>СРО-Э-101</nobr> от <nobr>07 июля 2011 года</nobr>) 
+					просит Вас принять для регистрации энергетический паспорт 
+					<nobr>№ <?=$passport['number'];?></nobr>, составленный на организацию - <?=$passport['customer'];?> (ИНН <?=$passport['inn'];?>), 
+					расположенную по адресу: <?=$passport['address'];?>, членом Партнерства - <?=$passport['member'];?>.
 				</p>
-				<p class="intend">
-	Основанием для проведения обязательного энергетического обследования является:<br/>
-	<ul class="nolist">
-	<li>- Федеральный Закон №261;</li>
-	<li>- Постановление Правительства Российской Федерации от 25 января 2011 года №19;</li>
-	<li>- Приказ Минэнерго России от 19 апреля 2010 года № 182.</li>
-	</ul></p>
-
-<p class="intend">Приложения:</p>
-<p class="intend">
-<ul class="nolist">
-<li>- Энергетический паспорт объекта на бумажном носителе;</li>
-<li>- CD диск, содержащий электронные копии энергетических паспортов в формате PDF и XML.</li>
+				<p class="intend main">
+					Основанием для проведения обязательного энергетического обследования является:<br/>
+					<ol>
+						<li>Федеральный Закон от 23 ноября 2009 года № 261-ФЗ;</li>
+						<li>Постановление Правительства Российской Федерации от 25 января 2011 года № 19;</li>
+						<li>Приказ Минэнерго России от 19 апреля 2010 года № 182.</li>
+					</ol>
 				</p>
-				<p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p>
+				<p>&nbsp;</p>
+				<table class="table no-border">
+					<tr>
+						<td style="padding-top: 16px;">
+							<p class="intend main">Приложения:</p>			
+						</td>
+						<td>
+							<p class="intend main">
+								<ol>
+									<li>Энергетический паспорт объекта на бумажном носителе.</li>
+									<li>CD диск, содержащий электронные копии энергетических паспортов в формате PDF и XML.</li>
+								</ol>
+							</p>			
+						</td>
+					</tr>
+				</table>
+				<p>&nbsp;</p><p>&nbsp;</p>
+				<p>&nbsp;</p><p>&nbsp;</p>
 				<p>
-					<table class="table no-border">
+					<table class="table no-border times">
 						<tbody>
 							<tr>
-								<td width="80%" style="font-size: 1.2em; line-height: 1.35em;">С уважением,<br/>Директор СРО НП «Энергоаудит»</td>
-								<td width="20%" style="font-size: 1.2em;"><em>Л.К. Евкина</em></td>
+								<td width="78%">С уважением,<br/>Директор</td>
+								<td width="22%" class="sign padding"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>
@@ -81,7 +95,7 @@
 	</div>
 	<script type="text/javascript">
 		window.onload = function(){
-			setTimeout(function() { window.print(); }, 1000);
+			//setTimeout(function() { window.print(); }, 1000);
 		};
 	</script>
 </body>

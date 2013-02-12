@@ -154,11 +154,18 @@ class Admin_interface extends MY_Controller{
 					$data['number'] = 'СРО-Э-101-'.str_pad($data['organization'],3,"0",STR_PAD_LEFT).'-'.str_pad($nextnumber,4,"0",STR_PAD_LEFT);
 					$this->mdorganization->update_field($data['organization'],'docnumber',$nextnumber+1,'organization');
 				endif;
+				if(isset($data['double'])):
+					$this->mdregister->insert_record($data);
+					$this->session->set_userdata('msgs','Паспорт создан успешно.<br/>Номер паспорта: '.$data['number']);
+					redirect($this->uri->uri_string());
+				else:
+					$data['double'] = 0;
+				endif;
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record && !empty($record)):
 					$data['inn'] = '';
-					$passport = $this->mdregister->read_field($record,'register','number');
-					$this->session->set_userdata('msgr',"Внимание. Паспорт создан но ИНН пренадлежит паспорту $passport.<br/>Измените данные паспорта.");
+					$passport = $this->mdregister->read_field($record,'register','customer');
+					$this->session->set_userdata('msgr',"Внимание. Паспорт создан но ИНН пренадлежит: $passport.<br/>Измените данные паспорта.");
 					$id = $this->mdregister->insert_record($data);
 					redirect('admin-panel/actions/register/edit/id/'.$id);
 				else:
@@ -203,11 +210,18 @@ class Admin_interface extends MY_Controller{
 				redirect($this->uri->uri_string());
 			else:
 				$data = $this->input->post();
+				if(isset($data['double'])):
+					$this->mdregister->update_record($this->uri->segment(6),$data);
+					$this->session->set_userdata('msgs','Запись сохранена успешно.');
+					redirect($this->session->userdata('backpath'));
+				else:
+					$data['double'] = 0;
+				endif;
 				$record = $this->mdregister->record_exist('register','inn',$data['inn']);
 				if($record != $this->uri->segment(6) && !empty($record) && !empty($data['inn'])):
 					$data['inn'] = '';
-					$passport = $this->mdregister->read_field($record,'register','number');
-					$this->session->set_userdata('msgr',"Внимание. Паспорт сохранен но ИНН пренадлежит паспорту $passport.<br/>Измените данные паспорта.");
+					$passport = $this->mdregister->read_field($record,'register','customer');
+					$this->session->set_userdata('msgr',"Внимание. Паспорт сохранен но ИНН пренадлежит: $passport.<br/>Измените данные паспорта.");
 					$this->mdregister->update_record($this->uri->segment(6),$data);
 					redirect($this->uri->uri_string());
 				else:
@@ -274,7 +288,7 @@ class Admin_interface extends MY_Controller{
 			$company[$value['id']] = $value;
 		endforeach;
 		$organizations = $company;
-		$file_name = getcwd().'/doc/tmp/passports.tmp';
+		$file_name = getcwd().'/docs/tmp/passports.tmp';
 		$fp = fopen($file_name,'w');
 		$this->load->helper('download');
 		$mass[0] = array(
@@ -327,7 +341,7 @@ class Admin_interface extends MY_Controller{
 		$from = intval($this->uri->segment(5));
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
-					'orders'		=> $this->mdorders->read_limit_records(10,$from,'orders'),
+					'orders'		=> $this->mdorders->read_limit_records(10,$from,'orders','id','DESC'),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
@@ -605,7 +619,9 @@ class Admin_interface extends MY_Controller{
 		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
-			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('id',' ','required|trim');
+			$this->form_validation->set_rules('organization',' ','required|trim|xss_clean');
+			$this->form_validation->set_rules('title',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('grn',' ','required|trim');
 			$this->form_validation->set_rules('inn',' ','required|trim');
 			$this->form_validation->set_rules('number',' ','required|trim');
@@ -618,7 +634,16 @@ class Admin_interface extends MY_Controller{
 				$this->user_add();
 				return FALSE;
 			else:
-				$this->mdusers->insert_record($_POST);
+				if($this->mdorganization->record_exist('organization','id',$_POST['id'])):
+					$this->session->set_userdata('msgr','Номер организации занят. Повторите ввод!');
+					redirect($this->uri->uri_string());
+				endif;
+				if($_POST['class']):
+					$this->mdorganization->insert_record($_POST['id'],$_POST['title'],$_POST['class']);
+					$this->mdusers->insert_record($_POST);
+				else:
+					$this->mdorganization->insert_record($_POST['id'],$_POST['title'],$_POST['class']);
+				endif;
 				$this->session->set_userdata('msgs','Запись создана успешно.');
 				redirect($this->uri->uri_string());
 			endif;
@@ -639,9 +664,12 @@ class Admin_interface extends MY_Controller{
 		$this->session->unset_userdata('msgs');
 		$this->session->unset_userdata('msgr');
 		
+		$pagevar['user']['title'] = $this->mdorganization->read_field($pagevar['user']['org_id'],'organization','title');
+		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
-			$this->form_validation->set_rules('organization',' ','required|trim');
+			$this->form_validation->set_rules('organization',' ','required|trim|xss_clean');
+			$this->form_validation->set_rules('title',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('grn',' ','required|trim');
 			$this->form_validation->set_rules('inn',' ','required|trim');
 			$this->form_validation->set_rules('number',' ','required|trim');
@@ -655,6 +683,9 @@ class Admin_interface extends MY_Controller{
 				return FALSE;
 			else:
 				$this->mdusers->update_record($this->uri->segment(6),$_POST);
+				if($pagevar['user']['org_id']):
+					$this->mdorganization->update_field($pagevar['user']['org_id'],'title',$_POST['title'],'organization');
+				endif;
 				$this->session->set_userdata('msgs','Запись сохранена успешно.');
 				redirect($this->session->userdata('backpath'));
 			endif;

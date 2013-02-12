@@ -11,7 +11,7 @@
 		<li><?=anchor('order-of-audit','Порядок проведения энергоаудита',array('title'=>'Проведение энергоаудита'));?></li>
 		<li><?=anchor('expertise-energy-performance','Экспертиза энергопаспорта',array('title'=>'Экспертиза энергопаспорта'));?></li>
 		<li><?=anchor('methodological-materials','Методические материалы',array('title'=>'Методические материалы'));?></li>
-		<li><?=anchor('regional-representative','Региональные представительства',array('title'=>'Региональные представительства'));?></li>
+		<!-- <li><?=anchor('regional-representative','Региональные представительства',array('title'=>'Региональные представительства'));?></li>-->
 		<li><?=anchor('standards-and-regulations','Стандарты и правила',array('title'=>'Стандарты и правила'));?></li>
 		<li><a href="http://rosenergo.gov.ru/arm/sro/" title="АРМ Энергопаспорт (Минэнерго)" target="_blank">АРМ Энергопаспорт (Минэнерго)</a></li>
 		<li><?=anchor('treatment-of-members','Обращения членов',array('title'=>'Обращения членов'));?></li>
