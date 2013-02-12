@@ -683,7 +683,9 @@ class Admin_interface extends MY_Controller{
 				return FALSE;
 			else:
 				$this->mdusers->update_record($this->uri->segment(6),$_POST);
-				$this->mdorganization->update_field($pagevar['user']['org_id'],'title',$_POST['title'],'organization');
+				if($pagevar['user']['org_id']):
+					$this->mdorganization->update_field($pagevar['user']['org_id'],'title',$_POST['title'],'organization');
+				endif;
 				$this->session->set_userdata('msgs','Запись сохранена успешно.');
 				redirect($this->session->userdata('backpath'));
 			endif;
