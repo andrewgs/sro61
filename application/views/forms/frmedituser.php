@@ -4,7 +4,7 @@
 		<div class="control-group">
 			<label for="id" class="control-label">Номер:</label>
 			<div class="controls">
-				<input type="text" class="span1" disabled="disabled" name="id" value="<?=$user['org_id'];?>">
+				<input type="text" class="span1" name="id" value="<?=$user['org_id'];?>">
 			</div>
 		</div>
 		<div class="control-group">
@@ -18,6 +18,13 @@
 			<label for="title" class="control-label">Короткое название: </label>
 			<div class="controls">
 				<input type="text" class="span3 input-valid" name="title" value="<?=$user['title'];?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="status" class="control-label">Статус:</label>
+			<div class="controls">
+				<input type="text" class="span3 input-valid" name="status" value="<?=$user['status'];?>">
 				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>

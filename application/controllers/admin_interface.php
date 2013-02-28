@@ -588,7 +588,7 @@ class Admin_interface extends MY_Controller{
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
-					'users'			=> $this->mdusers->read_limit_records(10,$from,'users'),
+					'users'			=> $this->mdusers->read_limit_records(10,$from,'users','org_id'),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
@@ -622,11 +622,13 @@ class Admin_interface extends MY_Controller{
 			$this->form_validation->set_rules('id',' ','required|trim');
 			$this->form_validation->set_rules('organization',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('title',' ','required|trim|xss_clean');
+			$this->form_validation->set_rules('status',' ','trim|xss_clean');
 			$this->form_validation->set_rules('grn',' ','required|trim');
 			$this->form_validation->set_rules('inn',' ','required|trim');
 			$this->form_validation->set_rules('number',' ','required|trim');
 			$this->form_validation->set_rules('address',' ','required|trim');
 			$this->form_validation->set_rules('phones',' ','trim');
+			$this->form_validation->set_rules('email',' ','required|trim');
 			$this->form_validation->set_rules('login',' ','required|trim');
 			$this->form_validation->set_rules('password',' ','required|trim');
 			if(!$this->form_validation->run()):
@@ -634,15 +636,16 @@ class Admin_interface extends MY_Controller{
 				$this->user_add();
 				return FALSE;
 			else:
-				if($this->mdorganization->record_exist('organization','id',$_POST['id'])):
+				$insert = $this->input->post();
+				if($this->mdorganization->record_exist('organization','id',$insert['id'])):
 					$this->session->set_userdata('msgr','Номер организации занят. Повторите ввод!');
 					redirect($this->uri->uri_string());
 				endif;
-				if($_POST['class']):
-					$this->mdorganization->insert_record($_POST['id'],$_POST['title'],$_POST['class']);
-					$this->mdusers->insert_record($_POST);
+				if($insert['class']):
+					$this->mdorganization->insert_record($insert['id'],$insert['title'],$insert['class']);
+					$this->mdusers->insert_record($insert);
 				else:
-					$this->mdorganization->insert_record($_POST['id'],$_POST['title'],$_POST['class']);
+					$this->mdorganization->insert_record($insert['id'],$insert['title'],$insert['class']);
 				endif;
 				$this->session->set_userdata('msgs','Запись создана успешно.');
 				redirect($this->uri->uri_string());

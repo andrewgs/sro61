@@ -25,7 +25,7 @@
 						<?php for($i=0;$i<count($register);$i++):?>
 							<tr>
 								<td><?=$register[$i]['id'];?></td>
-								<td><?=($register[$i]['access'])?'действует':'не действует';?></td>
+								<td><?=$register[$i]['status'];?></td>
 								<td><?=$register[$i]['organization'];?></td>
 								<td><?=$register[$i]['grn'];?></td>
 								<td><?=$register[$i]['inn'];?></td>

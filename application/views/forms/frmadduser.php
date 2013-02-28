@@ -11,10 +11,17 @@
 		<div class="control-group">
 			<label for="expert" class="control-label">Класс организации: </label>
 			<div class="controls">
-				<select class="span3" name="class">
+				<select class="span3" name="class" id="set-organization-class">
 					<option value="0">Экспертная организация</option>
 					<option value="1" selected="selected" >Член СРО</option>
 				</select>
+			</div>
+		</div>
+		<div class="control-group">
+			<label for="status" class="control-label">Статус:</label>
+			<div class="controls">
+				<input type="text" class="span3 input-valid" id="organization-status" name="status" value="<?=set_value('status');?>">
+				<span class="help-inline" style="display:none;">&nbsp;</span>
 			</div>
 		</div>
 		<div class="control-group">

@@ -6,12 +6,10 @@ function isValidEmailAddress(emailAddress){
 	var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
 	return pattern.test(emailAddress);
 };
-
 function isValidPhone(phoneNumber){
 	var pattern = new RegExp(/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/i);
 	return pattern.test(phoneNumber);
 };
-
 function myserialize(objects){
 	var data = '';
 	$(objects).each(function(i,element){
@@ -23,7 +21,6 @@ function myserialize(objects){
 	});
 	return data;
 };
-
 function backpath(path){window.location=path;}
 
 (function($){
@@ -34,12 +31,10 @@ function backpath(path){window.location=path;}
 	$(".negative").keypress(function(e){if(e.which!=8 && e.which!=46 && e.which!=0 && e.which!=45 && (e.which<48 || e.which>57)){return false;}});
 	$(".none").click(function(event){event.preventDefault();});
 	$("a.articles").click(function(events){events.preventDefault();$("div.articles-wrapper").toggle();$(this).hide();});
-	
 	$("#send").click(function(event){
 		var err = false;$(".control-group").removeClass('error');$(".help-inline").hide();
 		$(".input-valid").each(function(i,element){if($(this).val()==''){$(this).parents(".control-group").addClass('error');$(this).siblings(".help-inline").html("Поле не может быть пустым").show();err = true;}});if(err){event.preventDefault();}
 	});
-	
 	$("#OrderSend").click(function(event){
 		var err = false;
 		event.preventDefault();
@@ -52,7 +47,6 @@ function backpath(path){window.location=path;}
 			function(data){if(data.status){$(".become-order em").show();$(".become-order .submit").addClass("submitted");}else{$(".become-order em").html(data.message).show();}},"json");
 		}
 	});
-	
 	$("#EnterSend").click(function(event){
 		var err = false;
 		$(".become-enter em").hide();
@@ -112,7 +106,6 @@ function backpath(path){window.location=path;}
 			,"json");
 		}
 	});
-	
 	$("#addEnergoPassport").click(function(event){
 		var err = false;
 		event.preventDefault();
@@ -137,10 +130,15 @@ function backpath(path){window.location=path;}
 	$(".RType").click(function(){Set_FieldSend($(".RType"),this);});
 	$(".RForma").click(function(){Set_FieldSend($(".RForma"),this);});
 	$(".RProperties").click(function(){Set_FieldSend($(".RProperties"),this);});
-	
+	$("#set-organization-class").change(function(){
+		if($("#set-organization-class").val() == 0){
+			$("#organization-status").addClass('hidden').attr('disabled','disabled').val('');
+		}else{
+			$("#organization-status").removeClass('hidden').removeAttr('disabled').val('').focus();
+		}
+	})
 	function Set_FieldSend(objects,the_this){
 		$(objects).removeClass("FieldSend");
 		$(the_this).addClass("FieldSend");
 	}
-	
 })(window.jQuery);

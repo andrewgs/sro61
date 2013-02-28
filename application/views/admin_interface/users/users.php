@@ -19,13 +19,18 @@
 				<table class="table table-striped table-bordered">
 					<thead>
 						<tr>
-							<th class="w650">Данные</th>
-							<th class="w50">&nbsp;</th>
+							<th class="span1">№</th>
+							<th class="span6">Данные</th>
+							<th class="span2">Статус</th>
+							<th>&nbsp;</th>
 						</tr>
 					</thead>
 					<tbody>
 					<?php for($i=0;$i<count($users);$i++):?>
 						<tr class="align-center">
+							<td>
+								<?=$users[$i]['org_id'];?>
+							</td>
 							<td>
 								Организация: <?=$users[$i]['organization'];?><br/>
 								Адрес: <?=$users[$i]['address'];?><br/>
@@ -34,6 +39,9 @@
 								<?php if($users[$i]['id'] != $userinfo['uid']):?>
 								Логин: <strong><?=$users[$i]['login'];?></strong> Пароль: <strong><?=$users[$i]['password'];?></strong>
 								<?php endif;?>
+							</td>
+							<td>
+								<?=$users[$i]['status'];?>
 							</td>
 							<td>
 								<?=anchor('admin-panel/actions/users/edit/id/'.$users[$i]['id'],'<i class="icon-pencil"></i>',array('class'=>'btn'));?>

@@ -13,9 +13,9 @@ class Mdorganization extends MY_Model{
 	
 	function insert_record($id,$title,$type){
 
-		$this->id 	 = $id;
+		$this->id = $id;
 		$this->title = $title;
-		$this->type  = $type;
+		$this->type = $type;
 		$this->db->insert('organization',$this);
 	}
 	

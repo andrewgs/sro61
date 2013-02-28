@@ -405,12 +405,7 @@ h2.forum-question { color: #4B7CB7; margin: 0; display: inline-block; float: lef
 .cf:after { clear: both; }
 .ie6 .cf { zoom: 1 }
 .mm { display: none; }
-.help-inline{
-	color: #B94A48;
-	display: inline-block;
-	padding-left: 5px;
-	vertical-align: middle;
-}
+.help-inline{color: #B94A48;display: inline-block;padding-left: 5px;vertical-align: middle;}
 .clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0}
 .w390 {width:390px;}
 .w200 {width:200px;}
