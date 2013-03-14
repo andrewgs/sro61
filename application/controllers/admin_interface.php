@@ -271,7 +271,21 @@ class Admin_interface extends MY_Controller{
 		
 		$id = $this->uri->segment(6);
 		if($id):
+			$register = $this->mdregister->read_record($id,'register');
+			$pattern = "/(СРО-Э-101)(-)(\d+)(-)(\d+)/";
+			$replacement = "\$5";
+			$nexNumber = 1+(int)preg_replace($pattern,$replacement,$register['number']);
+			$curDocumentNumber = $this->mdorganization->read_field($register['organization'],'organization','docnumber');
 			$result = $this->mdregister->delete_record($id,'register');
+			if($result):
+				if($nexNumber == $curDocumentNumber):
+					$this->mdorganization->update_field($register['organization'],'docnumber',$curDocumentNumber-1,'organization');
+				endif;
+				$countRegister = $this->mdregister->countRecordsByOrganization($register['organization']);
+				if(!$countRegister):
+					$this->mdorganization->update_field($register['organization'],'docnumber',1,'organization');
+				endif;
+			endif;
 			$this->session->set_userdata('msgs','Паспорт удален успешно.');
 			redirect($this->session->userdata('backpath'));
 		else:

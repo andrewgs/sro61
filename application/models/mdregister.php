@@ -73,4 +73,13 @@ class Mdregister extends MY_Model{
 		endif;
 		return $query;
 	}
+
+	function countRecordsByOrganization($organization){
+		
+		$this->db->select('COUNT(*) AS cnt');
+		$query = $this->db->get_where('register',array('organization'=>$organization));
+		$data = $query->result_array();
+		if($data) return $data[0]['cnt'];
+		return 0;
+	}
 }
