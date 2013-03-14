@@ -602,7 +602,7 @@ class Admin_interface extends MY_Controller{
 		$pagevar = array(
 					'baseurl' 		=> base_url(),
 					'userinfo'		=> $this->user,
-					'users'			=> $this->mdusers->read_limit_records(10,$from,'users','org_id'),
+					'users'			=> $this->mdusers->read_limit_records(10,$from,'users','id','DESC'),
 					'pages'			=> array(),
 					'msgs'			=> $this->session->userdata('msgs'),
 					'msgr'			=> $this->session->userdata('msgr')
