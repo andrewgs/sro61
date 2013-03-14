@@ -8,7 +8,7 @@ class Mdusers extends MY_Model{
 	var $grn			= '';
 	var $inn			= '';
 	var $number			= '';
-	
+	var $status			= '';
 	var $login 			= '';
 	var $address		= '';
 	var $email			= '';
@@ -46,6 +46,7 @@ class Mdusers extends MY_Model{
 		$this->db->set('grn',$data['grn']);
 		$this->db->set('inn',$data['inn']);
 		$this->db->set('number',$data['number']);
+		$this->db->set('status',$data['status']);
 		$this->db->set('address',$data['address']);
 		$this->db->set('login',$data['login']);
 		$this->db->set('cryptpassword',$this->encrypt->encode($data['password']));
