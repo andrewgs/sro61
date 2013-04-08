@@ -29,7 +29,7 @@
 					<?php for($i=0;$i<count($users);$i++):?>
 						<tr class="align-center">
 							<td>
-								<?=$users[$i]['id'];?>
+								<?=$users[$i]['org_id'];?>
 							</td>
 							<td>
 								Организация: <?=$users[$i]['organization'];?><br/>

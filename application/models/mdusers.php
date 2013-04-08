@@ -28,6 +28,7 @@ class Mdusers extends MY_Model{
 		$this->grn 				= $data['grn'];
 		$this->inn 				= $data['inn'];
 		$this->number 			= $data['number'];
+		$this->status 			= $data['status'];
 		$this->address 			= $data['address'];
 		$this->login 			= $data['login'];
 		$this->cryptpassword	= $this->encrypt->encode($data['password']);

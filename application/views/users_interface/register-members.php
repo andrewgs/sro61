@@ -24,7 +24,7 @@
 						<tbody>
 						<?php for($i=0;$i<count($register);$i++):?>
 							<tr>
-								<td><?=$register[$i]['id'];?></td>
+								<td><?=$register[$i]['org_id'];?></td>
 								<td><?=$register[$i]['status'];?></td>
 								<td><?=$register[$i]['organization'];?></td>
 								<td><?=$register[$i]['grn'];?></td>

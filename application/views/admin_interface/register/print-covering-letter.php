@@ -34,7 +34,7 @@
 						<strong>энергоэффективности</strong><br/>
 						<strong>модернизации и развития ТЭК</strong><br/>
 						<strong>Минэнерго России</strong><br/>
-						<strong>А.В. Кулапину</strong>
+						<strong>А.И. Кулапину</strong>
 						
 					</p>
 				</div>
