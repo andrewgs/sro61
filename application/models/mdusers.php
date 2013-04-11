@@ -3,6 +3,7 @@
 class Mdusers extends MY_Model{
 
 	var $id   			= 0;
+	var $org_id			= 0;
 	var $organization	= '';
 	var $access			= 1;
 	var $grn			= '';
@@ -42,7 +43,7 @@ class Mdusers extends MY_Model{
 	}
 	
 	function update_record($id,$data){
-
+		
 		$this->db->set('organization',$data['organization']);
 		$this->db->set('grn',$data['grn']);
 		$this->db->set('inn',$data['inn']);

@@ -348,6 +348,15 @@ class Admin_interface extends MY_Controller{
 		endif;
 	}
 	
+	public function returnRegister(){
+		
+		$pagevar = array(
+			'baseurl' => base_url(),
+			'pages' => array(),
+		);
+		$this->load->view("admin_interface/register/returns",$pagevar);
+	}
+	
 	/******************************************* orders **********************************************************/
 	
 	public function available_orders(){
@@ -685,6 +694,7 @@ class Admin_interface extends MY_Controller{
 		
 		if($this->input->post('submit')):
 			unset($_POST['submit']);
+			$this->form_validation->set_rules('orgid',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('organization',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('title',' ','required|trim|xss_clean');
 			$this->form_validation->set_rules('grn',' ','required|trim');
@@ -704,6 +714,12 @@ class Admin_interface extends MY_Controller{
 					$this->mdorganization->update_field($pagevar['user']['org_id'],'title',$_POST['title'],'organization');
 				endif;
 				$this->session->set_userdata('msgs','Запись сохранена успешно.');
+				if(!$this->mdusers->record_exist('users','org_id',$_POST['orgid'])):
+					$this->mdusers->update_field($this->uri->segment(6),'org_id',$_POST['orgid'],'users');
+					$this->mdorganization->update_field($pagevar['user']['org_id'],'id',$_POST['orgid'],'organization');
+				elseif($pagevar['user']['org_id'] != $_POST['orgid']):
+					$this->session->set_userdata('msgr','Запись сохранена. Но номер организации уже cуществует!');
+				endif;
 				redirect($this->session->userdata('backpath'));
 			endif;
 		endif;

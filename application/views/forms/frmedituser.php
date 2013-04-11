@@ -4,7 +4,7 @@
 		<div class="control-group">
 			<label for="id" class="control-label">Номер:</label>
 			<div class="controls">
-				<input type="text" class="span1" name="id" value="<?=$user['org_id'];?>">
+				<input type="text" class="span1" name="orgid" value="<?=$user['org_id'];?>">
 			</div>
 		</div>
 		<div class="control-group">
