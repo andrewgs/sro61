@@ -104,6 +104,16 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
 	}
 	
+	public function downloadCoveringLatter(){
+		
+		$pagevar = array(
+			'baseurl' 		=> base_url(),
+			'passport'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
+		);
+		$pagevar['passport']['member'] = $this->mdorganization->read_field($pagevar['passport']['organization'],'organization','title');
+		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
+	}
+	
 	public function print_sample_notice(){
 		
 		$pagevar = array(
