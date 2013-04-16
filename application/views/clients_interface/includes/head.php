@@ -1,6 +1,6 @@
 <head>
 	<meta charset="utf-8">
-	<title>Администрирование</title>
+	<title>Личный кабинет члена СРО</title>
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link href="<?=$baseurl;?>css/bootstrap.css" rel="stylesheet">

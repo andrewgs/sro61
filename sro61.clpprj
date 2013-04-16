@@ -7,6 +7,14 @@
 		<errfile name="S:\home\sro61\www\application\views\admin_interface\register\print-covering-letter.php">
 			<error val="2;8;14;8;2501;1;"/>
 		</errfile>
+		<errfile name="S:\home\sro61\www\application\views\admin_interface\includes\rightbar.php">
+			<error val="6;3;19;3;2002;1;"/>
+			<error val="6;4;18;4;2002;1;"/>
+			<error val="6;5;21;5;2002;1;"/>
+			<error val="6;6;18;6;2002;1;"/>
+			<error val="6;7;17;7;2002;1;"/>
+			<error val="7;10;29;10;2002;1;"/>
+		</errfile>
 	</errors>
 	<codestructure version="4.4">
 		<phptree>
@@ -52,69 +60,69 @@
 			</treenode>
 			<treenode node="SYSDIR;PHP:PHP Word;S:\home\sro61\www\index.php;f9;175;15;175;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="Admin_interface;PHP:Class Name;S:\home\sro61\www\application\controllers\admin_interface.php;f0;2;1;725;;;;vpos;;vMY_Controller;;c;;r;;d43,2;;b0,0;;m">
+			<treenode node="Admin_interface;PHP:Class Name;S:\home\sro61\www\application\controllers\admin_interface.php;f0;2;1;751;;;;vpos;;vMY_Controller;;c;;r;;d43,2;;b0,0;;m">
 				<treenode node="__construct;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f1;4;2;10;;;;vpos;;v;;r;;d23,4;;b0,0;;m">
 					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;7;11;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="actions_users;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;598;2;620;;;;vpos;;v;;r;;d32,598;;b1,0;;m">
-					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;600;7;600;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="actions_users;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;617;2;639;;;;vpos;;v;;r;;d32,617;;b1,0;;m">
+					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;619;7;619;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;614;8;614;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;633;8;633;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;601;10;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;620;10;620;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;600;22;600;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="add_new;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;495;2;533;;;;vpos;;v;;r;;d26,495;;b1,0;;m">
-					<treenode node="_FILES;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f7;518;14;518;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;506;15;506;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;516;9;516;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;497;10;497;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;524;11;524;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f15;499;20;499;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="translit;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;523;13;523;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;619;22;619;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="add_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;120;2;179;;;;vpos;;v;;r;;d31,120;;b1,0;;m">
-					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;133;15;133;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="add_new;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;514;2;552;;;;vpos;;v;;r;;d26,514;;b1,0;;m">
+					<treenode node="_FILES;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f7;537;14;537;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;150;9;150;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;525;15;525;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;168;8;168;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;535;9;535;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="nextnumber;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;151;15;151;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;516;10;516;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;122;10;122;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;543;11;543;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="passport;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;166;14;166;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f15;518;20;518;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="record;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;163;11;163;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f18;124;23;124;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="translit;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;542;13;542;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="available_orders;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;352;2;372;;;;vpos;;v;;r;;d35,352;;b1,0;;m">
-					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;354;7;354;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="add_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;130;2;189;;;;vpos;;v;;r;;d31,130;;b1,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;143;15;143;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;367;8;367;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;160;9;160;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;355;10;355;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;178;8;178;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;354;22;354;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="nextnumber;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;161;15;161;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;132;10;132;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="passport;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;176;14;176;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="record;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;173;11;173;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f18;134;23;134;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="closed_order;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;386;2;396;;;;vpos;;v;;r;;d31,386;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;388;5;388;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="available_orders;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;371;2;391;;;;vpos;;v;;r;;d35,371;;b1,0;;m">
+					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;373;7;373;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;388;13;388;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;386;8;386;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;374;10;374;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;373;22;373;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="closed_order;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;405;2;415;;;;vpos;;v;;r;;d31,405;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;407;5;407;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;407;13;407;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="control_panel;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;12;2;22;;;;vpos;;v;;r;;d32,12;;b1,0;;m">
@@ -123,140 +131,146 @@
 					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;16;22;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="delete_answer;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;459;2;469;;;;vpos;;v;;r;;d32,459;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;461;5;461;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="delete_answer;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;478;2;488;;;;vpos;;v;;r;;d32,478;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;480;5;480;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;463;10;463;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;482;10;482;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;461;13;461;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="delete_news;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;580;2;594;;;;vpos;;v;;r;;d30,580;;b1,0;;m">
-					<treenode node="nid;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;582;6;582;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;584;10;584;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;582;14;582;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;480;13;480;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="delete_order;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;374;2;384;;;;vpos;;v;;r;;d31,374;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;376;5;376;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="delete_news;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;599;2;613;;;;vpos;;v;;r;;d30,599;;b1,0;;m">
+					<treenode node="nid;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;601;6;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;378;10;378;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;603;10;603;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;376;13;376;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="delete_question;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;444;2;457;;;;vpos;;v;;r;;d34,444;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;446;5;446;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;448;10;448;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;446;13;446;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;601;14;601;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="delete_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;269;2;293;;;;vpos;;v;;r;;d34,269;;b1,0;;m">
-					<treenode node="countRegister;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;283;18;283;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="delete_order;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;393;2;403;;;;vpos;;v;;r;;d31,393;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;395;5;395;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="curDocumentNumber;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;277;21;277;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;397;10;397;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;271;5;271;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nexNumber;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;276;13;276;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="pattern;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;274;11;274;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="register;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;273;12;273;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="replacement;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;275;15;275;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;278;10;278;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;271;13;271;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;395;13;395;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="edit_news;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;535;2;578;;;;vpos;;v;;r;;d28,535;;b1,0;;m">
-					<treenode node="_FILES;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f7;560;14;560;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="delete_question;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;463;2;476;;;;vpos;;v;;r;;d34,463;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;465;5;465;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;548;15;548;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;467;10;467;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;558;9;558;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="nid;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;537;6;537;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="noimage;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;564;13;564;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;538;10;538;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;569;11;569;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;537;14;537;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="translit;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;568;13;568;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;465;13;465;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="edit_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;181;2;235;;;;vpos;;v;;r;;d32,181;;b1,0;;m">
-					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;195;15;195;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="delete_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;279;2;303;;;;vpos;;v;;r;;d34,279;;b1,0;;m">
+					<treenode node="countRegister;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;293;18;293;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;211;9;211;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="curDocumentNumber;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;287;21;287;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;183;10;183;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;281;5;281;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="passport;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;222;14;222;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="nexNumber;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;286;13;286;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="record;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;219;11;219;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pattern;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;284;11;284;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;185;25;185;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="register;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;283;12;283;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="replacement;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;285;15;285;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;288;10;288;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;281;13;281;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="forum;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;400;2;425;;;;vpos;;v;;r;;d24,400;;b1,0;;m">
-					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;402;7;402;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="downloadCoveringLatter;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;106;2;114;;;;vpos;;v;;r;;d41,106;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;108;10;108;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;417;8;417;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f18;110;23;110;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;403;10;403;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="edit_news;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;554;2;597;;;;vpos;;v;;r;;d28,554;;b1,0;;m">
+					<treenode node="_FILES;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f7;579;14;579;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;402;22;402;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;567;15;567;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;577;9;577;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="nid;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;556;6;556;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="noimage;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;583;13;583;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;557;10;557;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;588;11;588;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;556;14;556;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="translit;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;587;13;587;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="edit_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;191;2;245;;;;vpos;;v;;r;;d32,191;;b1,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;205;15;205;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;221;9;221;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;193;10;193;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="passport;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f5;232;14;232;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="record;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;229;11;229;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;195;25;195;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="forum;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;419;2;444;;;;vpos;;v;;r;;d24,419;;b1,0;;m">
+					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;421;7;421;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;436;8;436;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;422;10;422;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;421;22;421;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="full_register_list;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;86;2;90;;;;vpos;;v;;r;;d37,86;;b1,0;;m">
 					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;88;7;88;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="import_csv;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;295;2;348;;;;vpos;;v;;r;;d29,295;;b1,0;;m">
-					<treenode node="company;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;299;10;299;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="import_csv;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;305;2;358;;;;vpos;;v;;r;;d29,305;;b1,0;;m">
+					<treenode node="company;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;309;10;309;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="fdata;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;343;8;343;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="fdata;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;353;8;353;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="file_name;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;304;12;304;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="file_name;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;314;12;314;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="fp;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;305;5;305;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="fp;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;315;5;315;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;323;8;323;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;333;8;333;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="key;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f28;300;32;300;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="key;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f28;310;32;310;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="mas;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f19;339;23;339;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="mas;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f19;349;23;349;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="mass;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;307;7;307;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="mass;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;317;7;317;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="organizations;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;298;16;298;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="organizations;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;308;16;308;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="registers;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;297;12;297;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="registers;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;307;12;307;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f15;297;20;297;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f15;307;20;307;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="value;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f36;300;42;300;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="value;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f36;310;42;310;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="news;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;473;2;493;;;;vpos;;v;;r;;d23,473;;b1,0;;m">
-					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;475;7;475;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="news;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;492;2;512;;;;vpos;;v;;r;;d23,492;;b1,0;;m">
+					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;494;7;494;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;488;8;488;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f6;507;8;507;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;476;10;476;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;495;10;495;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;475;22;475;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;494;22;494;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="print_covering_letter;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;92;2;104;;;;vpos;;v;;r;;d40,92;;b1,0;;m">
@@ -265,10 +279,10 @@
 					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;96;25;96;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="print_sample_notice;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;106;2;118;;;;vpos;;v;;r;;d38,106;;b1,0;;m">
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;108;10;108;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="print_sample_notice;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;116;2;128;;;;vpos;;v;;r;;d38,116;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;118;10;118;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;110;25;110;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;120;25;120;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 				<treenode node="register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;26;2;84;;;;vpos;;v;;r;;d27,26;;b1,0;;m">
@@ -297,62 +311,68 @@
 					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f17;28;22;28;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="save_forum_text;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;427;2;442;;;;vpos;;v;;r;;d34,427;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;432;5;432;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="returnRegister;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;360;2;367;;;;vpos;;v;;r;;d33,360;;b1,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;362;10;362;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="model;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;436;8;436;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;437;9;437;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="statusval;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;429;12;429;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="text;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;430;7;430;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f10;430;15;430;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="type;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;431;7;431;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;366;7;366;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="search_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;237;2;267;;;;vpos;;v;;r;;d34,237;;b1,0;;m">
-					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;247;10;247;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="save_forum_text;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;446;2;461;;;;vpos;;v;;r;;d34,446;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;451;5;451;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="passports;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;243;12;243;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="model;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;455;8;455;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;246;11;246;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;456;9;456;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="search;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;240;9;240;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="statusval;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;448;12;448;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="searchfield;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;241;14;241;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="text;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;449;7;449;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="statusval;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;239;12;239;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f10;449;15;449;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f12;240;17;240;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="user_add;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;622;2;669;;;;vpos;;v;;r;;d27,622;;b1,0;;m">
-					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;634;15;634;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="insert;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;652;11;652;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;624;10;624;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;626;25;626;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="type;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;450;7;450;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="user_delete;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;713;2;723;;;;vpos;;v;;r;;d30,713;;b1,0;;m">
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;715;5;715;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="search_register;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;247;2;277;;;;vpos;;v;;r;;d34,247;;b1,0;;m">
+					<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;257;10;257;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;717;10;717;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="passports;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;253;12;253;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;715;13;715;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;256;11;256;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="search;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;250;9;250;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="searchfield;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;251;14;251;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="statusval;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;249;12;249;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f12;250;17;250;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="user_edit;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;671;2;711;;;;vpos;;v;;r;;d28,671;;b1,0;;m">
-					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;686;15;686;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="user_add;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;641;2;688;;;;vpos;;v;;r;;d27,641;;b1,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;653;15;653;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;673;10;673;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="insert;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f4;671;11;671;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;675;25;675;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;643;10;643;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;645;25;645;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="user_delete;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;739;2;749;;;;vpos;;v;;r;;d30,739;;b1,0;;m">
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;741;5;741;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="result;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f3;743;10;743;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;741;13;741;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+				</treenode>
+				<treenode node="user_edit;PHP:Function Name;S:\home\sro61\www\application\controllers\admin_interface.php;f8;690;2;737;;;;vpos;;v;;r;;d28,690;;b1,0;;m">
+					<treenode node="_POST;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f9;705;15;705;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="pagevar;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f2;692;10;692;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\controllers\admin_interface.php;f20;694;25;694;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
 			</treenode>
@@ -7636,108 +7656,110 @@
 					</treenode>
 				</treenode>
 			</treenode>
-			<treenode node="Mdusers;PHP:Class Name;S:\home\sro61\www\application\models\mdusers.php;f0;2;1;111;;;;vpos;;vMY_Model;;c;;r;;d30,2;;b0,0;;m">
-				<treenode node="__construct;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;19;2;21;;;;vpos;;v;;r;;d23,19;;b0,0;;m">
+			<treenode node="Mdusers;PHP:Class Name;S:\home\sro61\www\application\models\mdusers.php;f0;2;1;112;;;;vpos;;vMY_Model;;c;;r;;d30,2;;b0,0;;m">
+				<treenode node="__construct;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;20;2;22;;;;vpos;;v;;r;;d23,20;;b0,0;;m">
 				</treenode>
-				<treenode node="auth_user;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;61;2;69;;;;vpos;;v;;r;;d37,61;;b0,0;;mlogin;;ppassword;;p">
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;66;7;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="auth_user;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;62;2;70;;;;vpos;;v;;r;;d37,62;;b0,0;;mlogin;;ppassword;;p">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;67;7;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="login;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f20;61;26;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="login;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f20;62;26;62;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="password;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f27;61;36;61;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="password;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f27;62;36;62;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;65;8;65;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;66;8;66;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;63;7;63;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="count_members;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;101;2;109;;;;vpos;;v;;r;;d25,101;;b0,0;;m">
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;106;7;106;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;105;8;105;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;103;7;103;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;64;7;64;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="insert_record;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;23;2;41;;;;vpos;;v;;r;;d30,23;;b0,0;;mdata;;p">
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f24;23;29;23;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="count_members;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;102;2;110;;;;vpos;;v;;r;;d25,102;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;107;7;107;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;25;7;25;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;106;8;106;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-				</treenode>
-				<treenode node="read_limit_members;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;90;2;99;;;;vpos;;v;;r;;d42,90;;b0,0;;mcount;;pfrom;;p">
-					<treenode node="count;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f29;90;35;90;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;96;7;96;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f36;90;41;90;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;95;8;95;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;92;7;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;104;7;104;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="update_record;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;43;2;59;;;;vpos;;v;;r;;d34,43;;b0,0;;mid;;pdata;;p">
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f28;43;33;43;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="insert_record;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;24;2;42;;;;vpos;;v;;r;;d30,24;;b0,0;;mdata;;p">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f24;24;29;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f24;43;27;43;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;45;7;45;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;26;7;26;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="user_exist;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;71;2;78;;;;vpos;;v;;r;;d39,71;;b0,0;;mfield;;pparameter;;p">
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;75;7;75;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="read_limit_members;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;91;2;100;;;;vpos;;v;;r;;d42,91;;b0,0;;mcount;;pfrom;;p">
+					<treenode node="count;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f29;91;35;91;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="field;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f21;71;27;71;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;97;7;97;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="parameter;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f28;71;38;71;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="from;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f36;91;41;91;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;74;8;74;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;96;8;96;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;73;7;73;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-				</treenode>
-				<treenode node="valid_password;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;80;2;88;;;;vpos;;v;;r;;d47,80;;b0,0;;mid;;pfield;;pparameter;;p">
-					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;85;7;85;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="field;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f29;80;35;80;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f25;80;28;80;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="parameter;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f36;80;46;80;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;84;8;84;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
-					</treenode>
-					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;82;7;82;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;93;7;93;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 					</treenode>
 				</treenode>
-				<treenode node="access;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;6;12;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="update_record;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;44;2;60;;;;vpos;;v;;r;;d34,44;;b0,0;;mid;;pdata;;p">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f28;44;33;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f24;44;27;44;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;46;7;46;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
-				<treenode node="address;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;12;13;12;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="user_exist;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;72;2;79;;;;vpos;;v;;r;;d39,72;;b0,0;;mfield;;pparameter;;p">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;76;7;76;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="field;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f21;72;27;72;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="parameter;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f28;72;38;72;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;75;8;75;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;74;7;74;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
-				<treenode node="cryptpassword;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;14;19;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="valid_password;PHP:Function Name;S:\home\sro61\www\application\models\mdusers.php;f1;81;2;89;;;;vpos;;v;;r;;d47,81;;b0,0;;mid;;pfield;;pparameter;;p">
+					<treenode node="data;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;86;7;86;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="field;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f29;81;35;81;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f25;81;28;81;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="parameter;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f36;81;46;81;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="query;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;85;8;85;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
+					<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f2;83;7;83;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+					</treenode>
 				</treenode>
-				<treenode node="email;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;13;11;13;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="access;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;7;12;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="grn;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;7;9;7;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="address;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;13;13;13;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="cryptpassword;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;15;19;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="email;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;14;11;14;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="grn;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;8;9;8;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 				<treenode node="id;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;4;8;4;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="inn;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;8;9;8;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="inn;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;9;9;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="login;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;11;11;11;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="login;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;12;11;12;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="number;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;9;12;9;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="number;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;10;12;10;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="organization;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;5;18;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="org_id;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;5;12;5;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="password;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;15;14;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="organization;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;6;18;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="phones;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;16;12;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="password;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;16;14;16;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="signdate;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;17;14;17;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="phones;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;17;12;17;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
-				<treenode node="status;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;10;12;10;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				<treenode node="signdate;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;18;14;18;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+				</treenode>
+				<treenode node="status;PHP:Var Name;S:\home\sro61\www\application\models\mdusers.php;f5;11;12;11;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 				</treenode>
 			</treenode>
 			<treenode node="MY_Controller;PHP:Class Name;S:\home\sro61\www\application\core\MY_Controller.php;f0;2;1;211;;;;vpos;;vCI_Controller;;c;;r;;d41,2;;b0,0;;m">
@@ -9050,7 +9072,7 @@
 			</treenode>
 			<treenode node="autoload;PHP:Var Name;S:\home\sro61\www\application\config\autoload.php;f0;1;9;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="baseurl;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\sidebar.php;f102;29;110;29;;S:\home\sro61\www\application\views\users_interface\includes\scripts.php;f16;2;24;2;;S:\home\sro61\www\application\views\users_interface\includes\header.php;f51;11;59;11;;S:\home\sro61\www\application\views\users_interface\includes\head.php;f16;6;24;6;;S:\home\sro61\www\application\views\forms\frmlogin.php;f27;4;35;4;;S:\home\sro61\www\application\views\clients_interface\includes\scripts.php;f16;2;24;2;;S:\home\sro61\www\application\views\clients_interface\includes\head.php;f16;5;24;5;;S:\home\sro61\www\application\views\clients_interface\includes\footer.php;f18;11;26;11;;S:\home\sro61\www\application\views\clients_interface\control-panel.php;f20;30;28;30;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f99;34;107;34;;S:\home\sro61\www\application\views\admin_interface\includes\scripts.php;f16;2;24;2;;S:\home\sro61\www\application\views\admin_interface\includes\head.php;f16;5;24;5;;S:\home\sro61\www\application\views\admin_interface\includes\footer.php;f18;11;26;11;;S:\home\sro61\www\application\views\admin_interface\register\print-sample-notice.php;f19;16;27;16;;S:\home\sro61\www\application\views\admin_interface\register\print-covering-letter.php;f19;15;27;15;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="baseurl;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\sidebar.php;f102;29;110;29;;S:\home\sro61\www\application\views\users_interface\includes\scripts.php;f16;2;24;2;;S:\home\sro61\www\application\views\users_interface\includes\header.php;f51;11;59;11;;S:\home\sro61\www\application\views\users_interface\includes\head.php;f16;6;24;6;;S:\home\sro61\www\application\views\forms\frmlogin.php;f27;4;35;4;;S:\home\sro61\www\application\views\clients_interface\includes\scripts.php;f16;2;24;2;;S:\home\sro61\www\application\views\clients_interface\includes\head.php;f16;5;24;5;;S:\home\sro61\www\application\views\clients_interface\includes\footer.php;f18;11;26;11;;S:\home\sro61\www\application\views\clients_interface\control-panel.php;f20;30;28;30;;S:\home\sro61\www\application\views\admin_interface\includes\scripts.php;f16;2;24;2;;S:\home\sro61\www\application\views\admin_interface\includes\head.php;f16;5;24;5;;S:\home\sro61\www\application\views\admin_interface\includes\footer.php;f18;11;26;11;;S:\home\sro61\www\application\views\admin_interface\register\print-sample-notice.php;f19;16;27;16;;S:\home\sro61\www\application\views\admin_interface\register\print-covering-letter.php;f19;15;27;15;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f99;34;107;34;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="BM;PHP:Var Name;S:\home\sro61\www\system\core\CodeIgniter.php;f1;114;4;114;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -9084,7 +9106,7 @@
 			</treenode>
 			<treenode node="hook;PHP:Var Name;S:\home\sro61\www\application\config\hooks.php;f0;12;5;12;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\sidebar.php;f11;23;13;23;;S:\home\sro61\www\application\views\users_interface\register-passports.php;f16;25;18;25;;S:\home\sro61\www\application\views\users_interface\news.php;f14;11;16;11;;S:\home\sro61\www\application\views\users_interface\forum.php;f14;11;16;11;;S:\home\sro61\www\application\views\forms\frmeditregister.php;f14;14;16;14;;S:\home\sro61\www\application\views\forms\frmaddregister.php;f14;15;16;15;;S:\home\sro61\www\application\views\clients_interface\available-orders.php;f15;23;17;23;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f15;74;17;74;;S:\home\sro61\www\application\views\admin_interface\news\list-news.php;f15;27;17;27;;S:\home\sro61\www\application\views\admin_interface\forum.php;f14;17;16;17;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f15;24;17;24;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f15;28;17;28;;S:\home\sro61\www\application\views\users_interface\register-members.php;f16;24;18;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="i;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\sidebar.php;f11;23;13;23;;S:\home\sro61\www\application\views\users_interface\register-passports.php;f16;25;18;25;;S:\home\sro61\www\application\views\users_interface\news.php;f14;11;16;11;;S:\home\sro61\www\application\views\users_interface\forum.php;f14;11;16;11;;S:\home\sro61\www\application\views\forms\frmeditregister.php;f14;14;16;14;;S:\home\sro61\www\application\views\forms\frmaddregister.php;f14;15;16;15;;S:\home\sro61\www\application\views\clients_interface\available-orders.php;f15;23;17;23;;S:\home\sro61\www\application\views\admin_interface\news\list-news.php;f15;27;17;27;;S:\home\sro61\www\application\views\admin_interface\forum.php;f14;17;16;17;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f15;24;17;24;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f15;28;17;28;;S:\home\sro61\www\application\views\users_interface\register-members.php;f16;24;18;24;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f15;74;17;74;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="IN;PHP:Var Name;S:\home\sro61\www\system\core\CodeIgniter.php;f1;212;4;212;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -9126,7 +9148,7 @@
 			</treenode>
 			<treenode node="OUT;PHP:Var Name;S:\home\sro61\www\system\core\CodeIgniter.php;f1;185;5;185;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="pages;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\register-passports.php;f13;39;19;39;;S:\home\sro61\www\application\views\users_interface\news.php;f13;24;19;24;;S:\home\sro61\www\application\views\users_interface\forum.php;f14;57;20;57;;S:\home\sro61\www\application\views\clients_interface\available-orders.php;f13;39;19;39;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f13;91;19;91;;S:\home\sro61\www\application\views\admin_interface\news\list-news.php;f13;46;19;46;;S:\home\sro61\www\application\views\admin_interface\forum.php;f13;61;19;61;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f13;50;19;50;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f13;57;19;57;;S:\home\sro61\www\application\views\users_interface\register-members.php;f13;37;19;37;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="pages;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\register-passports.php;f13;39;19;39;;S:\home\sro61\www\application\views\users_interface\news.php;f13;24;19;24;;S:\home\sro61\www\application\views\users_interface\forum.php;f14;57;20;57;;S:\home\sro61\www\application\views\clients_interface\available-orders.php;f13;39;19;39;;S:\home\sro61\www\application\views\admin_interface\news\list-news.php;f13;46;19;46;;S:\home\sro61\www\application\views\admin_interface\forum.php;f13;61;19;61;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f13;50;19;50;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f13;57;19;57;;S:\home\sro61\www\application\views\users_interface\register-members.php;f13;37;19;37;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f13;92;19;92;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="passport;PHP:Var Name;S:\home\sro61\www\application\views\forms\frmeditregister.php;f73;6;82;6;;S:\home\sro61\www\application\views\admin_interface\register\print-sample-notice.php;f17;31;26;31;;S:\home\sro61\www\application\views\admin_interface\register\print-covering-letter.php;f16;53;25;53;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -9136,7 +9158,7 @@
 			</treenode>
 			<treenode node="questions;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\forum.php;f28;11;38;11;;S:\home\sro61\www\application\views\admin_interface\forum.php;f28;17;38;17;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="register;PHP:Var Name;S:\home\sro61\www\application\views\admin_interface\register\register.php;f29;74;38;74;;S:\home\sro61\www\application\views\users_interface\register-members.php;f30;24;39;24;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="register;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\register-members.php;f30;24;39;24;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f29;74;38;74;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="robots;PHP:Var Name;S:\home\sro61\www\application\config\user_agents.php;f0;165;7;165;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -9154,7 +9176,7 @@
 			</treenode>
 			<treenode node="system_path;PHP:Var Name;S:\home\sro61\www\index.php;f1;58;13;58;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\header.php;f13;12;18;12;;S:\home\sro61\www\application\views\users_interface\register-passports.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\pages.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\news.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\forum.php;f6;2;11;2;;S:\home\sro61\www\application\views\forms\frmuserprofile.php;f13;0;18;0;;S:\home\sro61\www\application\views\forms\frmpassword.php;f13;0;18;0;;S:\home\sro61\www\application\views\forms\frmlogin.php;f7;1;12;1;;S:\home\sro61\www\application\views\forms\frmedituser.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmeditregister.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmeditnews.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmadduser.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddregister.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddquestion.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddnews.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddanswer.php;f23;0;28;0;;S:\home\sro61\www\application\views\clients_interface\profile.php;f6;2;11;2;;S:\home\sro61\www\application\views\clients_interface\control-panel.php;f6;2;11;2;;S:\home\sro61\www\application\views\clients_interface\available-orders.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\users\user-edit.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\users\user-add.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\register-edit.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\register-add.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\news\list-news.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\news\edit-news.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\news\add-news.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\forum.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\control-panel.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\print-sample-notice.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\print-covering-letter.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\register-members.php;f6;2;11;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="this;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\header.php;f13;12;18;12;;S:\home\sro61\www\application\views\users_interface\register-passports.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\pages.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\news.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\forum.php;f6;2;11;2;;S:\home\sro61\www\application\views\forms\frmuserprofile.php;f13;0;18;0;;S:\home\sro61\www\application\views\forms\frmpassword.php;f13;0;18;0;;S:\home\sro61\www\application\views\forms\frmlogin.php;f7;1;12;1;;S:\home\sro61\www\application\views\forms\frmeditregister.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmeditnews.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddregister.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddquestion.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddnews.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmaddanswer.php;f23;0;28;0;;S:\home\sro61\www\application\views\clients_interface\profile.php;f6;2;11;2;;S:\home\sro61\www\application\views\clients_interface\control-panel.php;f6;2;11;2;;S:\home\sro61\www\application\views\clients_interface\available-orders.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\users\user-add.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\register-edit.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\register-add.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\news\list-news.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\news\edit-news.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\news\add-news.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\forum.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\control-panel.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\print-sample-notice.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\print-covering-letter.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f6;2;11;2;;S:\home\sro61\www\application\views\users_interface\register-members.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\users\user-edit.php;f6;2;11;2;;S:\home\sro61\www\application\views\forms\frmadduser.php;f23;0;28;0;;S:\home\sro61\www\application\views\forms\frmedituser.php;f23;0;28;0;;S:\home\sro61\www\application\views\admin_interface\register\Codelobster0.php;f6;2;11;2;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f6;2;11;2;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="title;PHP:Var Name;S:\home\sro61\www\application\views\users_interface\includes\head.php;f11;3;17;3;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -9162,7 +9184,7 @@
 			</treenode>
 			<treenode node="URI;PHP:Var Name;S:\home\sro61\www\system\core\CodeIgniter.php;f1;164;5;164;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="user;PHP:Var Name;S:\home\sro61\www\application\views\forms\frmuserprofile.php;f85;6;90;6;;S:\home\sro61\www\application\views\forms\frmpassword.php;f90;6;95;6;;S:\home\sro61\www\application\views\forms\frmedituser.php;f57;6;62;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="user;PHP:Var Name;S:\home\sro61\www\application\views\forms\frmuserprofile.php;f85;6;90;6;;S:\home\sro61\www\application\views\forms\frmpassword.php;f90;6;95;6;;S:\home\sro61\www\application\views\forms\frmedituser.php;f60;6;65;6;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="userinfo;PHP:Var Name;S:\home\sro61\www\application\views\forms\frmuserprofile.php;f10;83;19;83;;S:\home\sro61\www\application\views\clients_interface\control-panel.php;f12;13;21;13;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f37;38;46;38;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -12182,7 +12204,7 @@
 			</treenode>
 			<treenode node="display;JS:JS Var Name;S:\home\sro61\www\js\libs\jquery-1.8.2.min.js;f73433;1;73440;1;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
-			<treenode node="document;JS:JS Var Name;S:\home\sro61\www\js\bootstrap.js;f17;34;25;34;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f4;60;12;60;;S:\home\sro61\www\application\views\users_interface\register-members.php;f4;49;12;49;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f4;67;12;67;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
+			<treenode node="document;JS:JS Var Name;S:\home\sro61\www\js\bootstrap.js;f17;34;25;34;;S:\home\sro61\www\application\views\admin_interface\available-orders.php;f4;60;12;60;;S:\home\sro61\www\application\views\users_interface\register-members.php;f4;49;12;49;;S:\home\sro61\www\application\views\admin_interface\users\users.php;f4;67;12;67;;S:\home\sro61\www\application\views\admin_interface\register\register.php;f4;103;12;103;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
 			<treenode node="Dropdown;JS:JS Var Name;S:\home\sro61\www\js\bootstrap.js;f2;605;10;605;;;;vpos;;v;;r;;d-1,-1;;b0,0;;m">
 			</treenode>
@@ -12791,7 +12813,7 @@
 		<file name="S:\home\sro61\www\application\views\forms\frmuserprofile.php" crc="-724340913"/>
 		<file name="S:\home\sro61\www\application\views\forms\frmpassword.php" crc="1260959635"/>
 		<file name="S:\home\sro61\www\application\views\forms\frmlogin.php" crc="-236760687"/>
-		<file name="S:\home\sro61\www\application\views\forms\frmedituser.php" crc="-183334898"/>
+		<file name="S:\home\sro61\www\application\views\forms\frmedituser.php" crc="1099601581"/>
 		<file name="S:\home\sro61\www\application\views\forms\frmeditregister.php" crc="1968634880"/>
 		<file name="S:\home\sro61\www\application\views\forms\frmeditnews.php" crc="-37825362"/>
 		<file name="S:\home\sro61\www\application\views\forms\frmadduser.php" crc="-1856521276"/>
@@ -12814,7 +12836,8 @@
 		<file name="S:\home\sro61\www\application\views\admin_interface\users\users.php" crc="-166177931"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\users\user-edit.php" crc="-1492582588"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\users\user-add.php" crc="1733890544"/>
-		<file name="S:\home\sro61\www\application\views\admin_interface\register\register.php" crc="-175262598"/>
+		<file name="S:\home\sro61\www\application\views\admin_interface\register\returns.php" crc="-1552847862"/>
+		<file name="S:\home\sro61\www\application\views\admin_interface\register\register.php" crc="-1009621074"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\register\register-edit.php" crc="-1272677216"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\register\register-add.php" crc="1863407285"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\register\print-sample-notice.php" crc="-209510867"/>
@@ -12828,14 +12851,14 @@
 		<file name="S:\home\sro61\www\application\views\admin_interface\modal\delete-order.php" crc="608691687"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\modal\delete-news.php" crc="-1585335975"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\includes\scripts.php" crc="-2009136475"/>
-		<file name="S:\home\sro61\www\application\views\admin_interface\includes\rightbar.php" crc="323277255"/>
+		<file name="S:\home\sro61\www\application\views\admin_interface\includes\rightbar.php" crc="-262816976"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\includes\header.php" crc="-1306218877"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\includes\head.php" crc="1685252303"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\includes\footer.php" crc="-303908926"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\forum.php" crc="-1077009816"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\control-panel.php" crc="-1194303322"/>
 		<file name="S:\home\sro61\www\application\views\admin_interface\available-orders.php" crc="1599892032"/>
-		<file name="S:\home\sro61\www\application\models\mdusers.php" crc="-363581522"/>
+		<file name="S:\home\sro61\www\application\models\mdusers.php" crc="960484862"/>
 		<file name="S:\home\sro61\www\application\models\mdunion.php" crc="209645917"/>
 		<file name="S:\home\sro61\www\application\models\mdregister.php" crc="1732992709"/>
 		<file name="S:\home\sro61\www\application\models\mdquestions.php" crc="233292389"/>
@@ -12865,10 +12888,10 @@
 		<file name="S:\home\sro61\www\application\core\MY_Controller.php" crc="-447625931"/>
 		<file name="S:\home\sro61\www\application\controllers\users_interface.php" crc="22615219"/>
 		<file name="S:\home\sro61\www\application\controllers\clients_interface.php" crc="273861462"/>
-		<file name="S:\home\sro61\www\application\controllers\admin_interface.php" crc="-929910150"/>
+		<file name="S:\home\sro61\www\application\controllers\admin_interface.php" crc="-791472620"/>
 		<file name="S:\home\sro61\www\application\config\user_agents.php" crc="-484381080"/>
 		<file name="S:\home\sro61\www\application\config\smileys.php" crc="-749249654"/>
-		<file name="S:\home\sro61\www\application\config\routes.php" crc="718317336"/>
+		<file name="S:\home\sro61\www\application\config\routes.php" crc="1661394356"/>
 		<file name="S:\home\sro61\www\application\config\profiler.php" crc="806934376"/>
 		<file name="S:\home\sro61\www\application\config\mimes.php" crc="767988074"/>
 		<file name="S:\home\sro61\www\application\config\migration.php" crc="357593659"/>

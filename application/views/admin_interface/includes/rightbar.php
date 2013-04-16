@@ -7,8 +7,6 @@
 			<li num="forum"><?=anchor('admin-panel/actions/forum','Форум');?></li>
 			<li num="news"><?=anchor('admin-panel/actions/news','Новости');?></li>
 			<li class="nav-header">Действия</li>
-			
-			 <li num="return-register"><?=anchor('admin-panel/actions/return-register','Возврат паспортов');?></li> 
 			<li><?=anchor('logoff','Завершить сеанс');?></li>
 		</ul>
 	</div>

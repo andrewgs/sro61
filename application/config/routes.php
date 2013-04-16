@@ -6,6 +6,7 @@ $route['404_override'] = '';
 /************************************************** CLIENT INTRERFACE ***********************************************/
 
 $route['cabinet/profile']			= "clients_interface/profile";
+$route['cabinet/return-register']	= "clients_interface/returnRegister";
 
 $route['cabinet/orders']			= "clients_interface/available_orders";
 $route['cabinet/orders/from']		= "clients_interface/available_orders";

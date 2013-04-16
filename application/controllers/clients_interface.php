@@ -50,7 +50,20 @@ class Clients_interface extends MY_Controller{
 		endif;
 		$this->load->view("clients_interface/profile",$pagevar);
 	}
-
+	
+	public function returnRegister(){
+		
+		$pagevar = array(
+			'description'	=> '',
+			'author'		=> '',
+			'title'			=> 'Личный кабинет | Возврат паспортов',
+			'baseurl' 		=> base_url(),
+			'pages'			=> array(),
+		);
+		$this->load->view("clients_interface/returns",$pagevar);
+	}
+	
+	
 	public function available_orders(){
 		
 		$from = intval($this->uri->segment(5));
