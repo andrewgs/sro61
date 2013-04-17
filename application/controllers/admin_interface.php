@@ -358,6 +358,14 @@ class Admin_interface extends MY_Controller{
 		endif;
 	}
 	
+	public function returnRegister(){
+		
+		$pagevar = array(
+			'baseurl' => base_url(),
+		);
+		$this->load->view("admin_interface/register/returns",$pagevar);
+	}
+	
 	/******************************************* orders **********************************************************/
 	
 	public function available_orders(){
