@@ -106,12 +106,32 @@ class Admin_interface extends MY_Controller{
 	
 	public function downloadCoveringLatter(){
 		
-		$pagevar = array(
-			'baseurl' 		=> base_url(),
-			'passport'		=> $this->mdregister->read_record($this->uri->segment(6),'register'),
+		$this->load->library('parser');
+		$passport = $this->mdregister->read_record($this->uri->segment(6),'register');
+		$passport['member'] = $this->mdorganization->read_field($passport['organization'],'organization','title');
+		$parser_data = array(
+			'number' => $passport['number'],
+			'customer' => $passport['customer'],
+			'inn' => $passport['inn'],
+			'address' => $passport['address'],
+			'member' => $passport['member'],
 		);
-		$pagevar['passport']['member'] = $this->mdorganization->read_field($pagevar['passport']['organization'],'organization','title');
-		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
+		$page_content = $this->parser->parse('admin_interface/register/pdf-covering-letter',$parser_data,TRUE);
+		include(getcwd().'/mpdf/mpdf.php');
+		$mpdf = new mPDF('utf-8','A4','10','',10,10,7,7,10,10);
+		$mpdf->SetDisplayMode('fullpage');
+		$bootstrap = file_get_contents(getcwd().'/css/bootstrap.css');
+		$mpdf->WriteHTML($bootstrap,1);
+		$authorized = file_get_contents(getcwd().'/css/authorized-style.css');
+		$mpdf->WriteHTML($authorized,1);
+		$mpdf->WriteHTML($page_content);
+		$filename = $this->translite($passport['number']).'.pdf';
+		$filePath = getcwd().'/docs/passports/'.$filename;
+		$mpdf->Output($filePath,'F');
+		$this->load->helper('download');
+		$fileData = file_get_contents($filePath);
+		force_download($filename,$fileData);
+//		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
 	}
 	
 	public function print_sample_notice(){

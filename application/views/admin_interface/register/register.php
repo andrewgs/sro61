@@ -84,7 +84,7 @@
 								<div style="height:3px;">&nbsp;</div>
 								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/covering-letter','<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Печать сопроводительного листа'));?>
 								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/sample-notice','<i class="icon-print"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Печать уведомления'));?>
-								<?='';//anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/covering-letter-pdf','<i class="icon-download-alt"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Загрузить сопроводительное письмо'));?>
+								<?=anchor('admin-panel/actions/register/print/id/'.$register[$i]['id'].'/covering-letter-pdf','<i class="icon-download-alt"></i>',array('class'=>'printRegister btn','target'=>'_blank','title'=>'Загрузить сопроводительное письмо'));?>
 							</td>
 						</tr>
 					<?php endfor; ?>
