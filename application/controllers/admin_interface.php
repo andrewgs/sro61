@@ -131,7 +131,6 @@ class Admin_interface extends MY_Controller{
 		$this->load->helper('download');
 		$fileData = file_get_contents($filePath);
 		force_download($filename,$fileData);
-//		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
 	}
 	
 	public function print_sample_notice(){
