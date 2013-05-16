@@ -62,7 +62,7 @@ $route['admin-panel/actions/return-register'] = "admin_interface/returnRegister"
 
 $route['admin-panel/actions/register/print/id/:num/covering-letter'] = "admin_interface/print_covering_letter";
 $route['admin-panel/actions/register/print/id/:num/sample-notice'] = "admin_interface/print_sample_notice";
-$route['admin-panel/actions/register/print/id/:num/covering-letter-pdf'] = "admin_interface/downloadCoveringLatter";
+$route['admin-panel/actions/register/print/id/:num/covering-letter-pdf'] = "admin_interface/downloadCoveringLetter";
 
 /*************************************************** USERS INTRERFACE ***********************************************/
 $route['news']				= "users_interface/news";
