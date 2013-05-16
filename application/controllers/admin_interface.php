@@ -104,7 +104,7 @@ class Admin_interface extends MY_Controller{
 		$this->load->view("admin_interface/register/print-covering-letter",$pagevar);
 	}
 	
-	public function downloadCoveringLatter(){
+	public function downloadCoveringLetter(){
 		
 		$this->load->library('parser');
 		$passport = $this->mdregister->read_record($this->uri->segment(6),'register');
@@ -120,17 +120,29 @@ class Admin_interface extends MY_Controller{
 		include(getcwd().'/mpdf/mpdf.php');
 		$mpdf = new mPDF('utf-8','A4','10','',10,10,7,7,10,10);
 		$mpdf->SetDisplayMode('fullpage');
-		$bootstrap = file_get_contents(getcwd().'/css/bootstrap.css');
-		$mpdf->WriteHTML($bootstrap,1);
-		$authorized = file_get_contents(getcwd().'/css/authorized-style.css');
+		$authorized = file_get_contents(getcwd().'/css/export.css');
 		$mpdf->WriteHTML($authorized,1);
 		$mpdf->WriteHTML($page_content);
 		$filename = $this->translite($passport['number']).'.pdf';
 		$filePath = getcwd().'/docs/passports/'.$filename;
 		$mpdf->Output($filePath,'F');
-		$this->load->helper('download');
+		
+		header('Pragma: public');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Last-Modified: '.gmdate ('D, d M Y H:i:s', filemtime($filePath)).' GMT');
+		header('Cache-Control: private',false);
+		header('Content-Type: application/pdf');
+		header('Content-Disposition: attachment; filename="'.basename($filePath).'"');
+		header('Content-Transfer-Encoding: binary');
+		header('Content-Length: '.filesize($filePath));
+		header('Connection: close');
+		readfile($filePath);
+		exit();
+		
+		/*$this->load->helper('download');
 		$fileData = file_get_contents($filePath);
-		force_download($filename,$fileData);
+		force_download($filename,$fileData);*/
 	}
 	
 	public function print_sample_notice(){
