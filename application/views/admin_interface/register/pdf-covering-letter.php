@@ -2,7 +2,6 @@
 	body { padding: 0; margin: 0; }
 	ol li { font-size: 22px; line-height: 1.2em; font-family: 'Times New Roman', Times, serif; }
 	body { padding-left: 40px; }
-	color: #000;
 </style>
 <div class="container-fluid" style="position: relative; ">
 	<div class="row">
@@ -23,8 +22,7 @@
 			</div>
 			<div class="span5" style="margin-left: 75px;">
 				<p class="title smaller">
-					<br/><br/><br/><br/>
-					<br/><br/>
+					<br/><br/><br/><br/><br/>
 					<strong>Исполняющему обязанности</strong><br/>
 					<strong>директора департамента</strong><br/>
 					<strong>энергоэффективности</strong><br/>
@@ -51,20 +49,28 @@
 				расположенную по адресу: {address}, членом Партнерства - {member}.
 			</p>
 			<p class="intend main">
-				Основанием для проведения обязательного энергетического обследования является:<br/>
-				<ol>
-					<li>Федеральный Закон от 23 ноября 2009 года № 261-ФЗ;</li>
-					<li>Постановление Правительства Российской Федерации от 25 января 2011 года № 19;</li>
-					<li>Приказ Минэнерго России от 19 апреля 2010 года № 182.</li>
-				</ol>
+				Основанием для проведения обязательного энергетического обследования является:
 			</p>
-			<p>&nbsp;</p>
 			<table class="table no-border">
 				<tr>
-					<td style="padding-top: 16px;">
+					<td>
+						<p class="intend main">
+							<ol>
+								<li>Федеральный Закон от 23 ноября 2009 года № 261-ФЗ;</li>
+								<li>Постановление Правительства Российской Федерации от 25 января 2011 года № 19;</li>
+								<li>Приказ Минэнерго России от 19 апреля 2010 года № 182.</li>
+							</ol>
+						</p>			
+					</td>
+				</tr>
+			</table>
+			
+			<table class="table no-border">
+				<tr>
+					<td>
 						<p class="intend main">Приложения:</p>
 					</td>
-					<td>
+					<td style="padding-top: 20px;">
 						<p class="intend main">
 							<ol>
 								<li>Энергетический паспорт объекта на бумажном носителе.</li>
@@ -77,7 +83,7 @@
 			<p>&nbsp;</p><p>&nbsp;</p>
 			<p>&nbsp;</p><p>&nbsp;</p>
 			<p>
-				<table class="table no-border times">
+				<table class="table no-border times" width="100%">
 					<tbody>
 						<tr>
 							<td width="78%">С уважением,<br/>Директор</td>

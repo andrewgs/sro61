@@ -120,9 +120,7 @@ class Admin_interface extends MY_Controller{
 		include(getcwd().'/mpdf/mpdf.php');
 		$mpdf = new mPDF('utf-8','A4','10','',10,10,7,7,10,10);
 		$mpdf->SetDisplayMode('fullpage');
-		$bootstrap = file_get_contents(getcwd().'/css/bootstrap.css');
-		$mpdf->WriteHTML($bootstrap,1);
-		$authorized = file_get_contents(getcwd().'/css/authorized-style.css');
+		$authorized = file_get_contents(getcwd().'/css/export.css');
 		$mpdf->WriteHTML($authorized,1);
 		$mpdf->WriteHTML($page_content);
 		$filename = $this->translite($passport['number']).'.pdf';
