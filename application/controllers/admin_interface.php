@@ -362,21 +362,21 @@ class Admin_interface extends MY_Controller{
 			'availability'=>mb_convert_encoding('Наличие','Windows-1251','utf-8'),
 			'corrections'=>mb_convert_encoding('Направление в Минэнерго после исправления замечаний в случае обнаружения таковых','Windows-1251','utf-8')
 		);
-		for($i=1;$i<count($registers);$i++):
-			$mass[$i]['id'] = $i;
-			$mass[$i]['number'] = mb_convert_encoding($registers[$i]['number'],'Windows-1251','utf-8');
-			$mass[$i]['expert'] = mb_convert_encoding($organizations[$registers[$i]['expert']]['title'],'Windows-1251','utf-8');
-			$mass[$i]['conclusion'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['conclusion']),'Windows-1251','utf-8');
-			$mass[$i]['register'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['register']),'Windows-1251','utf-8');
-			$mass[$i]['survey'] = mb_convert_encoding($registers[$i]['survey'],'Windows-1251','utf-8');
-			$mass[$i]['transfer'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['transfer']),'Windows-1251','utf-8');;
-			$mass[$i]['inn'] = mb_convert_encoding($registers[$i]['inn'],'Windows-1251','utf-8');
-			$mass[$i]['organization'] = mb_convert_encoding($organizations[$registers[$i]['organization']]['title'],'Windows-1251','utf-8');;
-			$mass[$i]['customer'] = mb_convert_encoding($registers[$i]['customer'],'Windows-1251','utf-8');
-			$mass[$i]['address'] = mb_convert_encoding($registers[$i]['address'],'Windows-1251','utf-8');
-			$mass[$i]['solution'] = mb_convert_encoding($registers[$i]['solution'],'Windows-1251','utf-8');
-			$mass[$i]['availability'] = mb_convert_encoding($registers[$i]['availability'],'Windows-1251','utf-8');
-			$mass[$i]['corrections'] = mb_convert_encoding($registers[$i]['corrections'],'Windows-1251','utf-8');
+		for($i=0;$i<count($registers);$i++):
+			$mass[$i+1]['id'] = $i+1;
+			$mass[$i+1]['number'] = mb_convert_encoding($registers[$i]['number'],'Windows-1251','utf-8');
+			$mass[$i+1]['expert'] = mb_convert_encoding($organizations[$registers[$i]['expert']]['title'],'Windows-1251','utf-8');
+			$mass[$i+1]['conclusion'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['conclusion']),'Windows-1251','utf-8');
+			$mass[$i+1]['register'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['register']),'Windows-1251','utf-8');
+			$mass[$i+1]['survey'] = mb_convert_encoding($registers[$i]['survey'],'Windows-1251','utf-8');
+			$mass[$i+1]['transfer'] = mb_convert_encoding($this->operation_dot_date($registers[$i]['transfer']),'Windows-1251','utf-8');;
+			$mass[$i+1]['inn'] = mb_convert_encoding($registers[$i]['inn'],'Windows-1251','utf-8');
+			$mass[$i+1]['organization'] = mb_convert_encoding($organizations[$registers[$i]['organization']]['title'],'Windows-1251','utf-8');;
+			$mass[$i+1]['customer'] = mb_convert_encoding($registers[$i]['customer'],'Windows-1251','utf-8');
+			$mass[$i+1]['address'] = mb_convert_encoding($registers[$i]['address'],'Windows-1251','utf-8');
+			$mass[$i+1]['solution'] = mb_convert_encoding($registers[$i]['solution'],'Windows-1251','utf-8');
+			$mass[$i+1]['availability'] = mb_convert_encoding($registers[$i]['availability'],'Windows-1251','utf-8');
+			$mass[$i+1]['corrections'] = mb_convert_encoding($registers[$i]['corrections'],'Windows-1251','utf-8');
 		endfor;
 		foreach($mass AS $mas):
 			fputcsv($fp,$mas,';');
@@ -395,6 +395,14 @@ class Admin_interface extends MY_Controller{
 			'baseurl' => base_url(),
 		);
 		$this->load->view("admin_interface/register/returns",$pagevar);
+	}
+
+	public function EPRegisterME(){
+		
+		$pagevar = array(
+			'baseurl' => base_url(),
+		);
+		$this->load->view("admin_interface/register/ep-register-me",$pagevar);
 	}
 	
 	/******************************************* orders **********************************************************/

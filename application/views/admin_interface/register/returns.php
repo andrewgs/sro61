@@ -2,6 +2,9 @@
 <html lang="en">
 <?php $this->load->view("admin_interface/includes/head");?>
 <body>
+	<style type="text/css">
+		ul { margin: 0 0 1.25em 2em; list-style: none; }
+	</style>
 	<?php $this->load->view("admin_interface/includes/header");?>
 	<div class="container">
 		<div class="row">
@@ -12,58 +15,57 @@
 					</li>
 				</ul>
 				<p>
-					Нами получено письмо, в котором Министерство энергетики РФ отказало в регистрации 60 наших паспортов, по 
+					Нами получены письма, в которых Министерство энергетики РФ отказало в регистрации 60 наших паспортов, по 
 					причине несоотвествия законодательству. В связи с этим всем членам СРО, чьи паспорта возвращены необходимо 
 					их доработать с учетом замечаний и представить в СРО в установленые законом сроки, с указанием того, что 
 					энергопаспорт является повторным, для дальнейшего направления в Минэнерго.
 				</p>
-				<p>
-					Просмотреть скан-копию письма вы можете постранично:
-				</p>
-				<ol>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan1.JPG" target="_blank">Страница 1</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10001.JPG" target="_blank">Страница 2</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10002.JPG" target="_blank">Страница 3</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10003.JPG" target="_blank">Страница 4</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10004.JPG" target="_blank">Страница 5</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10005.JPG" target="_blank">Страница 6</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10006.JPG" target="_blank">Страница 7</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10007.JPG" target="_blank">Страница 8</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10008.JPG" target="_blank">Страница 9</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10009.JPG" target="_blank">Страница 10</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10010.JPG" target="_blank">Страница 11</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10011.JPG" target="_blank">Страница 12</a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10012.JPG" target="_blank">Страница 13</span></a>
-					</li>
-					<li>
-						<a href="http://gallery.mailchimp.com/e6749571e2f712cc06df7d32b/images/Scan10013.JPG" target="_blank">Страница 14</a>
-					</li>
-				</ol>
+				<p><strong>25 июля 2012</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/25_07_12_02_1124.PDF" target="_blank">PDF-файл</a> со списком паспортов</li>
+				</ul>
+				<p><strong>26 сентября 2012</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/26_09_12_02_1457.zip" target="_blank">ZIP-архив</a> со списком паспортов</li>
+				</ul>
+				<p><strong>29 декабря 2012</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/02_2229_29_12_12.zip" target="_blank">ZIP-архив часть 1</a></li>
+					<li><a href="http://sro61.ru/docs/passports/02_2196_29_12_12.zip" target="_blank">ZIP-архив часть 2</a></li>
+					<li><a href="http://sro61.ru/docs/passports/return_02-2146_from_29.12.12.zip" target="_blank">ZIP-архив - возврат 02-2146</a></li>
+				</ul>
+				<p><strong>18 июня 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/18_06_13_02_1199.PDF" target="_blank">PDF-файл</a> со списком паспортов</li>
+				</ul>
+				<p><strong>8 июля 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/08_07_2013_02_1500.zip" target="_blank">ZIP-архив</a> со списком паспортов</li>
+				</ul>
+				<p><strong>18 июля 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/18_07_13.zip" target="_blank">ZIP-архив</a> со списком паспортов</li>
+				</ul>
+				<p><strong>30 июля 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/30_07_13_02_1796.zip" target="_blank">ZIP-архив</a> со списком паспортов</li>
+				</ul>
+				<p><strong>3 сентября 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/return_101-02-2781_from_3092013.zip" target="_blank">ZIP-архив</a> - возврат 101-02-2781</li>
+				</ul>
+				<p><strong>5 сентября 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/05_09_2013.zip" target="_blank">ZIP-архив</a> со списком паспортов</li>
+				</ul>
+				<p><strong>25 сентября 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/return_25092013.zip" target="_blank">ZIP-архив</a> со списком паспортов</li>
+				</ul>
+				<p><strong>11 октября 2013</strong></p>
+				<ul>
+					<li><a href="http://sro61.ru/docs/passports/return_101-15-15_from_11102013.zip" target="_blank">ZIP-архив</a> - возврат 101-15-15</li>
+				</ul>
 			</div>
 		<?php $this->load->view("admin_interface/includes/rightbar");?>
 		</div>

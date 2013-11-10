@@ -63,6 +63,18 @@ class Clients_interface extends MY_Controller{
 		$this->load->view("clients_interface/returns",$pagevar);
 	}
 	
+	public function EPRegisterME(){
+		
+		$pagevar = array(
+			'description'	=> '',
+			'author'		=> '',
+			'title'			=> 'Личный кабинет | ЭП зарегистрированные МЭ',
+			'baseurl' 		=> base_url(),
+			'pages'			=> array(),
+		);
+		$this->load->view("clients_interface/ep-register-me",$pagevar);
+	}
+	
 	
 	public function available_orders(){
 		

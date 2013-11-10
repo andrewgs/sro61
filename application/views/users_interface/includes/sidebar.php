@@ -27,6 +27,17 @@
 	<?php endfor;?>
 	</div>
 	<?php endif;?>
+	<a class="banner-link" href="http://pce34.ru" target="_blank" title="ООО Поволжский центр энергоэффективности">
+		<img src="<?=$baseurl;?>img/partners_pce34.jpg" alt="ООО Поволжский центр энергоэффективности" width="220">
+	</a>
+	<br>
+	<a class="banner-link" href="http://energy-sfedu.com" target="_blank" title="Южный Федеральный Университет">
+		<img src="<?=$baseurl;?>img/partners_sfedu.jpg" alt="Южный Федеральный Университет" width="220">
+	</a>
+	<br>
+
+	<!--
 	<a class="banner-link" href="http://energoauditsro.ru/onlinecalculator" target="_blank"><img src="<?=$baseurl;?>images/calc31.jpg" width="220"></a><br>
 	<a class="banner-link" href="http://energoauditsro.ru/?id=598" target="_blank"><img src="<?=$baseurl;?>images/popr.jpg" width="220"></a><br>
+	-->
 </div>

@@ -7,6 +7,7 @@ $route['404_override'] = '';
 
 $route['cabinet/profile']			= "clients_interface/profile";
 $route['cabinet/return-register']	= "clients_interface/returnRegister";
+$route['cabinet/ep-register-me'] 	= "clients_interface/EPRegisterME";
 
 $route['cabinet/orders']			= "clients_interface/available_orders";
 $route['cabinet/orders/from']		= "clients_interface/available_orders";
@@ -59,6 +60,7 @@ $route['admin-panel/actions/register/delete/id/:num'] = "admin_interface/delete_
 $route['admin-panel/actions/register/import-csv'] = "admin_interface/import_csv";
 
 $route['admin-panel/actions/return-register'] = "admin_interface/returnRegister";
+$route['admin-panel/actions/ep-register-me'] = "admin_interface/EPRegisterME";
 
 $route['admin-panel/actions/register/print/id/:num/covering-letter'] = "admin_interface/print_covering_letter";
 $route['admin-panel/actions/register/print/id/:num/sample-notice'] = "admin_interface/print_sample_notice";

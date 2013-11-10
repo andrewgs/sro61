@@ -55,8 +55,8 @@
 					<table class="table no-border times">
 						<tbody>
 							<tr>
-								<td width="83%">Директор</td>
-								<td width="17%" class="sign"><em>Л.К. Евкина</em></td>
+								<td width="80%">Директор</td>
+								<td width="20%" class="sign"><em>Л.К. Евкина</em></td>
 							</tr>
 						</tbody>
 					</table>
